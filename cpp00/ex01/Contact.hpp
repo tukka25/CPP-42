@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 21:35:54 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/05/12 22:20:56 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/05/13 18:51:28 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,16 @@ class Contact {
 	std::string	DarkestSecert;
 	std::string	PhoneNumber;
 	public:
-	int		add();
-	void	GetData();
+	// void	GetData(int index);
+	void	setLastName(std::string aLastName);
+	void	setFirstName(std::string aFirstName);
+	void	setNickname(std::string aNickname);
+	void	setDarkestSecret(std::string aDarkestSecret);
+	void	setPhoneNumber(std::string aPhoneNumber);
+	std::string	getFirstName();
+	std::string	getLastName();
+	std::string	getNickname();
+	std::string	getDarkestSecret();
+	std::string	getPhoneNumber();
 	
 };
