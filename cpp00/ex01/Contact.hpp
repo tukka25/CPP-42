@@ -6,11 +6,13 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 21:35:54 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/05/13 18:51:28 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/05/15 20:19:04 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <iostream>
+# include <cstdlib>
+# include <string>
 
 class Contact {
 	private:

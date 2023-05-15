@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 20:01:08 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/05/14 20:19:05 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/05/15 20:50:37 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 int main()
 {
 	PhoneBook	p;
-	// Contact		c[8];
+	int			k;
 	std::string str;
-	int			index = 0;
+	char	index;
 	std::string g = "";
 	int	i = 0;
 	std::cout << "\033[1;31m wellcome to the your phonebook \033[0m " << std::endl;
@@ -35,7 +35,19 @@ int main()
 			std::cin >> index;
 			if (std::cin.eof())
 				return (0);
-			p.GetData(index);
+			if (isdigit(index))
+			{
+				while (isdigit(index) == 0)
+				{
+					std::cout << "Wrong Input" << std::endl;
+					std::cout << "print the index : ";
+					std::cin >> index;
+					if (std::cin.eof())
+						return (0);
+				}
+			}
+			k = index - 48;
+			p.GetData(k);
 		}
 		else if (str == "ADD")
 		{

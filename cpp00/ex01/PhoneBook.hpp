@@ -6,12 +6,15 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 18:32:54 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/05/13 19:15:30 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/05/15 20:18:55 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <iostream>
+# include <cstdlib>
+# include <string>
 # include "Contact.hpp"
+// #include <cstdlib>
 
 class PhoneBook {
 	private:
@@ -24,5 +27,6 @@ class PhoneBook {
 	void	GetData(int index);
 	// void	GetData(int index);
 	void	PrintTable();
+	int		ft_isdigit(std::string str);
 	void	Increase();
 };
