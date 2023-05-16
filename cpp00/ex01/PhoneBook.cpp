@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 18:34:33 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/05/15 23:03:19 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/05/16 21:25:04 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,17 @@
 
 void	PhoneBook::GetData(int index)
 {
-	if (data[index].getFirstName() == "" && data[index].getNickname() == "" && data[index].getDarkestSecret() == "" 
-		&& data[index].getPhoneNumber() == "" && data[index].getLastName() == "")
+	if (index >= ContactsNum)
 	{
 		std::cout << "No Data For This Index" << std::endl;
 		return ;
 	}
 	(void)index;
-	std::cout << data[index].getFirstName() << std::endl;
-	std::cout << data[index].getLastName() << std::endl;
-	std::cout << data[index].getNickname() << std::endl;
-	std::cout << data[index].getDarkestSecret() << std::endl;
-	std::cout << data[index].getPhoneNumber() << std::endl;
+	std::cout <<" First Name     : " << data[index].getFirstName() << std::endl;
+	std::cout <<" Last Name      : " << data[index].getLastName() << std::endl;
+	std::cout <<" Nickname       : " << data[index].getNickname() << std::endl;
+	std::cout <<" Darkest Secret : " << data[index].getDarkestSecret() << std::endl;
+	std::cout <<" Phone Number   : " << data[index].getPhoneNumber() << std::endl;
 }
 
 void	PhoneBook::Increase()
@@ -68,39 +67,52 @@ int	PhoneBook::add(int i)
 void	PhoneBook::PrintTable()
 {
 	std::string str;
-	std::cout << "-------------------------------------------------------" << std::endl;
-	std::cout << "| index      | first name |  last name  |   nickname  |" << std::endl;
-	std::cout << "|            |            |             |             |" << std::endl;
-	std::cout << "-------------------------------------------------------" << std::endl;
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "|  index    | first name | last name |  nickname |" << std::endl;
+	std::cout << "|           |            |           |           |" << std::endl;
+	std::cout << "--------------------------------------------------" << std::endl;
 	for (int i = 0; i < ContactsNum; i++)
 	{
-		std::cout << "|    " << std::setw(i) << i << "       | ";
+		std::cout << "|";
+		std::cout.width(11);
+		std::cout << i << "|";
 		str = data[i].getFirstName();
-		if (str.length() > 10)
+		if (str.length() > 9)
 		{
 			str = str.substr(0, 9);
-			std::cout  << std::setw(10) << str << "." << " |";
+			std::cout.width(11);
+			std::cout  << str << "." << "|";
 		}
 		else
-			std::cout  << std::setw(10) << str << "|";
+		{
+			std::cout.width(12);
+			std::cout  << str << "|";
+		}
 		str = data[i].getLastName();
-		if (str.length() > 10)
+		if (str.length() > 9)
 		{
 			str = str.substr(0, 9);
-			std::cout  << std::setw(10) << str << "." << " |";
+			std::cout.width(10);
+			std::cout  << str << "." << "|";
 		}
 		else
-			std::cout << std::setw(10) << str << " | ";
+		{
+			std::cout.width(11);
+			std::cout  << str << "|";
+		}
 		str = data[i].getNickname();
-		if (str.length() > 10)
+		if (str.length() > 9)
 		{
 			str = str.substr(0, 9);
-			std::cout  << std::setw(10) << str << "." << "  |" << std::endl;
+			std::cout.width(10);
+			std::cout  << str << "." << "|" << std::endl;
 		}
 		else
-			std::cout  << std::setw(10) << str << "  |" << std::endl;
-		// std::cout.width(10);
-		std::cout << "-------------------------------------------------------" << std::endl;
+		{
+			std::cout.width(11);
+			std::cout  << str << "|" << std::endl;
+		}
+		std::cout << "--------------------------------------------------" << std::endl;
 	}
 }
 
@@ -113,23 +125,35 @@ int	PhoneBook::ft_isdigit(std::string str)
 	}
 	return (1);
 }
-// std::string	PhoneBook::getLastName()
-// {
-// 	return (data[0].LastName);
-// }
-// std::string	PhoneBook::getFirstName()
-// {
-// 	return (FirstName);
-// }
-// std::string	PhoneBook::getNickname()
-// {
-// 	return (Nickname);
-// }
-// std::string	PhoneBook::getDarkestSecret()
-// {
-// 	return (DarkestSecert);
-// }
-// std::string	PhoneBook::getPhoneNumber()
-// {
-// 	return (PhoneNumber);
-// }
+
+void	PhoneBook::SetContactNum()
+{
+	if (ContactsNum > 8)
+		ContactsNum = 8;
+}
+
+int	PhoneBook::ft_atoi(std::string str)
+{
+	int	result;
+
+	result = 0;
+	for (int i = 0; str[i]; i++)
+	{
+		if (isalpha(str[i]) == 1)
+			return (9);
+		if (str[i] == '+' || str[i] == '-')
+			i++;
+		if (str[i] == '+' || str[i] == '-')
+			return (9);
+		while (str[i] >= '0' && str[i] <= '9' && str[i])
+		{
+			if (isalpha(str[i]) == 1)
+				return (9);
+			result = result * 10 + str[i] - '0';
+			if (result > 9)
+				return (9);
+			i++;
+		}
+	}
+	return (result);
+}

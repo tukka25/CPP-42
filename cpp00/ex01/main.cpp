@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 20:01:08 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/05/15 20:50:37 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/05/16 20:54:51 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 int main()
 {
 	PhoneBook	p;
-	int			k;
 	std::string str;
-	char	index;
+	std::string	index;
 	std::string g = "";
 	int	i = 0;
 	std::cout << "\033[1;31m wellcome to the your phonebook \033[0m " << std::endl;
@@ -30,14 +29,15 @@ int main()
 			return (0);
 		else if (str == "SEARCH")
 		{
+			p.SetContactNum();
 			p.PrintTable();
 			std::cout << "print the index : ";
 			std::cin >> index;
 			if (std::cin.eof())
 				return (0);
-			if (isdigit(index))
+			if (p.ft_isdigit(index) == 0)
 			{
-				while (isdigit(index) == 0)
+				while (p.ft_isdigit(index) == 0 || p.ft_atoi(index) == 9)
 				{
 					std::cout << "Wrong Input" << std::endl;
 					std::cout << "print the index : ";
@@ -46,11 +46,14 @@ int main()
 						return (0);
 				}
 			}
-			k = index - 48;
-			p.GetData(k);
+			p.GetData(p.ft_atoi(index));
 		}
 		else if (str == "ADD")
 		{
+			if (i == 8)
+			{
+				i = 0;
+			}
 			if (p.add(i) == 0)
 				return (0);
 			p.Increase();
