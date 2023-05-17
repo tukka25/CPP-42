@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 20:01:08 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/05/17 21:25:58 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/05/17 21:34:07 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,6 @@ int main()
 			
 		}
 		else
-			std::cout << "you can only use ADD, SEARCH or EXIT" << std::endl;
+			std::cout << "\033[1;31m you can only use ADD, SEARCH or EXIT \033[0m" << std::endl << std::endl;
 	}
 }

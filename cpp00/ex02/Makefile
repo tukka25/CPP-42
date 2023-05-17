@@ -5,7 +5,7 @@ SRCS =	tests.cpp   \
 
 CC = c++
 
-CPPFLAGS = -Wall -Wextra -Werror
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 OBJS = $(SRCS:.cpp=.o)
 
