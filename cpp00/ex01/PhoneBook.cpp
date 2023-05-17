@@ -6,15 +6,24 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 18:34:33 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/05/16 21:25:04 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/05/17 21:21:56 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include <iomanip>
 
-void	PhoneBook::GetData(int index)
+void	PhoneBook::GetData(std::string str)
 {
+	int	index;
+
+	std::istringstream i(str);
+	i >> index;
+	std::cout << index << std::endl;
+	if (index > 9 || (str != "0" && index == 0))
+	{
+		std::cout << "Wrong Input" << std::endl;
+		return ;
+	}
 	if (index >= ContactsNum)
 	{
 		std::cout << "No Data For This Index" << std::endl;
@@ -139,19 +148,19 @@ int	PhoneBook::ft_atoi(std::string str)
 	result = 0;
 	for (int i = 0; str[i]; i++)
 	{
-		if (isalpha(str[i]) == 1)
-			return (9);
+		if (isalpha(str[i]) == 1 || isascii(str[i]) == 0)
+			return (10);
 		if (str[i] == '+' || str[i] == '-')
 			i++;
 		if (str[i] == '+' || str[i] == '-')
-			return (9);
+			return (11);
 		while (str[i] >= '0' && str[i] <= '9' && str[i])
 		{
-			if (isalpha(str[i]) == 1)
-				return (9);
+			if (isalpha(str[i]) == 1 || isascii(str[i]) == 0)
+				return (12);
 			result = result * 10 + str[i] - '0';
 			if (result > 9)
-				return (9);
+				return (13);
 			i++;
 		}
 	}
