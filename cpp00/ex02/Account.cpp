@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 22:51:00 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/05/17 01:35:31 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/05/18 18:39:25 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,12 +95,12 @@ void	Account::displayStatus( void ) const
 void	Account::_displayTimestamp( void )
 {
 	std::time_t now;
-	char		str[17];
+	char		str[20];
 	std::tm* LocalTime;
 
 	now = std::time(NULL);
 	LocalTime = std::localtime(&now);
-	std::strftime(str, 17, "%Y%M%d_%H%M%S", LocalTime);
+	std::strftime(str, sizeof(str), "%Y%m%d_%H%M%S", LocalTime);
 	std::string	Time(str);
 	std::cout << "[" << Time << "] ";
 }

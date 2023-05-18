@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 18:34:33 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/05/17 21:21:56 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/05/18 18:36:41 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	PhoneBook::GetData(std::string str)
 	std::istringstream i(str);
 	i >> index;
 	std::cout << index << std::endl;
-	if (index > 9 || (str != "0" && index == 0))
+	if (index > 9 || (str != "0" && index == 0) || index < 0)
 	{
 		std::cout << "Wrong Input" << std::endl;
 		return ;
@@ -125,15 +125,15 @@ void	PhoneBook::PrintTable()
 	}
 }
 
-int	PhoneBook::ft_isdigit(std::string str)
-{
-	for (int i = 0; str[i] ; i++)
-	{
-		if (isdigit(str[i]) == 0)
-			return (0);
-	}
-	return (1);
-}
+// int	PhoneBook::ft_isdigit(std::string str)
+// {
+// 	for (int i = 0; str[i] ; i++)
+// 	{
+// 		if (isdigit(str[i]) == 0)
+// 			return (0);
+// 	}
+// 	return (1);
+// }
 
 void	PhoneBook::SetContactNum()
 {
@@ -141,28 +141,28 @@ void	PhoneBook::SetContactNum()
 		ContactsNum = 8;
 }
 
-int	PhoneBook::ft_atoi(std::string str)
-{
-	int	result;
+// int	PhoneBook::ft_atoi(std::string str)
+// {
+// 	int	result;
 
-	result = 0;
-	for (int i = 0; str[i]; i++)
-	{
-		if (isalpha(str[i]) == 1 || isascii(str[i]) == 0)
-			return (10);
-		if (str[i] == '+' || str[i] == '-')
-			i++;
-		if (str[i] == '+' || str[i] == '-')
-			return (11);
-		while (str[i] >= '0' && str[i] <= '9' && str[i])
-		{
-			if (isalpha(str[i]) == 1 || isascii(str[i]) == 0)
-				return (12);
-			result = result * 10 + str[i] - '0';
-			if (result > 9)
-				return (13);
-			i++;
-		}
-	}
-	return (result);
-}
+// 	result = 0;
+// 	for (int i = 0; str[i]; i++)
+// 	{
+// 		if (isalpha(str[i]) == 1 || isascii(str[i]) == 0)
+// 			return (10);
+// 		if (str[i] == '+' || str[i] == '-')
+// 			i++;
+// 		if (str[i] == '+' || str[i] == '-')
+// 			return (11);
+// 		while (str[i] >= '0' && str[i] <= '9' && str[i])
+// 		{
+// 			if (isalpha(str[i]) == 1 || isascii(str[i]) == 0)
+// 				return (12);
+// 			result = result * 10 + str[i] - '0';
+// 			if (result > 9)
+// 				return (13);
+// 			i++;
+// 		}
+// 	}
+// 	return (result);
+// }
