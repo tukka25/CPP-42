@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 18:34:33 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/05/18 18:36:41 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/05/19 23:31:27 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,10 +135,15 @@ void	PhoneBook::PrintTable()
 // 	return (1);
 // }
 
-void	PhoneBook::SetContactNum()
+void	PhoneBook::SetContactNum(int i)
 {
-	if (ContactsNum > 8)
-		ContactsNum = 8;
+	if (i == 0)
+	{
+		if (ContactsNum > 8)
+			ContactsNum = 8;
+	}
+	else
+		ContactsNum = 0;
 }
 
 // int	PhoneBook::ft_atoi(std::string str)

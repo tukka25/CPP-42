@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 22:51:00 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/05/18 18:39:25 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/05/19 23:34:31 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,13 @@ int	Account::_nbAccounts = 0;
 int	Account::_totalAmount = 0;
 int	Account::_totalNbDeposits = 0;
 int	Account::_totalNbWithdrawals = 0;
-int _accountIndex = 0;
 	
 Account::Account (int initial_deposit)
 {
+	_amount = 0;
+	_nbDeposits = 0;
+	_nbWithdrawals = 0;
+	_accountIndex = 0;
 	_displayTimestamp();
 	_accountIndex = _nbAccounts;
 	_nbAccounts++;

@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 18:32:54 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/05/18 18:35:55 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/05/19 23:30:47 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ class PhoneBook {
 	void	GetData(std::string	str);
 	void	PrintTable();
 	void	Increase();
-	void	SetContactNum();
+	void	SetContactNum(int i);
 };
