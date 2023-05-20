@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/17 22:48:26 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/05/19 17:31:41 by abdamoha         ###   ########.fr       */
+/*   Created: 2023/05/19 17:36:18 by abdamoha          #+#    #+#             */
+/*   Updated: 2023/05/20 16:36:05 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+# include "Zombie.hpp"
 
-Zombie::Zombie(std::string str)
+Zombie* zombieHorde( int N, std::string name )
 {
-	Name = str;
-}
+	int	i;
 
-void Zombie::SetName(std::string str)
-{
-	Name = str;
-}
-
-std::string	Zombie::GetName()
-{
-	return (Name);
-}
-
-void	Zombie::announce()
-{
-	std::cout << GetName() << ":  BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
-Zombie::~Zombie()
-{
-	std::cout << Name << std::endl;
+	i = 0;
+	Zombie *r = new Zombie[N];
+	while (i < N)
+	{
+		r[i].SetName(name);
+		i++;
+	}
+	return (r);
 }
