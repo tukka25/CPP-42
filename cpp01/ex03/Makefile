@@ -1,8 +1,8 @@
 NAME = Zombie
 
-CC = c++
+CXX = c++
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
 SRCS =	main.cpp    \
 		HumanA.cpp  \
@@ -14,7 +14,7 @@ OBJS = $(SRCS:.cpp=.o)
 all:$(NAME)
 
 $(NAME):$(OBJS)
-	$(CC) $(CPPFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CPPFLAGS) $(OBJS) -o $(NAME)
 clean:
 	rm -rf $(OBJS)
 fclean: clean
