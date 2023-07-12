@@ -1,0 +1,12 @@
+1) For initialization of non-static const data members:
+
+const data members must be initialized using Initializer List.
+In the following example, “t” is a const data member of Test class and is initialized using Initializer List. Reason for initializing
+the const data member in the initializer list is because no memory is allocated
+separately for const data member, it is folded in the symbol table due to which we
+need to initialize it in the initializer list.
+
+
+2) For initialization of reference members: 
+Reference members must be initialized using Initializer List. In the following example, “t” is a reference member
+of Test class and is initialized using Initializer List.
