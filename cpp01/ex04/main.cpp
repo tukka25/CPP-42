@@ -1,11 +1,27 @@
 #include <iostream>
 #include <fstream>
+#include <cstring>
+#include <sstream>
+#include <string>
+// #include <bits/stdc++>
+// using namespace std;
+
+// char	**ft_split(char *str, )
+// {
+// 	int		i = 0;
+
+// 	if (!str)
+// 		return (NULL);
+// 	while ()
+// }
 
 int main(int ac, char *av[])
 {
 	std::fstream	in;
 	std::string		line;
 	std::string		tmp;
+	std::stringstream	buf;
+	// char			*t;
 	// int				j = 0;
 	// char			c;
 	if (ac == 4)
@@ -16,12 +32,14 @@ int main(int ac, char *av[])
 			std::cout << "File Error" << std::endl;
 			return (0);
 		}
-		while (getline(in, line))
+		while (std::getline(in, line))
 		{
-			tmp = line.find(av[3]);
-			std::cout << "tmp = " << tmp << std::endl;
+			// char *t = std::strtok(line , ' ');
+			tmp += line + "\n";
+			line = std::strtok(tmp, ' ');
 			std::cout << line << std::endl;
 		}
+		std::cout << tmp << std::endl;
 		in.close();
 	}
 	else
