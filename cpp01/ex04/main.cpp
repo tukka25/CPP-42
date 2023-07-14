@@ -3,15 +3,26 @@
 
 int main(int ac, char *av[])
 {
-	
+	std::fstream	in;
+	std::string		line;
+	std::string		tmp;
+	// int				j = 0;
+	// char			c;
 	if (ac == 4)
 	{
-		if (open(av[1], O_RDONLY) < 0)
+		in.open(av[1], std::ios::in);
+		if (!in)
 		{
 			std::cout << "File Error" << std::endl;
 			return (0);
 		}
-		std::cout << argv[1] << std::endl;
+		while (getline(in, line))
+		{
+			tmp = line.find(av[3]);
+			std::cout << "tmp = " << tmp << std::endl;
+			std::cout << line << std::endl;
+		}
+		in.close();
 	}
 	else
 	{
