@@ -40,11 +40,16 @@ int main(int ac, char *av[])
 		in.open(av[1], std::ios::in);
 		if (!in)
 		{
-			std::cout << "File Error" << std::endl;
+			std::cout << "Infile Error" << std::endl;
 			return (0);
 		}
 		out_name = av[1] + tmp;
 		std::ofstream	outfile(out_name);
+		if (!outfile)
+		{
+			std::cout << "Outfile Error" << std::endl;
+			return (0);
+		}
 		while (std::getline(in, line))
 		{
 			ft_split(line, av, outfile);
