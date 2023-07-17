@@ -3,8 +3,6 @@
 #include <cstring>
 #include <sstream>
 #include <string>
-// #include <bits/stdc++>
-// using namespace std;
 
 void	ft_split(std::string str, char *av[], std::ofstream &file)
 {
@@ -13,9 +11,9 @@ void	ft_split(std::string str, char *av[], std::ofstream &file)
 
 	while (1)
 	{
-		i = str.find(' ');
+		i = str.find(av[2]);
 		if (i == 0)
-			i += 1;
+			i += strlen(av[2]);
 		w = str.substr(0 , i);
 		if (w == av[2])
 			file << av[3];
