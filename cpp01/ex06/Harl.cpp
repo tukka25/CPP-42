@@ -56,7 +56,7 @@ void    Harl::complain(std::string level)
             error();
             break;
         }
-        case (5):
+        default:
             std::cout << "this error is from the for loop not from me" <<std::endl;
     }
 }
