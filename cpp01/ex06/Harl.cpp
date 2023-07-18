@@ -42,14 +42,23 @@ void    Harl::complain(std::string level)
         case edebug:
         {
             debug();
+			info();
+			warning();
+			error();
+            break;
         }
         case einfo:
         {
             info();
+			warning();
+			error();
+            break;
         }
         case ewarning:
         {
             warning();
+			error();
+            break;
         }
         case eerror:
         {

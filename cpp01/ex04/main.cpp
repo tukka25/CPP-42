@@ -36,13 +36,13 @@ int main(int ac, char *av[])
 	if (ac == 4)
 	{
 		in.open(av[1], std::ios::in);
-		if (!in)
+		if (!in || av[2][0] == '\0')
 		{
-			std::cout << "Infile Error" << std::endl;
+			std::cout << "Error" << std::endl;
 			return (0);
 		}
 		out_name = av[1] + tmp;
-		std::ofstream	outfile(out_name);
+		std::ofstream	outfile(out_name.c_str());
 		if (!outfile)
 		{
 			std::cout << "Outfile Error" << std::endl;

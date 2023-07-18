@@ -45,17 +45,6 @@ void    Harl::complain(std::string level)
 		if (level == levels[i])
 			(harl.*funptr_arr[i])();
 	}
-	// (harl.*funptr_arr[0])();
-	// int	i = 0;
-	// while (i < 4)
-	// {
-	// 	if (level == (harl.*ptrerror)())
-	// 		error();
-	// }
-    // error();
-    // debug();
-    // warning();
-    // info();
 }
 
 Harl::~Harl()
