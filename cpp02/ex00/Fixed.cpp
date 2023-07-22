@@ -19,6 +19,11 @@ int Fixed::getRawBits( void ) const
 	return (num);
 }
 
+void	Fixed::operator=(const Fixed &t)
+{
+	num = t.num;
+}
+
 void Fixed::setRawBits( int const raw )
 {
 	num = raw;
