@@ -8,7 +8,9 @@ Fixed::Fixed()
 
 Fixed::Fixed(const Fixed &t)
 {
-	(void)t;
+	// (void)t;
+	num = t.num;
+	// frac = t.num;
 	std::cout << "Copy constructor" << std::endl;
 }
 
