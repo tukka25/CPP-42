@@ -16,6 +16,7 @@ Fixed::Fixed(const Fixed &t)
 
 int Fixed::getRawBits( void ) const
 {
+	std::cout << "farc =" << frac << std::endl; 
 	return (num);
 }
 

@@ -7,13 +7,13 @@ class Fixed
 {
     private:
 		int			num;
-		// static int	frac;
+		const static int	frac = 8;
     public:
         Fixed();
         Fixed(const Fixed &t);
         ~Fixed();
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
-    void	operator=(const Fixed &t);
+    	void	operator=(const Fixed &t);
 };
 #endif
