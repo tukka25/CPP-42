@@ -6,6 +6,30 @@ Fixed::Fixed()
 	num = 0;
 }
 
+Fixed::Fixed(const int a)
+{
+	std::cout << "int Constructor" << std::endl;
+	std::cout << (1 >> frac) << std::endl;
+	num = a + (1 >> frac);
+}
+
+Fixed::Fixed(const float a)
+{
+	std::cout << "float Constructor" << std::endl;
+	num = a + (1 >> frac);
+	// num = 0;
+}
+
+// float Fixed::toFloat( void ) const
+// {
+
+// }
+
+// int Fixed::toInt( void ) const
+// {
+
+// }
+
 Fixed::Fixed(const Fixed &t)
 {
 	num = t.num;
