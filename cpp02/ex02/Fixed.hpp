@@ -23,6 +23,11 @@ class Fixed
     	bool	operator>=(const Fixed &t2) const;
     	bool	operator<=(const Fixed &t2) const;
     	bool	operator!=(const Fixed &t2) const;
+    	Fixed	operator+(const Fixed &t2) const;
+    	Fixed	operator-(const Fixed &t2) const;
+    	Fixed	operator*(const Fixed &t2) const;
+    	Fixed	operator/(const Fixed &t2) const;
+    	// Fixed	operator++() const;
     	void	operator=(const Fixed &t);
     	float toFloat( void ) const;
     	int toInt( void ) const;

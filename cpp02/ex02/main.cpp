@@ -21,11 +21,11 @@ int main()
 		std::cout << "bigger than or equal" << std::endl;
 	if (b <= a)
 		std::cout << "less than or equal" << std::endl;
+	std::cout << "a + b" << a + b << std::endl;
 	std::cout << "a is " << a << std::endl;
 	std::cout << "b is " << b << std::endl;
 	std::cout << "c is " << c << std::endl;
 	std::cout << "d is " << d << std::endl;
-
 	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
 	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
 	std::cout << "c is " << c.toInt() << " as integer" << std::endl;

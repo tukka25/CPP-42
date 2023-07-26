@@ -55,6 +55,46 @@ bool	Fixed::operator!=(const Fixed &t2) const
 	return (false);
 }
 
+Fixed	Fixed::operator+(const Fixed &t2) const
+{
+	Fixed	a;
+
+	a.num = this->num + t2.num;
+	return (a);
+}
+
+Fixed	Fixed::operator-(const Fixed &t2) const
+{
+	Fixed	a;
+
+	a.num = this->num - t2.num;
+	return (a);
+}
+
+Fixed	Fixed::operator*(const Fixed &t2) const
+{
+	Fixed	a;
+
+	a.num = this->num * t2.num;
+	return (a);
+}
+
+Fixed	Fixed::operator/(const Fixed &t2) const
+{
+	Fixed	a;
+
+	a.num = this->num / t2.num;
+	return (a);
+}
+
+// Fixed	operator++() const
+// {
+// 	Fixed	a;
+
+// 	a.num = this->num++;
+// 	return (a);
+// }
+
 Fixed::Fixed(const float a)
 {
 	// float		f;
