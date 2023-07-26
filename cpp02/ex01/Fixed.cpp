@@ -10,14 +10,26 @@ Fixed::Fixed(const int a)
 {
 	std::cout << "int Constructor" << std::endl;
 	std::cout << (1 >> frac) << std::endl;
-	num = a + (1 >> frac);
+	num = a << frac;
+	std::cout << "num inside : " << num << std::endl;
+
 }
 
 Fixed::Fixed(const float a)
 {
+	// float		f;
 	std::cout << "float Constructor" << std::endl;
-	num = a + (1 >> frac);
+	std::cout << "shifting result:" << (1 << frac) << std::endl;
+	num = (int)(a * (1 << frac));
+	// num = f;
+	// num = a / (float)(1 << frac);
 	// num = 0;
+}
+
+std::ostream& operator<<(std::ostream& os, const Fixed& t)
+{
+	os << (t.num >> 8);
+	return (os);
 }
 
 // float Fixed::toFloat( void ) const
