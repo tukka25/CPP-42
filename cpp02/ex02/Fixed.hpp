@@ -35,7 +35,6 @@ class Fixed
 		static Fixed	max(Fixed &t1, Fixed &t2);
 		static Fixed	min(const Fixed &t1, const Fixed &t2);
 		static Fixed	max(const Fixed &t1, const Fixed &t2);
-    	// Fixed	operator++() const;
     	void	operator=(const Fixed &t);
     	float toFloat( void ) const;
     	int toInt( void ) const;
