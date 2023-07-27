@@ -8,14 +8,15 @@ class Point
 {
     private:
 		const Fixed   x;
-		const Fixed   x;
+		const Fixed   y;
     public:
         Point();
-        Point(const Point &t);
-        Point(const Float a, const Float b);
+        // Point(const Point &t);
+        // Point(const float a, const float b);
         ~Point();
-		int getRawBits( void ) const;
-		void setRawBits( int const raw );
+		int getConstX( void ) const;
+		void setConstX( int const raw );
     void	operator=(const Point &t);
 };
+bool bsp( Point const a, Point const b, Point const c, Point const point);
 #endif
