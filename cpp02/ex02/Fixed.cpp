@@ -86,9 +86,7 @@ Fixed	Fixed::operator/(const Fixed &t2) const
 {
 	Fixed	a;
 
-	// std::cout << "this = " << this->num << std::endl;
-	// std::cout << "t2 = " << t2.num << std::endl;
-	a.num = (this->toFloat() / t2.toFloat()) * 256;
+	a.num = (this->toFloat() / t2.toFloat()) * (1 << t2.frac);
 	return (a);
 }
 
@@ -174,19 +172,61 @@ void Fixed::setRawBits( int const raw )
 	num = raw;
 }
 
-// static Fixed	min(Fixed &t1, Fixed &t2)
-// {
-// 	Fixed	tmp;
+Fixed	Fixed::min(Fixed &t1, Fixed &t2)
+{
+	Fixed	tmp;
 
-// 	tmp.setRawBits(t1.getRawBits());
-// 	if (t1.getRawBits() > t2.getRawBits())
-// 	{
-// 		tmp.setRawBits(t2.getRawBits());
-// 		return (tmp);
-// 	}
-// 	return (tmp);
+	tmp.setRawBits(t1.getRawBits());
+	if (t1.getRawBits() > t2.getRawBits())
+	{
+		tmp.setRawBits(t2.getRawBits());
+		return (tmp);
+	}
+	return (tmp);
 
-// }
+}
+
+Fixed	Fixed::min(const Fixed &t1, const Fixed &t2)
+{
+	Fixed	tmp;
+
+	tmp.setRawBits(t1.getRawBits());
+	if (t1.getRawBits() > t2.getRawBits())
+	{
+		tmp.setRawBits(t2.getRawBits());
+		return (tmp);
+	}
+	return (tmp);
+
+}
+
+Fixed	Fixed::max(Fixed &t1, Fixed &t2)
+{
+	Fixed	tmp;
+
+	tmp.setRawBits(t2.getRawBits());
+	if (t1.getRawBits() > t2.getRawBits())
+	{
+		tmp.setRawBits(t1.getRawBits());
+		return (tmp);
+	}
+	return (tmp);
+
+}
+
+Fixed	Fixed::max(const Fixed &t1, const Fixed &t2)
+{
+	Fixed	tmp;
+
+	tmp.setRawBits(t2.getRawBits());
+	if (t1.getRawBits() > t2.getRawBits())
+	{
+		tmp.setRawBits(t1.getRawBits());
+		return (tmp);
+	}
+	return (tmp);
+
+}
 
 Fixed::~Fixed()
 {

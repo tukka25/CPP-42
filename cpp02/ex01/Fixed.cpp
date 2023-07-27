@@ -22,7 +22,7 @@ Fixed::Fixed(const float a)
 
 std::ostream& operator<<(std::ostream& os, const Fixed& t)
 {
-	os << (double)t.num / (double)((1 << t.frac));
+	os << (double)t.toFloat();
 	return (os);
 }
 
