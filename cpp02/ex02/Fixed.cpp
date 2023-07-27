@@ -2,13 +2,13 @@
 
 Fixed::Fixed()
 {
-	std::cout << "Default Constructor Called" << std::endl;
+	// std::cout << "Default Constructor Called" << std::endl;
 	num = 0;
 }
 
 Fixed::Fixed(const int a)
 {
-	std::cout << "int Constructor" << std::endl;
+	// std::cout << "int Constructor" << std::endl;
 	num = a << frac;
 
 }
@@ -75,7 +75,10 @@ Fixed	Fixed::operator*(const Fixed &t2) const
 {
 	Fixed	a;
 
-	a.num = this->num * t2.num;
+	// std::cout << "this = " << this->num << std::endl;
+	// std::cout << "t2 = " << t2.num << std::endl;
+	a.num = ((this->toFloat()) * (t2.toFloat())) * 256;
+	std::cout << "a = " << a.num << std::endl;
 	return (a);
 }
 
@@ -83,8 +86,16 @@ Fixed	Fixed::operator/(const Fixed &t2) const
 {
 	Fixed	a;
 
-	a.num = this->num / t2.num;
+	// std::cout << "this = " << this->num << std::endl;
+	// std::cout << "t2 = " << t2.num << std::endl;
+	a.num = (this->toFloat() / t2.toFloat()) * 256;
 	return (a);
+}
+
+Fixed&	Fixed::operator++()
+{
+	num++;
+	return (*this);
 }
 
 Fixed	Fixed::operator++(int)
@@ -92,14 +103,29 @@ Fixed	Fixed::operator++(int)
 	Fixed	a;
 
 	a.num = this->num;
-	this->num += 1;
+	this->num++;
+	return (a);
+}
+
+Fixed&	Fixed::operator--()
+{
+	num--;
+	return (*this);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed	a;
+
+	a.num = this->num;
+	this->num--;
 	return (a);
 }
 
 Fixed::Fixed(const float a)
 {
 	// float		f;
-	std::cout << "float Constructor" << std::endl;
+	// std::cout << "float Constructor" << std::endl;
 	num = roundf((a * (1 << frac)));
 }
 
@@ -113,7 +139,7 @@ float Fixed::toFloat( void ) const
 {
 	float	a;
 
-	a = (float)num / (float)((1 << frac));
+	a = (double)num / (double)((1 << frac));
 	return (a);
 }
 
@@ -128,18 +154,18 @@ int Fixed::toInt( void ) const
 Fixed::Fixed(const Fixed &t)
 {
 	num = t.num;
-	std::cout << "Copy constructor" << std::endl;
+	// std::cout << "Copy constructor" << std::endl;
 }
 
 int Fixed::getRawBits( void ) const
 {
-	std::cout << "getRawBits function called" << std::endl;
+	// std::cout << "getRawBits function called" << std::endl;
 	return (num);
 }
 
 void	Fixed::operator=(const Fixed &t)
 {
-	std::cout << "Copy Assignment Operator Called" << std::endl;
+	// std::cout << "Copy Assignment Operator Called" << std::endl;
 	num = t.num;
 }
 
@@ -148,7 +174,21 @@ void Fixed::setRawBits( int const raw )
 	num = raw;
 }
 
+// static Fixed	min(Fixed &t1, Fixed &t2)
+// {
+// 	Fixed	tmp;
+
+// 	tmp.setRawBits(t1.getRawBits());
+// 	if (t1.getRawBits() > t2.getRawBits())
+// 	{
+// 		tmp.setRawBits(t2.getRawBits());
+// 		return (tmp);
+// 	}
+// 	return (tmp);
+
+// }
+
 Fixed::~Fixed()
 {
-	std::cout << "Destructor Called" << std::endl;
+	// std::cout << "Destructor Called" << std::endl;
 }
