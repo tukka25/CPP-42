@@ -27,7 +27,8 @@ class Fixed
     	Fixed	operator-(const Fixed &t2) const;
     	Fixed	operator*(const Fixed &t2) const;
     	Fixed	operator/(const Fixed &t2) const;
-    	// Fixed	operator++() const;
+    	Fixed	operator++(int);
+    	Fixed	++operator(int);
     	void	operator=(const Fixed &t);
     	float toFloat( void ) const;
     	int toInt( void ) const;

@@ -87,13 +87,14 @@ Fixed	Fixed::operator/(const Fixed &t2) const
 	return (a);
 }
 
-// Fixed	operator++() const
-// {
-// 	Fixed	a;
+Fixed	Fixed::operator++(int)
+{
+	Fixed	a;
 
-// 	a.num = this->num++;
-// 	return (a);
-// }
+	a.num = this->num;
+	this->num += 1;
+	return (a);
+}
 
 Fixed::Fixed(const float a)
 {
