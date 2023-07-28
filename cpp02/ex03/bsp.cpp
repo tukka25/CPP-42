@@ -7,13 +7,21 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
     int     SecondArea;
     int     ThirdArea;
 
-    FirstArea = 0.5 * (a.x * (b.y - point.y) + b.x * (point.y - a.y)
-    + point.x * (a.y - b.y));
-    SecondArea = 0.5 * (a.x * (b.y - point.y) + b.x * (point.y - a.y)
-    + point.x * (a.y - b.y));
-    ThirdArea = 0.5 * (a.x * (b.y - point.y) + b.x * (point.y - a.y)
-    + point.x * (a.y - b.y));
+	std::cout << "a = " << a.getConstX() << std::endl;
+    FirstArea = 0.5 * ((a.getConstX() * (b.getConstY() - point.getConstY())) + (b.getConstX() * (point.getConstY() - a.getConstY()))
+    + (point.getConstX() * (a.getConstY() - b.getConstY())));
+
+
+    SecondArea = 0.5 * ((b.getConstX() * (c.getConstY() - point.getConstY())) + (c.getConstX() * (point.getConstY() - b.getConstY()))
+    + (point.getConstX() * (b.getConstY() - c.getConstY())));
+
+
+    ThirdArea = 0.5 * ((a.getConstX() * (c.getConstY() - point.getConstY())) + (c.getConstX() * (point.getConstY() - a.getConstY()))
+    + (point.getConstX() * (a.getConstY() - c.getConstY())));
+
+
     TotalArea = FirstArea + SecondArea + ThirdArea;
     std::cout << TotalArea << std::endl;
+	return (true);
 
 }

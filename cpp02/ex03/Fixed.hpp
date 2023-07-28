@@ -11,9 +11,15 @@ class Fixed
     public:
         Fixed();
         Fixed(const Fixed &t);
+		Fixed(const float &a);
         ~Fixed();
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
-    void	operator=(const Fixed &t);
+		Fixed	&operator=(const Fixed &t);
+		Fixed	operator*(const Fixed &t2) const;
+		float toFloat( void ) const;
+		int toInt( void ) const;
+		Fixed	operator+(const Fixed &t2) const;
+		Fixed	operator-(const Fixed &t2) const;
 };
 #endif
