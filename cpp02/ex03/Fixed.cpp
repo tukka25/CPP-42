@@ -29,6 +29,12 @@ void Fixed::setRawBits( int const raw )
 	num = raw;
 }
 
+// std::ostream& operator<<(std::ostream& os, const Point& t)
+// {
+// 	os << t.x.getRawBits();
+// 	return (os);
+// }
+
 Fixed::~Fixed()
 {
 	std::cout << "Destructor Called" << std::endl;

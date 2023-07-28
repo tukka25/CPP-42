@@ -5,28 +5,47 @@ Point::Point()
 	std::cout << "Constructor Called" << std::endl;
 }
 
-int Point::getConstX( void ) const
+Point::Point(const float a, const float b)
 {
-	return (this->x.getRawBits());
+	Fixed	Fa;
+
+	Fa.setRawBits(a);
+	(Fixed)this->x = Fa;
+	Fa.setRawBits(b);
+	(Fixed)this->y = Fa;
+	// (Fixed)this->y.num = b;
 }
 
-void Point::setConstX( int const raw )
-{
-	this->x.setRawBits(raw);
-}
+// int Point::getConstX( void ) const
+// {
+// 	return (this->x.getRawBits());
+// }
+
+// void Point::setConstX( int const raw )
+// {
+// 	this->x.setRawBits(raw);
+// }
 
 void	Point::operator=(const Point &t)
 {
 	std::cout << "Copy Assignment Operator Called" << std::endl;
-	this->setConstX(t.getConstX());
-	// y.setRawBits(t.y.getRawBits());
+	// if ()
+	// {
+		(Fixed)(this->x) = (t.x);
+		(Fixed)(this->y) = (t.y);
+	// }
 }
-
-// Point::Point(const Point &t)
+// std::ostream& operator<<(std::ostream& os, const Point& t)
 // {
-// 	t.x = this->x;
-// 	t.y = this->y;
+// 	os << t.x.getRawBits();
+// 	return (os);
 // }
+
+Point::Point(const Point &t)
+{
+	(Fixed)t.x = this->x;
+	(Fixed)t.y = this->y;
+}
 
 Point::~Point()
 {

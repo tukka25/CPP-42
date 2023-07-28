@@ -44,7 +44,7 @@ int Fixed::toInt( void ) const
 
 Fixed::Fixed(const Fixed &t)
 {
-	num = t.num;
+	*this = t;
 	std::cout << "Copy constructor" << std::endl;
 }
 
