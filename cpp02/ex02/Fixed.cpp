@@ -2,13 +2,13 @@
 
 Fixed::Fixed()
 {
-	// std::cout << "Default Constructor Called" << std::endl;
+	std::cout << "Default Constructor Called" << std::endl;
 	num = 0;
 }
 
 Fixed::Fixed(const int a)
 {
-	// std::cout << "int Constructor" << std::endl;
+	std::cout << "int Constructor" << std::endl;
 	num = a << frac;
 
 }
@@ -75,10 +75,7 @@ Fixed	Fixed::operator*(const Fixed &t2) const
 {
 	Fixed	a;
 
-	// std::cout << "this = " << this->num << std::endl;
-	// std::cout << "t2 = " << t2.num << std::endl;
 	a.num = ((this->toFloat()) * (t2.toFloat())) * 256;
-	std::cout << "a = " << a.num << std::endl;
 	return (a);
 }
 
@@ -122,8 +119,6 @@ Fixed	Fixed::operator--(int)
 
 Fixed::Fixed(const float a)
 {
-	// float		f;
-	// std::cout << "float Constructor" << std::endl;
 	num = roundf((a * (1 << frac)));
 }
 
@@ -152,18 +147,18 @@ int Fixed::toInt( void ) const
 Fixed::Fixed(const Fixed &t)
 {
 	num = t.num;
-	// std::cout << "Copy constructor" << std::endl;
+	std::cout << "Copy constructor" << std::endl;
 }
 
 int Fixed::getRawBits( void ) const
 {
-	// std::cout << "getRawBits function called" << std::endl;
+	std::cout << "getRawBits function called" << std::endl;
 	return (num);
 }
 
 void	Fixed::operator=(const Fixed &t)
 {
-	// std::cout << "Copy Assignment Operator Called" << std::endl;
+	std::cout << "Copy Assignment Operator Called" << std::endl;
 	num = t.num;
 }
 
@@ -230,5 +225,5 @@ Fixed	Fixed::max(const Fixed &t1, const Fixed &t2)
 
 Fixed::~Fixed()
 {
-	// std::cout << "Destructor Called" << std::endl;
+	std::cout << "Destructor Called" << std::endl;
 }
