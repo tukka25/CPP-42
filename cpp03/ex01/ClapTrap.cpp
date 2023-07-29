@@ -1,12 +1,20 @@
 # include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string str)
+
+ClapTrap::ClapTrap()
 {
-    std::cout << "Default Constructor Called" << std::endl;
-    name = str;
-    HitPoints = 10;
-    EnergyPoints = 10;
-    AttackDamage = 10;
+}
+
+ClapTrap::ClapTrap(std::string str) :name(str)
+{
+    std::cout << "Default ClapTrap Constructor Called" << std::endl;
+	this->setHitPoints(100);
+    this->setEnergyPoints(50);
+    this->setAttackDamage(20);
+    // name = str;
+    // HitPoints = 100;
+    // EnergyPoints = 50;
+    // AttackDamage = 20;
 }
 
 void    ClapTrap::attack(const std::string &target)
@@ -101,5 +109,5 @@ void ClapTrap::setHitPoints(unsigned int i)
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "destructor Called" << std::endl;
+    std::cout << "ClapTrap destructor Called" << std::endl;
 }
