@@ -76,6 +76,10 @@ Fixed	Fixed::operator*(const Fixed &t2) const
 	Fixed	a;
 
 	a.num = ((this->toFloat()) * (t2.toFloat())) * 256;
+<<<<<<< HEAD
+=======
+	// std::cout << "a = " << a.num << std::endl;
+>>>>>>> 098112a (commit)
 	return (a);
 }
 

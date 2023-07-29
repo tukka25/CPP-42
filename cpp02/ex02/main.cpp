@@ -36,7 +36,7 @@ int main()
 	// std::cout << "b is " << b.toInt() << " as integer" << std::endl;
 	// std::cout << "c is " << c.toInt() << " as integer" << std::endl;
 	// std::cout << "d is " << d.toFloat() << " as integer" << std::endl;
-	Fixed a (15);
+	Fixed a (52428800);
 	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 	// std::cout << Fixed::min(a, b) << std::endl;
 	std::cout << a << std::endl;

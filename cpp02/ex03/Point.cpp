@@ -29,9 +29,9 @@ int Point::getConstY(void) const
 Point	&Point::operator=(const Point &t)
 {
 	Point temp(t.x.toFloat(), t.y.toFloat());
-	std::
-	(*this, temp);
-		// this->x = t.x;
+	// std::
+	// (*this, temp);
+		// (Fixed)this->x = t.x;
 		// (Fixed)(this->y) = (t.y);
 		return (*this);
 	// }
