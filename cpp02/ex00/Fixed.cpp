@@ -21,7 +21,7 @@ int Fixed::getRawBits( void ) const
 void	Fixed::operator=(const Fixed &t)
 {
 	std::cout << "Copy Assignment Operator Called" << std::endl;
-	num = t.num;
+	this->num = t.num;
 }
 
 void Fixed::setRawBits( int const raw )

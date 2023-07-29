@@ -78,7 +78,7 @@ Fixed	Fixed::operator*(const Fixed &t2) const
 	// std::cout << "this = " << this->num << std::endl;
 	// std::cout << "t2 = " << t2.num << std::endl;
 	a.num = ((this->toFloat()) * (t2.toFloat())) * 256;
-	std::cout << "a = " << a.num << std::endl;
+	// std::cout << "a = " << a.num << std::endl;
 	return (a);
 }
 

@@ -6,9 +6,9 @@ int main()
 	Fixed	a (20);
 	Fixed	const b( -10 );
 	Fixed	const c( 42.42f );
-	Fixed	ss(a);
+	Fixed	ss;
 	// Fixed	const d( -54.02f );
-
+	ss = a;
 	// a = Fixed(1234.4321f);
 	std::cout << "ss is " << ss << std::endl;
 	// std::cout << "b is " << b << std::endl;
