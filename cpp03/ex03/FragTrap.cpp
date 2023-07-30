@@ -1,8 +1,16 @@
 # include "FragTrap.hpp"
 
-FragTrap::FragTrap(std::string str) :name(str)
+FragTrap::FragTrap()
 {
     std::cout << "Default FragTrap Constructor Called" << std::endl;
+    this->HitPoints = 100;
+    // this->EnergyPoints = 100;
+    this->AttackDamage = 30;
+}
+
+FragTrap::FragTrap(std::string str) :name(str)
+{
+    std::cout << "Parameterized FragTrap Constructor Called" << std::endl;
     this->HitPoints = 100;
     this->EnergyPoints = 100;
     this->AttackDamage = 30;

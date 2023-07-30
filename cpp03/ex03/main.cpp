@@ -4,10 +4,10 @@
 
 int main()
 {
-	FragTrap	b("moha");
-	ClapTrap	a("tukka");
+	// FragTrap	b("moha");
+	// ClapTrap	a("tukka");
 	DiamondTrap	c("now");
 
-	b.highFivesGuys();
-	b.attack("abda");
+	// b.highFivesGuys();
+	// b.attack("abda");
 }

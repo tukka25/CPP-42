@@ -9,7 +9,7 @@
 class DiamondTrap: public ScavTrap, public FragTrap
 {
     private:
-        std::string Name;
+        std::string name;
     public:
         // void    guardGate();
     // private:
@@ -20,7 +20,7 @@ class DiamondTrap: public ScavTrap, public FragTrap
     // public:
         DiamondTrap(std::string str);
         void    attack(const std::string &target);
-        ~DiamondTrap();
+        // ~DiamondTrap();
     //     ClapTrap(const ClapTrap &t);
     //     ~ClapTrap();
     //     void attack(const std::string& target);

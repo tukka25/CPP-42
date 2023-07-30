@@ -1,8 +1,16 @@
 # include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(std::string str) :name(str)
+ScavTrap::ScavTrap()
 {
     std::cout << "Default ScavTrap Constructor Called" << std::endl;
+    this->HitPoints = 100;
+    this->EnergyPoints = 50;
+    this->AttackDamage = 20;
+}
+
+ScavTrap::ScavTrap(std::string str) :name(str)
+{
+    std::cout << "Parameterized ScavTrap Constructor Called" << std::endl;
     this->HitPoints = 100;
     this->EnergyPoints = 50;
     this->AttackDamage = 20;
