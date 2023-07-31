@@ -8,6 +8,8 @@ int main()
 	// ClapTrap	a("tukka");
 	DiamondTrap	c("now");
 
+	c.attack("tukka");
+	c.whoAmI();
 	// b.highFivesGuys();
 	// b.attack("abda");
 }
