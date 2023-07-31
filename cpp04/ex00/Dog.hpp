@@ -10,7 +10,7 @@ class Dog: virtual public Animal
         Dog();
         Dog(std::string str);
         Dog(Dog &A);
-        virtual void    makeSound(void) const; //good reason to put virtual
+        void    makeSound(void) const;
         Dog  &operator=(const Dog &A);
         // std::string    getType(void) const;
         ~Dog();

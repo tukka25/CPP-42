@@ -36,4 +36,5 @@ Dog  &Dog::operator=(const Dog &A)
 Dog::~Dog()
 {
     std::cout << "Dog Destructor" << std::endl;
+    // delete this;
 }
