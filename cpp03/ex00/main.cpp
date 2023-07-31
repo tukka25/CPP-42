@@ -2,7 +2,7 @@
 
 int main()
 {
-	ClapTrap	a("tukka");
+	ClapTrap	a;
 
 	a.attack("ahmed");
 	std::cout << a.getEnergyPoints() << std::endl;

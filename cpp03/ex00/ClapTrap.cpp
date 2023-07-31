@@ -1,8 +1,17 @@
 # include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap()
+{
+	std::cout << "Default Constructor Called" << std::endl;
+    name = "";
+    HitPoints = 10;
+    EnergyPoints = 10;
+    AttackDamage = 10;
+}
+
 ClapTrap::ClapTrap(std::string str)
 {
-    std::cout << "Default Constructor Called" << std::endl;
+    std::cout << "Parameterized Constructor Called" << std::endl;
     name = str;
     HitPoints = 10;
     EnergyPoints = 10;
