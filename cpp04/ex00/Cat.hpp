@@ -1,5 +1,5 @@
-#ifndef Cat_HPP
-# define Cat_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
 # include <iostream>
 #include "Animal.hpp"
@@ -13,7 +13,7 @@ class Cat: virtual public Animal
         void    makeSound(void) const; //good reason to put virtual
         Cat  &operator=(const Cat &A);
         // std::string    getType(void) const;
-        ~Cat();
+        virtual ~Cat();
 };
 
 #endif

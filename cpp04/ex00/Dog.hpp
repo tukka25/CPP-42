@@ -1,5 +1,5 @@
-#ifndef Dog_HPP
-# define Dog_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
 # include <iostream>
 #include "Animal.hpp"
@@ -13,7 +13,7 @@ class Dog: virtual public Animal
         void    makeSound(void) const;
         Dog  &operator=(const Dog &A);
         // std::string    getType(void) const;
-        ~Dog();
+        virtual ~Dog();
 };
 
 #endif
