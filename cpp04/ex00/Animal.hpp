@@ -1,13 +1,20 @@
 #ifndef ANIMAL_HPP
 # define ANIMAL_HPP
 
-
 # include <iostream>
 
-class Animal 
+class Animal
 {
-	
+	protected:
+        std::string type;
+    public:
+        Animal();
+        void    makeSound(void) const;
+        Animal(std::string str);
+        Animal(Animal &A);
+        Animal  &operator=(const Animal &A);
+        std::string    getType(void) const;
+        ~Animal();
 };
-
 
 #endif
