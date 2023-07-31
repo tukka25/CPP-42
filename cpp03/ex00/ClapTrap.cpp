@@ -64,6 +64,11 @@ void    ClapTrap::beRepaired(unsigned int amount)
 	}
 }
 
+ClapTrap::ClapTrap(const ClapTrap &t)
+{
+	*this = t;
+}
+
 std::string ClapTrap::getname( void )
 {
 	return (name);

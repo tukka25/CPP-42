@@ -24,7 +24,6 @@ class ClapTrap
 		void setEnergyPoints(unsigned int i);
 		void setHitPoints(unsigned int i);
 		std::string getname( void );
-		// void setRawBits( int const raw );
     	ClapTrap	&operator=(const ClapTrap &t);
 };
 #endif

@@ -16,6 +16,23 @@ ScavTrap::ScavTrap(std::string str) :name(str)
     this->AttackDamage = 20;
 }
 
+ScavTrap::ScavTrap(const ScavTrap &t) : ClapTrap(t)
+{
+	*this = t;
+}
+
+ScavTrap	&ScavTrap::operator=(const ScavTrap &t)
+{
+	if (this != &t)
+	{
+		this->name = t.name;
+		this->HitPoints = t.HitPoints;
+		this->EnergyPoints = t.EnergyPoints;
+		this->AttackDamage = t.AttackDamage;
+	}
+	return (*this);
+}
+
 void    ScavTrap::attack(const std::string &target)
 {
 	if (this->EnergyPoints > 0 && this->HitPoints > 0)

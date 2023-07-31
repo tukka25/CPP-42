@@ -1,16 +1,24 @@
 # include "ClapTrap.hpp"
 
-
 ClapTrap::ClapTrap()
 {
+	 std::cout << "Default ClapTrap Constructor Called" << std::endl;
+	this->HitPoints = 100;
+    this->EnergyPoints = 50;
+    this->AttackDamage = 20;
 }
 
 ClapTrap::ClapTrap(std::string str) :name(str)
 {
-    std::cout << "Default ClapTrap Constructor Called" << std::endl;
+    std::cout << "Parameterized ClapTrap Constructor Called" << std::endl;
     this->HitPoints = 100;
     this->EnergyPoints = 50;
     this->AttackDamage = 20;
+}
+
+ClapTrap::ClapTrap(const ClapTrap &t)
+{
+	*this = t;
 }
 
 void    ClapTrap::attack(const std::string &target)
@@ -72,36 +80,6 @@ std::string ClapTrap::getname( void )
 {
 	return (name);
 }
-
-// int ClapTrap::getAttackDamage( void )
-// {
-// 	return (AttackDamage);
-// }
-
-// int ClapTrap::getEnergyPoints( void )
-// {
-// 	return (EnergyPoints);
-// }
-
-// int ClapTrap::getHitPoints( void )
-// {
-// 	return (HitPoints);
-// }
-
-// void ClapTrap::setEnergyPoints(unsigned int i)
-// {
-// 	EnergyPoints = i;
-// }
-
-// void ClapTrap::setAttackDamage(unsigned int i)
-// {
-// 	AttackDamage = i;
-// }
-
-// void ClapTrap::this->HitPoints = (unsigned int i)
-// {
-// 	HitPoints = i;
-// }
 
 ClapTrap::~ClapTrap()
 {
