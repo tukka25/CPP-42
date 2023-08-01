@@ -10,8 +10,10 @@ int main()
 
 	// Animal	*i = new Animal;
 	Dog	*j = new Dog;
+	Cat	*h = new Cat;
 
 	j->makeSound();
+	h->makeSound();
     // const WrongAnimal* wa = new WrongAnimal();
     // const WrongCat* wc = new WrongCat();
     // const WrongDog* wd = new WrongDog();

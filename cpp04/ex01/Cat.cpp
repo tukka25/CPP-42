@@ -4,6 +4,8 @@ Cat::Cat()
 {
     std::cout << "Cat Default Constructor called" << std::endl;
     this->type = "Cat";
+	this->bc = new Brain;
+	bc->getIdeas();
 }
 
 Cat::Cat(std::string str)

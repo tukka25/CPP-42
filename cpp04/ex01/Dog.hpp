@@ -8,7 +8,7 @@
 class Dog: virtual public Animal
 {
 	private:
-		Brain	*b;
+		Brain	*bd;
     public:
         Dog();
         Dog(std::string str);
