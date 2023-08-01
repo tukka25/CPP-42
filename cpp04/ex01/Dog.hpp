@@ -3,9 +3,12 @@
 
 # include <iostream>
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Dog: virtual public Animal
 {
+	private:
+		Brain	*b;
     public:
         Dog();
         Dog(std::string str);
