@@ -31,6 +31,6 @@ Brain  &Brain::operator=(const Brain &A)
 
 Brain::~Brain()
 {
-    // delete [] ideas;
+    delete [] ideas;
     std::cout << "Brain Destructor" << std::endl;
 }
