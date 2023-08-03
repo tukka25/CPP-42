@@ -3,7 +3,7 @@
 Brain::Brain()
 {
     std::cout << "Brain Default Constructor called" << std::endl;
-	ideas = new std::string [1];
+	ideas = new std::string [100];
 	ideas[0] = "Bone";
 }
 
@@ -20,11 +20,17 @@ std::string	Brain::getIdeas(void) const
 
 Brain  &Brain::operator=(const Brain &A)
 {
-    this->ideas = A.ideas;
+    // this->ideas = A.ideas;
+    for (int i = 0; i < 100; i++)
+    {
+        this->ideas[i] = A.ideas[i];
+    }
+    // (void)A;
     return (*this);
 }
 
 Brain::~Brain()
 {
+    // delete [] ideas;
     std::cout << "Brain Destructor" << std::endl;
 }
