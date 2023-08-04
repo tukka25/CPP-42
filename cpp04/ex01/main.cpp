@@ -15,8 +15,10 @@ int main()
 
 	// j->makeSound();
 	// h->makeSound();
-    // Brain   *b1 = new Brain;
-    // Brain   *b2 = new Brain;
+    Brain   b1;
+    Brain   b2;
+    Brain   *b3 = new Brain;
+    Brain   *b4 = new Brain;
     Animal *l[10];
     for (int i = 0; i < 5; i++)
     {
@@ -34,11 +36,15 @@ int main()
     {
         delete l[i];
     }
-    // b1->getIdeas();
-    // b2 = b1;
-    // b2->getIdeas();
+    b1.getIdeas();
+    b2 = b2;
+    b2.getIdeas();
+    b3->getIdeas();
+    // b3 = b4;
+    b4->getIdeas();
+    delete b3;
+    delete b4;
     // delete b2;
-    // delete b1;
     // const WrongAnimal* wa = new WrongAnimal();
     // const WrongCat* wc = new WrongCat();
     // const WrongDog* wd = new WrongDog();
