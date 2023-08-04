@@ -15,7 +15,7 @@ Brain::Brain(Brain &A)
 std::string	Brain::getIdeas(void) const
 {
 	std::cout << "ideas = " << ideas[0] << std::endl;
-	return(ideas[0]);
+	return (ideas[0]);
 }
 
 Brain  &Brain::operator=(const Brain &A)
@@ -27,4 +27,5 @@ Brain  &Brain::operator=(const Brain &A)
 Brain::~Brain()
 {
     std::cout << "Brain Destructor" << std::endl;
+	delete ideas;
 }

@@ -2,7 +2,7 @@
 
 ClapTrap::ClapTrap()
 {
-	 std::cout << "Default ClapTrap Constructor Called" << std::endl;
+	std::cout << "Default ClapTrap Constructor Called" << std::endl;
 	this->HitPoints = 100;
     this->EnergyPoints = 50;
     this->AttackDamage = 20;

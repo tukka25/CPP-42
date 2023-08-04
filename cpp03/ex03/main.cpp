@@ -4,12 +4,8 @@
 
 int main()
 {
-	// FragTrap	b("moha");
-	// ClapTrap	a("tukka");
-	DiamondTrap	c("now");
+	DiamondTrap	c("Diamond");
 
 	c.attack("tukka");
 	c.whoAmI();
-	// b.highFivesGuys();
-	// b.attack("abda");
 }

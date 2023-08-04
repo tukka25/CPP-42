@@ -6,10 +6,6 @@
 
 class FragTrap: virtual public ClapTrap
 {
-	protected:
-		int getAttackDamage( void );
-		int getEnergyPoints( void );
-		int getHitPoints( void );
     private:
         std::string name;
     public:

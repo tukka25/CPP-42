@@ -38,4 +38,5 @@ Cat  &Cat::operator=(const Cat &A)
 Cat::~Cat()
 {
     std::cout << "Cat Destructor" << std::endl;
+	// delete this;
 }

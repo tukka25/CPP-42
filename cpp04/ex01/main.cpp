@@ -14,6 +14,21 @@ int main()
 
 	j->makeSound();
 	h->makeSound();
+	Animal	*l[10];
+	for (int i = 0; i < 5; i++)
+	{
+		l[i] = new Dog();
+	}
+	for (int i = 5; i < 10; i++)
+	{
+		l[i] = new Cat();
+	}
+	int		i = 0;
+	while (i < 10)
+	{
+		l[i]->makeSound();
+		i++;
+	}
     // const WrongAnimal* wa = new WrongAnimal();
     // const WrongCat* wc = new WrongCat();
     // const WrongDog* wd = new WrongDog();
@@ -26,6 +41,10 @@ int main()
     // wc->makeSound();
     // wd->makeSound();
 //     delete meta;
-//     delete j;
-//     delete i;
+    // delete j[];
+    // delete h[];
+	for(int i = 0; i < 10; i++)
+	{
+		delete l[i];
+	}
 }
