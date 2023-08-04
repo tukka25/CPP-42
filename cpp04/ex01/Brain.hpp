@@ -14,7 +14,7 @@ class Brain
 		std::string getIdeas(void) const;
         Brain(Brain &A);
         Brain  &operator=(const Brain &A);;
-        virtual ~Brain();
+        ~Brain();
 };
 
 #endif

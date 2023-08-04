@@ -54,9 +54,4 @@ int main()
     // j->makeSound();
     // meta->makeSound();
     // wa->makeSound();
-    // wc->makeSound();
-    // wd->makeSound();
-//     delete meta;
-//     delete j;
-//     delete i;
 }
