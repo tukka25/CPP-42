@@ -32,7 +32,12 @@ Dog::Dog(Dog &A) : Animal(A)
 
 Dog  &Dog::operator=(const Dog &A)
 {
-    this->type = A.type;
+    if (this != &A)
+    {
+        delete this->bd;
+        this->bd = new Brain;
+        this->type = A.type;
+    }
     return (*this);
 }
 

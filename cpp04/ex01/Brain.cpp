@@ -21,11 +21,9 @@ std::string Brain::getIdeas(void) const
 
 Brain &Brain::operator=(const Brain &A)
 {
-    // this->ideas = A.ideas;
     if (this != &A)
     {
         delete []this->ideas;
-        // Brain(*this);
         this->ideas = new std::string[100]; 
         for (int i = 0; i < 100; i++)
             this->ideas[i] = A.ideas[i];
