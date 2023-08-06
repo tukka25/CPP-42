@@ -28,7 +28,10 @@ void    Animal::makeSound(void) const
 
 Animal  &Animal::operator=(const Animal &A)
 {
-    this->type = A.type;
+    if (this != &A)
+    {
+        this->type = A.type;
+    }
     return (*this);
 }
 
