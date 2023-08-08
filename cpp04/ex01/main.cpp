@@ -17,40 +17,56 @@ int main()
 	// h->makeSound();
     // Brain   b1;
     // Brain   b2;
-    Brain   *b3 = new Brain;
-    Brain   *b4 = new Brain;
-    Cat     *d = new Cat;
-    Cat     *d2 = new Cat;
-    Animal *l[10];
-    for (int i = 0; i < 5; i++)
+    // Brain   *b3 = new Brain;
+    // Brain   *b4 = new Brain;
+    // Cat     *d = new Cat;
+    // Cat     *d2 = new Cat;
+    // Animal *l[10];
+    // for (int i = 0; i < 5; i++)
+    // {
+    //     l[i] = new Dog;
+    // }
+    // for (int i = 5; i < 10; i++)
+    // {
+    //     l[i] = new Cat;
+    // }
+    // for (int i = 0; i < 10 ; i++)
+    // {
+    //     l[i]->makeSound();
+    // }
+    // for (int i = 0; i < 10 ; i++)
+    // {
+    //     delete l[i];
+    // }
+    Dog Basic;
     {
-        l[i] = new Dog;
+        Dog tmp = Basic;
     }
-    for (int i = 5; i < 10; i++)
+    Cat Basi;
     {
-        l[i] = new Cat;
+        Cat tmp = Basi;
     }
-    for (int i = 0; i < 10 ; i++)
-    {
-        l[i]->makeSound();
-    }
-    for (int i = 0; i < 10 ; i++)
-    {
-        delete l[i];
-    }
+    Animal *d = new Dog;
+    // Animal *d = new Dog;
+    // Dog nn;
+    Animal *s = new Dog;
+    *d = *s;
+    (void)d;
+    delete s;
+    delete d;
     // b1.getIdeas();
     // b2 = b2;
     // b2.getIdeas();
     // Brain *t = b4;
-    *d = *d2;
-    delete d;
-    delete d2;
-    b3->getIdeas();
-    *b3 = *b4;
-    b4->getIdeas();
-    // (void)d;
-    delete b3;
-    delete b4;
+    // *d = *d2;
+    // delete d;
+    // delete d2;
+    // b3->getIdeas();
+    // *b3 = *b4;
+    // b4->getIdeas();
+    // // (void)d;
+    // delete b3;
+    // delete b4;
     // delete t;
     // d = d2;
     // delete d;

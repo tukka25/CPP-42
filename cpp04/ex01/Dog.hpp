@@ -7,7 +7,7 @@
 
 class Dog: virtual public Animal
 {
-	  private:
+	private:
 		  Brain	*bd;
     public:
         Dog();
