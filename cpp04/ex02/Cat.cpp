@@ -26,7 +26,8 @@ void    Cat::makeSound(void) const
 
 Cat::Cat(Cat &A) : Animal(A)
 {
-    *this = A;
+    this->bc = new Brain;
+    this->type = A.type;
 }
 
 Cat  &Cat::operator=(const Cat &A)

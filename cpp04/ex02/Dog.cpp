@@ -27,7 +27,8 @@ void    Dog::makeSound(void) const
 
 Dog::Dog(Dog &A) : Animal(A)
 {
-    *this = A;
+    this->bd = new Brain;
+    this->type = A.type;
 }
 
 Dog  &Dog::operator=(const Dog &A)
