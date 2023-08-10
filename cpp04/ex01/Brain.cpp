@@ -10,7 +10,9 @@ Brain::Brain()
 
 Brain::Brain(Brain &A)
 {
-    *this = A;
+    this->ideas = new std::string[100]; 
+    for (int i = 0; i < 100; i++)
+            this->ideas[i] = A.ideas[i];
 }
 
 std::string Brain::getIdeas(void) const
