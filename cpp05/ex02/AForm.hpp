@@ -19,14 +19,14 @@ class AForm
         // void    decrement(int amount);
         // Form(std::string str, int grade);
         std::string    getFormName() const;
-        void           setFormName();
+        // void           setFormName(std::string str);
         virtual void    signForm() const = 0;
         void            beSigned(Bureaucrat &b);
         bool           getSign() const;
         int            getGradeSign() const;
-        void            setGradeSign();
-        void            setGradeExec();
-        void            setSign();
+        // void            setGradeSign(int    i);
+        // void            setGradeExec(int    i);
+        // void            setSign(bool s);
         int            getGradeExec() const;
         ~AForm();
 };

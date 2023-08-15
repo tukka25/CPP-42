@@ -6,7 +6,7 @@ AForm::AForm() :formName("tForm"), gradeSign(10), gradeExec(10)
     std::cout << "Form Default Constructor Called" << std::endl;
 }
 
-AForm::AForm(int grade1, int grade2) :formName("tForm"), gradeSign(grade1), gradeExec(grade2)
+AForm::AForm(int grade1, int grade2) :formName("tform"), gradeSign(grade1), gradeExec(grade2)
 {
     // if ((grade2 < 0 || grade2 > 150) || (grade1 < 0 || grade1 > 150))
     //     throw (1);
@@ -41,37 +41,47 @@ std::string    AForm::getFormName() const
     return (this->formName);
 }
 
-void    AForm::setFormName()
-{
-    this->form
-}
+// void    AForm::setFormName(std::string str)
+// {
+//     this->formName = str;
+// }
 
 bool    AForm::getSign() const
 {
     return (this->sign);
 }
 
-void    AForm::setSign()
-{
-    return (this->sign);
-}
+// void    AForm::setSign(bool s)
+// {
+//     this->sign = s;
+// }
 
 std::ostream& operator<<(std::ostream &os, const AForm& b2)
 {
-    os << b2.getformName() << " bureaucrat , execGrade = " << b2.getgradeExec()
-    << ", gradeSign = " << b2.getgradeSign() << " , Sign status = " << b2.getSign();
+    os << b2.getFormName() << " bureaucrat , execGrade = " << b2.getGradeExec()
+    << ", gradeSign = " << b2.getGradeSign() << " , Sign status = " << b2.getSign();
     return (os);
 }
 
-int AForm::getgradeSign() const
+int AForm::getGradeSign() const
 {
     return (this->gradeSign);
 }
 
-int AForm::getgradeExec() const
+// void    AForm::setGradeSign(int i)
+// {
+//     this->gradeSign = i;
+// }
+
+int AForm::getGradeExec() const
 {
     return (this->gradeExec);
 }
+
+// void    AForm::setGradeExec(int i)
+// {
+//     this->gradeExec = i;
+// }
 
 AForm::~AForm()
 {

@@ -12,6 +12,7 @@ class Shrubbery : public AForm
     public:
     Shrubbery();
     Shrubbery( std::string name);
+    void    signForm() const;
     void    printAsciiTree(std::ofstream &outfile);
     ~Shrubbery();
 };

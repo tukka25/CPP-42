@@ -1,6 +1,6 @@
 #include "ShrubberyCreationForm.hpp"
 
-Shrubbery::Shrubbery() : AForm(AForm::se)
+Shrubbery::Shrubbery() : AForm("Shrubbery", 145, 137)
 {
     std::string     tmp;
     std::cout << "Shrubbery Default Constructor Called" << std::endl;
@@ -16,7 +16,7 @@ Shrubbery::Shrubbery() : AForm(AForm::se)
     printAsciiTree(outfile);
 }
 
-Shrubbery::Shrubbery(std::string name)
+Shrubbery::Shrubbery(std::string name) : AForm(name, 145, 137)
 {
     std::string     tmp;
     std::cout << "Shrubbery Parametrized Constructor Called" << std::endl;
@@ -30,6 +30,13 @@ Shrubbery::Shrubbery(std::string name)
         flag = 1;
     }
     printAsciiTree(outfile);
+}
+
+void    Shrubbery::signForm() const
+{
+    if (this->getSign())
+        throw (42);
+    throw (410);
 }
 
 void    Shrubbery::printAsciiTree(std::ofstream &outfile)

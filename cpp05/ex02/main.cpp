@@ -6,27 +6,29 @@
 
 int main()
 {
-    Bureaucrat  b(50);
+    // Bureaucrat  b(50);
     Shrubbery s("n");
+    // std::cout << "exec" << s.getGradeExec() << std::endl;
+    // std::cout << "sign" << s.getGradeSign() << std::endl;
     // Presidential    s("tukka");
     // AForm        F(120, 10);
     try
     {
-        if (b.getGrade() < 0 || b.getGrade() > 150)
-            throw (1);
+        // if (b.getGrade() < 0 || b.getGrade() > 150)
+        //     throw (1);
         // if ((F.getgradeExec() < 0 || F.getgradeExec() > 150)
         //     || (F.getgradeSign() < 0 || F.getgradeSign() > 150))
         // throw (1);
         // std::cout << F << std::endl;
         // std::cout << b << std::endl;
-        b.increment(10);
-        std::cout << "b = " << b.getGrade() << std::endl;
-         b.increment(10);
-        std::cout << "b = " << b.getGrade() << std::endl;
-         b.increment(10);
-        std::cout << "b = " << b.getGrade() << std::endl;
-         b.increment(10);
-        std::cout << "b = " << b.getGrade() << std::endl;
+        // b.increment(10);
+        // std::cout << "b = " << b.getGrade() << std::endl;
+        //  b.increment(10);
+        // std::cout << "b = " << b.getGrade() << std::endl;
+        //  b.increment(10);
+        // std::cout << "b = " << b.getGrade() << std::endl;
+        //  b.increment(10);
+        // std::cout << "b = " << b.getGrade() << std::endl;
         //  b.increment(10);
         // std::cout << "b = " << b.getGrade() << std::endl;
         //  b.increment(10);
