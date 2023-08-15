@@ -11,7 +11,6 @@ int main()
     // std::cout << "exec" << s.getGradeExec() << std::endl;
     // std::cout << "sign" << s.getGradeSign() << std::endl;
     // Presidential    s("tukka");
-    // AForm        F(120, 10);
     try
     {
         // if (b.getGrade() < 0 || b.getGrade() > 150)
