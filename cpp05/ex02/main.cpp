@@ -8,8 +8,12 @@ int main()
 {
     // Bureaucrat  b(50);
     Shrubbery s("n");
-    // std::cout << "exec" << s.getGradeExec() << std::endl;
-    // std::cout << "sign" << s.getGradeSign() << std::endl;
+    Robot      r("r");
+    Presidential p("p");
+    std::cout << "exec = " << r.getGradeExec() << std::endl;
+    std::cout << "sign = " << r.getGradeSign() << std::endl;
+    std::cout << "exec = " << p.getGradeExec() << std::endl;
+    std::cout << "sign = " << p.getGradeSign() << std::endl;
     // Presidential    s("tukka");
     try
     {

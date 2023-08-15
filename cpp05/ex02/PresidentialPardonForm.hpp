@@ -5,13 +5,14 @@
 # include <fstream>
 # include "AForm.hpp"
 
-class Presidential
+class Presidential : public AForm
 {
     private:
         int flag;
     public:
     Presidential();
     Presidential( std::string name);
+    void    signForm() const;
     void    printAsciiTree(std::ofstream &outfile);
     ~Presidential();
 };
