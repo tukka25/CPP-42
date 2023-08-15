@@ -4,8 +4,9 @@
 
 int main()
 {
-	DiamondTrap	c("Diamond");
+	DiamondTrap	*c = new DiamondTrap("Diamond");
 
-	c.attack("tukka");
-	c.whoAmI();
+	c->attack("tukka");
+	c->whoAmI();
+	delete c;	
 }

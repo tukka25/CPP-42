@@ -1,11 +1,14 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int main()
 {
     Bureaucrat  b(50);
-    Presidential    s("tukka");
+    Shrubbery s("n");
+    // Presidential    s("tukka");
     // AForm        F(120, 10);
     try
     {
