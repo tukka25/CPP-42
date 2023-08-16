@@ -24,6 +24,7 @@ class AForm
         void            beSigned(Bureaucrat &b);
         bool           getSign() const;
         int            getGradeSign() const;
+        void            execute(const Bureaucrat & executor) const;
         // void            setGradeSign(int    i);
         // void            setGradeExec(int    i);
         // void            setSign(bool s);

@@ -22,6 +22,13 @@ AForm::AForm(std::string name, int grade1, int grade2) :formName(name), gradeSig
     std::cout << "AForm Default Constructor Called" << std::endl;
 }
 
+void    AForm::execute(const Bureaucrat & executor) const
+{
+    if (this->getSign() && executor.getGrade() <= this->getGradeExec())
+        throw(101);
+    throw(413);
+}
+
 void    AForm::beSigned(Bureaucrat &b)
 {
     if (b.getGrade() > this->gradeSign)
