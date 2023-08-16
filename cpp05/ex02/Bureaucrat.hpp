@@ -2,7 +2,9 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
-# include "AForm.hpp"
+
+class   AForm;
+// # include "AForm.hpp"
 
 class Bureaucrat
 {
@@ -14,10 +16,11 @@ class Bureaucrat
         Bureaucrat(int grade2);
         void    increment(int amount);
         void    decrement(int amount);
+        void    executeForm(AForm const & form);
         // Bureaucrat(std::string str, int grade);
         std::string     getName(void)const;
         int             getGrade(void)const;
-        void            executeForm(Form const & form);
+        // void            executeForm(Form const & form);
         ~Bureaucrat();
 };
 std::ostream&   operator<<(std::ostream &os, const Bureaucrat& b2);

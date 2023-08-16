@@ -6,15 +6,10 @@
 
 int main()
 {
-    Bureaucrat  b(5);
+    Bureaucrat  b(1);
     Shrubbery s("n");
     Robot      r("r");
     Presidential p("p");
-    std::cout << "exec = " << r.getGradeExec() << std::endl;
-    std::cout << "sign = " << r.getGradeSign() << std::endl;
-    std::cout << "exec = " << p.getGradeExec() << std::endl;
-    std::cout << "sign = " << p.getGradeSign() << std::endl;
-    // Presidential    s("tukka");
     try
     {
         // if (b.getGrade() < 0 || b.getGrade() > 150)
@@ -40,6 +35,7 @@ int main()
         // std::cout << "b = " << b.getGrade() << std::endl;
         r.beSigned(b);
         r.execute(b);
+        b.executeForm(r);
         // std::cout << F.getSign() << std::endl;
         // F.signForm();
         //  b.increment(1);
@@ -54,7 +50,7 @@ int main()
         if (i == 404)
             std::cout << "Form::GradeTooHighException" << std::endl;
         if (i == 101)
-            std::cout << "Form executed successfully" << std::endl;
+            std::cout << b.getName() << " executed " << r.getFormName() << std::endl;
         if (i == 413)
             std::cout << "Failed to executed Form" << std::endl;
         // if (i == 42)

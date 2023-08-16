@@ -13,6 +13,8 @@ class Form
         bool                sign;
     public:
         Form();
+        Form(Form& F);
+        
         Form(int grade1, int grade2);
         // void    increment(int amount);
         // void    decrement(int amount);

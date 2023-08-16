@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat() :name("tukka")
 {
@@ -31,6 +32,11 @@ void    Bureaucrat::decrement(int amount)
 std::string    Bureaucrat::getName(void) const
 {
     return (this->name);
+}
+
+void    Bureaucrat::executeForm(AForm const & form)
+{
+    form.execute(*this);
 }
 
 std::ostream& operator<<(std::ostream &os, const Bureaucrat& b2)
