@@ -14,6 +14,23 @@ Form::Form(int grade1, int grade2) :formName("tForm"), gradeSign(grade1), gradeE
     std::cout << "Form Default Constructor Called" << std::endl;
 }
 
+Form::Form(const Form & f) : formName(f.formName), gradeSign(f.gradeSign), gradeExec(f.gradeExec)
+{
+    this->sign = false;
+}
+
+Form&   Form::operator=(const Form &f)
+{
+    // this->formName = f.getformName();
+    // if ()
+    return (*this);
+}
+
+// void    setformName(std::string str)
+// {
+//     this->formName = str;
+// }
+
 void    Form::beSigned(Bureaucrat &b)
 {
     if (b.getGrade() > this->gradeSign)

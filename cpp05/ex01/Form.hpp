@@ -13,7 +13,7 @@ class Form
         bool                sign;
     public:
         Form();
-        Form(Form& F);
+        Form(const Form& f);
         
         Form(int grade1, int grade2);
         // void    increment(int amount);
@@ -21,6 +21,7 @@ class Form
         // Form(std::string str, int grade);
         std::string    getformName() const;
         void            signForm() const;
+        Form&           operator=(const Form & f);
         void            beSigned(Bureaucrat &b);
         bool           getSign() const;
         int            getgradeSign() const;
@@ -29,5 +30,9 @@ class Form
 };
 std::ostream&   operator<<(std::ostream &os, const Form& b2);
 
+// this->~Form();
+// //     new (this) Form(f);
+// //     // (int)this->gradeExec = f.gradeExec; 
+// //     return (*this);
 
 #endif
