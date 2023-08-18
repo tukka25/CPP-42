@@ -14,11 +14,7 @@ class Form
     public:
         Form();
         Form(const Form& f);
-        
         Form(int grade1, int grade2);
-        // void    increment(int amount);
-        // void    decrement(int amount);
-        // Form(std::string str, int grade);
         std::string    getformName() const;
         void            signForm() const;
         Form&           operator=(const Form & f);

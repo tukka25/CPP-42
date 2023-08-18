@@ -5,6 +5,7 @@ int main()
 {
     Bureaucrat  b(50);
     Form        F(120, 10);
+    // Form        F;
     Form        F1;
     try
     {
@@ -15,8 +16,8 @@ int main()
         throw (1);
         std::cout << F << std::endl;
         std::cout << b << std::endl;
-        // F1 = F;
-        // std::cout << F1 << std::endl;
+        F1 = F;
+        std::cout << F1 << std::endl;
         // b.increment(10);
         // std::cout << "b = " << b.getGrade() << std::endl;
         //  b.increment(10);

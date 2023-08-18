@@ -2,26 +2,26 @@
 
 int main()
 {
+    Bureaucrat  b(70);
     try
     {
-        Bureaucrat  b(70);
         std::cout << b << std::endl;
         b.increment(10);
-        std::cout << "b = " << b.getGrade() << std::endl;
+        std::cout << "b = " << b << std::endl;
          b.increment(10);
-        std::cout << "b = " << b.getGrade() << std::endl;
+        std::cout << "b = " << b << std::endl;
          b.increment(10);
-        std::cout << "b = " << b.getGrade() << std::endl;
+        std::cout << "b = " << b << std::endl;
          b.increment(10);
-        std::cout << "b = " << b.getGrade() << std::endl;
+        std::cout << "b = " << b << std::endl;
          b.increment(10);
-        std::cout << "b = " << b.getGrade() << std::endl;
+        std::cout << "b = " << b << std::endl;
          b.increment(10);
-        std::cout << "b = " << b.getGrade() << std::endl;
+        std::cout << "b = " << b << std::endl;
          b.increment(9);
-        std::cout << "b = " << b.getGrade() << std::endl;
+        std::cout << "b = " << b << std::endl;
          b.increment(1);
-        std::cout << "b = " << b.getGrade() << std::endl;
+        std::cout << "b = " << b << std::endl;
     }
     catch (int i)
     {
