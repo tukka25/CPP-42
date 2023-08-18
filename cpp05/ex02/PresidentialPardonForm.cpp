@@ -23,7 +23,7 @@ void    Presidential::signForm() const
 
 void    Presidential::printMsg(std::string target)
 {
-    std::cout << "has been pardoned by Zaphod Beeblebrox" << std::endl;
+    std::cout << target << "has been pardoned by Zaphod Beeblebrox" << std::endl;
 }
 
 Presidential::~Presidential()

@@ -48,20 +48,10 @@ std::string    AForm::getFormName() const
     return (this->formName);
 }
 
-// void    AForm::setFormName(std::string str)
-// {
-//     this->formName = str;
-// }
-
 bool    AForm::getSign() const
 {
     return (this->sign);
 }
-
-// void    AForm::setSign(bool s)
-// {
-//     this->sign = s;
-// }
 
 std::ostream& operator<<(std::ostream &os, const AForm& b2)
 {
@@ -75,20 +65,10 @@ int AForm::getGradeSign() const
     return (this->gradeSign);
 }
 
-// void    AForm::setGradeSign(int i)
-// {
-//     this->gradeSign = i;
-// }
-
 int AForm::getGradeExec() const
 {
     return (this->gradeExec);
 }
-
-// void    AForm::setGradeExec(int i)
-// {
-//     this->gradeExec = i;
-// }
 
 AForm::~AForm()
 {

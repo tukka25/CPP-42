@@ -13,7 +13,7 @@ class Robot : public AForm
     Robot();
     Robot( std::string name);
     void    signForm() const;
-    void    printAsciiTree(std::ofstream &outfile);
+    void    makeNoises(std::string name) const;
     ~Robot();
 };
 

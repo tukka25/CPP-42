@@ -2,34 +2,16 @@
 
 Presidential::Presidential() : AForm("Presidential", 25, 5)
 {
-    // std::string     tmp;
     std::cout << "Presidential Default Constructor Called" << std::endl;
-
     flag = 0;
-    // tmp = "_Presidential";
-    // std::ofstream outfile(tmp.c_str());
-    // if (!outfile)
-    // {
-    //     std::cout << "outfile error" << std::endl;
-    //     flag = 1;
-    // }
-    // printAsciiTree(outfile);
+    this->printMsg("default");
 }
 
 Presidential::Presidential(std::string name) : AForm(name, 25, 5)
 {
-    // std::string     tmp;
     std::cout << "Presidential Parametrized Constructor Called" << std::endl;
-
-    // tmp = name + "_Presidential";
     flag = 0;
-    // std::ofstream outfile(tmp.c_str());
-    // if (!outfile)
-    // {
-    //     std::cout << "outfile error" << std::endl;
-    //     flag = 1;
-    // }
-    // printAsciiTree(outfile);
+    this->printMsg(name);
 }
 
 void    Presidential::signForm() const
@@ -39,18 +21,9 @@ void    Presidential::signForm() const
     throw (410);
 }
 
-void    Presidential::printAsciiTree(std::ofstream &outfile)
+void    Presidential::printMsg(std::string target)
 {
-    outfile << "       _-_" << std::endl;
-    outfile << "    /~~   ~~\\" << std::endl;
-    outfile << " /~~         ~~\\" << std::endl;
-    outfile << "{               }" << std::endl;
-    outfile << " \\  _-     -_  /" << std::endl;
-    outfile << "   ~  \\\\ //  ~" << std::endl;
-    outfile << "_- -   | | _- _ " << std::endl;
-    outfile << "  _ -  | |   -_" << std::endl;
-    outfile << "      // \\\\" << std::endl;
-    // outfile << "";
+    std::cout << target << "has been pardoned by Zaphod Beeblebrox" << std::endl;
 }
 
 Presidential::~Presidential()

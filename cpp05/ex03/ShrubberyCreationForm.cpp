@@ -50,7 +50,6 @@ void    Shrubbery::printAsciiTree(std::ofstream &outfile)
     outfile << "_- -   | | _- _ " << std::endl;
     outfile << "  _ -  | |   -_" << std::endl;
     outfile << "      // \\\\" << std::endl;
-    // outfile << "";
 }
 
 Shrubbery::~Shrubbery()

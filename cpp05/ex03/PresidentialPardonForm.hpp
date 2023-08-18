@@ -13,7 +13,7 @@ class Presidential : public AForm
     Presidential();
     Presidential( std::string name);
     void    signForm() const;
-    void    printAsciiTree(std::ofstream &outfile);
+    void    printMsg(std::string target);
     ~Presidential();
 };
 
