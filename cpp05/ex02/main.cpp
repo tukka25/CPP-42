@@ -8,6 +8,7 @@ int main()
 {
     Bureaucrat  b(1);
     Shrubbery s("n");
+    Shrubbery s1;
     Robot      r("r");
     Presidential p("p");
     try
@@ -60,9 +61,4 @@ int main()
             // << "because of " << F.getgradeSign() << "is not high enough" << std::endl;
         // return (0);
     }
-    // catch (int k)
-    // {
-    //     if (k == 42)
-    //         std::cout << b.getName();
-    // }
 }

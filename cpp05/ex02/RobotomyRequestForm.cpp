@@ -14,6 +14,20 @@ Robot::Robot(std::string name) : AForm(name, 72, 45)
     this->makeNoises(name);
 }
 
+Robot::Robot(const Robot &r) : AForm(r.getFormName(), r.getGradeSign(), r.getGradeExec())
+{
+    std::cout << "Robot Copy Constructor Called" << std::endl;
+    flag = 0;
+    this->makeNoises(r.getFormName());
+}
+
+Robot&  Robot::operator=(const Robot &s)
+{
+    AForm::operator=(s);
+    return *this;
+}
+
+
 void    Robot::signForm() const
 {
     if (this->getSign())

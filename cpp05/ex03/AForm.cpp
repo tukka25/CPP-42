@@ -22,6 +22,15 @@ AForm::AForm(std::string name, int grade1, int grade2) :formName(name), gradeSig
     std::cout << "AForm Default Constructor Called" << std::endl;
 }
 
+AForm&   AForm::operator=(const AForm &f)
+{
+    *const_cast<std::string *> (&this->formName) = f.formName;
+    *const_cast<int *> (&this->gradeSign) = f.gradeSign;
+    *const_cast<int *> (&this->gradeExec) = f.gradeExec;
+    this->sign = false;
+    return (*this);
+}
+
 void    AForm::execute(const Bureaucrat & executor) const
 {
     if (this->getSign() && executor.getGrade() <= this->getGradeExec())

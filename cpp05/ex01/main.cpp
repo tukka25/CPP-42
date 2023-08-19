@@ -3,7 +3,7 @@
 
 int main()
 {
-    Bureaucrat  b(50);
+    Bureaucrat  b(150);
     Form        F(120, 10);
     // Form        F;
     Form        F1;
@@ -51,11 +51,5 @@ int main()
         if (i == 410)
             std::cout << b.getName() << " coudln't sign " << F.getformName()
             << "because of " << F.getgradeSign() << "is not high enough" << std::endl;
-        return (0);
     }
-    // catch (int k)
-    // {
-    //     if (k == 42)
-    //         std::cout << b.getName();
-    // }
 }

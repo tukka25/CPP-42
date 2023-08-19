@@ -14,6 +14,23 @@ AForm::AForm(int grade1, int grade2) :formName("tform"), gradeSign(grade1), grad
     std::cout << "AForm Default Constructor Called" << std::endl;
 }
 
+AForm::AForm(const AForm &f) :formName(f.formName), gradeSign(f.gradeSign), gradeExec(f.gradeExec)
+{
+    // if ((grade2 < 0 || grade2 > 150) || (grade1 < 0 || grade1 > 150))
+    //     throw (1);
+    this->sign = false;
+    std::cout << "AForm Default Constructor Called" << std::endl;
+}
+
+AForm&   AForm::operator=(const AForm &f)
+{
+    *const_cast<std::string *> (&this->formName) = f.formName;
+    *const_cast<int *> (&this->gradeSign) = f.gradeSign;
+    *const_cast<int *> (&this->gradeExec) = f.gradeExec;
+    this->sign = false;
+    return (*this);
+}
+
 AForm::AForm(std::string name, int grade1, int grade2) :formName(name), gradeSign(grade1), gradeExec(grade2)
 {
     // if ((grade2 < 0 || grade2 > 150) || (grade1 < 0 || grade1 > 150))

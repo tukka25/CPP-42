@@ -10,7 +10,7 @@ int main()
     // Bureaucrat  b(1);
     // Shrubbery s("n");
     // Robot      r("r");
-    // Presidential p("p");
+    Presidential p("p");
     AForm       *Form;
     try
     {

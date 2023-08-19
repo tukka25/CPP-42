@@ -18,6 +18,7 @@ class AForm
         // Form(std::string str, int grade);
         std::string    getFormName() const;
         virtual void    signForm() const = 0;
+        AForm&           operator=(const AForm & f);
         void            beSigned(Bureaucrat &b);
         bool           getSign() const;
         int            getGradeSign() const;

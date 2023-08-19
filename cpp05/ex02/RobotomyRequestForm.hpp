@@ -11,7 +11,9 @@ class Robot : public AForm
         int flag;
     public:
     Robot();
-    Robot( std::string name);
+    Robot(std::string name);
+    Robot(const Robot &r);
+    Robot&  operator=(const Robot &s);
     void    signForm() const;
     void    makeNoises(std::string name) const;
     ~Robot();

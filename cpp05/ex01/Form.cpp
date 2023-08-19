@@ -8,8 +8,8 @@ Form::Form() :formName("tForm"), gradeSign(10), gradeExec(10)
 
 Form::Form(int grade1, int grade2) :formName("tForm"), gradeSign(grade1), gradeExec(grade2)
 {
-    // if ((grade2 < 0 || grade2 > 150) || (grade1 < 0 || grade1 > 150))
-    //     throw (1);
+    if ((grade2 < 0 || grade2 > 150) || (grade1 < 0 || grade1 > 150))
+        throw (1);
     this->sign = false;
     std::cout << "Form Default Constructor Called" << std::endl;
 }
@@ -27,11 +27,6 @@ Form&   Form::operator=(const Form &f)
     this->sign = false;
     return (*this);
 }
-
-// void    setformName(std::string str)
-// {
-//     this->formName = str;
-// }
 
 void    Form::beSigned(Bureaucrat &b)
 {

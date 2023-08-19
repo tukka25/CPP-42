@@ -2,9 +2,11 @@
 
 int main()
 {
-    Bureaucrat  b(70);
+    Bureaucrat  b(170);
     try
     {
+        if (b.getGrade() > 150 || b.getGrade() < 1)
+            throw (1);
         std::cout << b << std::endl;
         b.increment(10);
         std::cout << "b = " << b << std::endl;
@@ -17,10 +19,6 @@ int main()
          b.increment(10);
         std::cout << "b = " << b << std::endl;
          b.increment(10);
-        std::cout << "b = " << b << std::endl;
-         b.increment(9);
-        std::cout << "b = " << b << std::endl;
-         b.increment(1);
         std::cout << "b = " << b << std::endl;
     }
     catch (int i)

@@ -8,8 +8,8 @@ Bureaucrat::Bureaucrat() :name("tukka")
 
 Bureaucrat::Bureaucrat(int grade2) :name("tukka")
 {
-    // if (grade2 < 0 || grade2 > 150)
-    //     throw (1);
+    if (grade2 < 0 || grade2 > 150)
+        throw (1);
     std::cout << "Default Constructor Called" << std::endl;
     this->grade = grade2;
 }
