@@ -23,7 +23,7 @@ class AForm
         int            getGradeSign() const;
         void            execute(const Bureaucrat & executor) const;
         int            getGradeExec() const;
-        ~AForm();
+        virtual ~AForm();
 };
 std::ostream&   operator<<(std::ostream &os, const AForm& b2);
 

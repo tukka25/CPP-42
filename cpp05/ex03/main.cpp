@@ -7,18 +7,18 @@
 
 int main()
 {
-    Bureaucrat  b(1);
-    Shrubbery s("n");
-    Robot      r("r");
-    Presidential p("p");
+    // Bureaucrat  b(1);
+    // Shrubbery s("n");
+    // Robot      r("r");
+    // Presidential p("p");
+    AForm       *Form;
     try
     {
         Intern      i;
-        AForm       *Form;
-        Form = i.makeForm("hi", "str");
-        r.beSigned(b);
-        r.execute(b);
-        b.executeForm(r);
+        Form = i.makeForm("presidentialpardon form", "str");
+        // r.beSigned(b);
+        // r.execute(b);
+        // b.executeForm(r);
     }
     catch (int i)
     {
@@ -28,8 +28,8 @@ int main()
             std::cout << "Form::GradeTooLowException" << std::endl;
         if (i == 404)
             std::cout << "Form::GradeTooHighException" << std::endl;
-        if (i == 101)
-            std::cout << b.getName() << " executed " << r.getFormName() << std::endl;
+        // if (i == 101)
+        //     std::cout << b.getName() << " executed " << r.getFormName() << std::endl;
         if (i == 413)
             std::cout << "Failed to executed Form" << std::endl;
         // if (i == 42)
@@ -39,4 +39,5 @@ int main()
             // << "because of " << F.getgradeSign() << "is not high enough" << std::endl;
         // return (0);
     }
+    delete Form;
 }

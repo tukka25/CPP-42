@@ -6,6 +6,8 @@
 // class   AForm;
 # include "AForm.hpp"
 # include "PresidentialPardonForm.hpp"
+# include "RobotomyRequestForm.hpp"
+# include "ShrubberyCreationForm.hpp"
 
 class Intern
 {
@@ -13,6 +15,9 @@ class Intern
         Intern();
         Intern(const Intern & i);
         AForm   *makeForm(std::string form, std::string target);
+        AForm   *returnRobot(std::string target);
+        AForm   *returnShrubbery(std::string target);
+        AForm   *returnPres(std::string target);
         Intern& operator=(const Intern& i);
         // Intern(int grade2);
         // void    increment(int amount);
