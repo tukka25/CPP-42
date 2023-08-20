@@ -8,8 +8,8 @@ Bureaucrat::Bureaucrat() :name("tukka")
 
 Bureaucrat::Bureaucrat(int grade2) :name("tukka")
 {
-    if (grade2 < 0 || grade2 > 150)
-        throw (1);
+    // if (grade2 < 0 || grade2 > 150)
+    //     throw (1);
     std::cout << "Default Constructor Called" << std::endl;
     this->grade = grade2;
 }
@@ -37,6 +37,11 @@ std::ostream& operator<<(std::ostream &os, const Bureaucrat& b2)
 {
     os << b2.getName() << ", bureaucrat grade " << b2.getGrade();
     return (os);
+}
+
+const char * BException::_what() const
+{
+    return ("Grade id high");
 }
 
 int    Bureaucrat::getGrade(void) const

@@ -2,6 +2,7 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
+#include <exception>
 
 class Bureaucrat
 {
@@ -19,6 +20,10 @@ class Bureaucrat
         ~Bureaucrat();
 };
 std::ostream&   operator<<(std::ostream &os, const Bureaucrat& b2);
+class BException : public std::exception
+{
+    virtual const char* _what() const ;
+};
 
 
 #endif
