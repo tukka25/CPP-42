@@ -8,8 +8,10 @@ Form::Form() :formName("tForm"), gradeSign(10), gradeExec(10)
 
 Form::Form(int grade1, int grade2) :formName("tForm"), gradeSign(grade1), gradeExec(grade2)
 {
-    if ((grade2 < 0 || grade2 > 150) || (grade1 < 0 || grade1 > 150))
-        throw (1);
+    // if (grade1 < 0 || grade2 < 0)
+    //     throw(BFormHigh());
+    // if (grade1 > 150 || grade2 > 150)
+    //     throw (BFormLow());
     this->sign = false;
     std::cout << "Form Default Constructor Called" << std::endl;
 }
@@ -31,15 +33,16 @@ Form&   Form::operator=(const Form &f)
 void    Form::beSigned(Bureaucrat &b)
 {
     if (b.getGrade() > this->gradeSign)
-        throw (405);
+        throw (BBesigned());
     this->sign = true;
 }  
 
 void    Form::signForm() const
 {
     if (this->sign)
-        throw (42);
-    throw (410);
+        std::cout << " signed " << this->formName << std::endl;
+    else
+        throw (BSignForm());
 }
 
 std::string    Form::getformName() const
@@ -57,6 +60,31 @@ std::ostream& operator<<(std::ostream &os, const Form& b2)
     os << b2.getformName() << " bureaucrat , execGrade = " << b2.getgradeExec()
     << ", gradeSign = " << b2.getgradeSign() << " , Sign status = " << b2.getSign();
     return (os);
+}
+
+const char* BFormHigh::what() const throw()
+{
+    return ("Form::GradeTooHighException");
+}
+
+const char* BFormLow::what() const throw()
+{
+    return ("Form::GradeTooLowException");
+}
+
+const char* BBesigned::what() const throw()
+{
+    return ("Form::GradeTooLowToSign");
+}
+
+const char* BFormIncr::what() const throw()
+{
+    return ("Form::IncrementError");
+}
+
+const char* BFormDec::what() const throw()
+{
+    return ("Form::DecrementError");
 }
 
 int Form::getgradeSign() const

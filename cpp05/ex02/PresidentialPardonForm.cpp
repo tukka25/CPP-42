@@ -24,8 +24,9 @@ Presidential::Presidential(const Presidential & p) : AForm(p.getFormName(), p.ge
 void    Presidential::signForm() const
 {
     if (this->getSign())
-        throw (42);
-    throw (410);
+        std::cout << " signed " << this->getFormName() << std::endl;
+    else
+        throw (BSignForm());
 }
 
 Presidential&  Presidential::operator=(const Presidential &s)

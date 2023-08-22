@@ -26,9 +26,29 @@ class Form
 };
 std::ostream&   operator<<(std::ostream &os, const Form& b2);
 
-// this->~Form();
-// //     new (this) Form(f);
-// //     // (int)this->gradeExec = f.gradeExec; 
-// //     return (*this);
-
+class BFormHigh : public std::exception
+{
+    public:
+        virtual const char* what() const throw();
+};
+class BFormLow : public std::exception
+{
+    public:
+        virtual const char* what() const throw();
+};
+class BFormIncr : public std::exception
+{
+    public:
+        virtual const char* what() const throw();
+};
+class BFormDec : public std::exception
+{
+    public:
+        virtual const char* what() const throw();
+};
+class BBesigned : public std::exception
+{
+    public:
+        virtual const char* what() const throw();
+};
 #endif

@@ -4,32 +4,25 @@ int main()
 {
     try
     {
-        Bureaucrat  b(170);
-        if (b.getGrade() > 150 || b.getGrade() < 1)
-            throw (std::runtime_error("errror"));
+        Bureaucrat  b(10);
         std::cout << b << std::endl;
         b.increment(10);
         std::cout << "b = " << b << std::endl;
-         b.increment(10);
-        std::cout << "b = " << b << std::endl;
-         b.increment(10);
-        std::cout << "b = " << b << std::endl;
-         b.increment(10);
-        std::cout << "b = " << b << std::endl;
-         b.increment(10);
-        std::cout << "b = " << b << std::endl;
-         b.increment(10);
-        std::cout << "b = " << b << std::endl;
     }
-    catch (std::exception &c)
+    catch (BExceptionHigh &c)
     {
         std::cout << c.what() << std::endl;
-        // if (c.what())
-        //     std::cout << "Grade should be between 1 and 150" << std::endl;
-        // if (i == 405)
-        //     std::cout << "Bureaucrat::GradeTooLowException" << std::endl;
-        // if (i == 404)
-        //     std::cout << "Bureaucrat::GradeTooHighException" << std::endl;
-        return (0);
+    }
+    catch (BExceptionLow &c)
+    {
+        std::cout << c.what() << std::endl;
+    }
+    catch (BExceptionIncr &c)
+    {
+        std::cout << c.what() << std::endl;
+    }
+    catch (BExceptionDec &c)
+    {
+        std::cout << c.what() << std::endl;
     }
 }

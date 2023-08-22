@@ -28,5 +28,35 @@ class AForm
 };
 std::ostream&   operator<<(std::ostream &os, const AForm& b2);
 
+class BFormHigh : public std::exception
+{
+    public:
+        virtual const char* what() const throw();
+};
+class BFormLow : public std::exception
+{
+    public:
+        virtual const char* what() const throw();
+};
+class BFormIncr : public std::exception
+{
+    public:
+        virtual const char* what() const throw();
+};
+class BFormDec : public std::exception
+{
+    public:
+        virtual const char* what() const throw();
+};
+class BBesigned : public std::exception
+{
+    public:
+        virtual const char* what() const throw();
+};
 
+class BExcuted : public std::exception
+{
+    public:
+        virtual const char* what() const throw();
+};
 #endif

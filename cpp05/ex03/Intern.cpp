@@ -36,7 +36,6 @@ AForm   *Intern::returnPres(std::string target)
 
 AForm   *Intern::makeForm(std::string formname, std::string target)
 {
-    // int i = 0;
     AForm   *form;
     std::string     Forms[3] = {"presidentialpardon form", "robotomy request", "shrubberycreation form"};
     AForm * (Intern::*ptr_pre)(std::string) = &Intern::returnPres;
@@ -51,7 +50,6 @@ AForm   *Intern::makeForm(std::string formname, std::string target)
     {
         if (formname == Forms[i])
         {
-            // std::cout << "here" << std::endl;
             form = (this->*(funcptr_arr[i]))(target);
             std::cout << "Intern creates " << formname << std::endl;
         }

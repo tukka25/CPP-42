@@ -20,5 +20,30 @@ class Bureaucrat
 };
 std::ostream&   operator<<(std::ostream &os, const Bureaucrat& b2);
 
+class BExceptionHigh : public std::exception
+{
+    public:
+        virtual const char* what() const throw();
+};
+class BExceptionLow : public std::exception
+{
+    public:
+        virtual const char* what() const throw();
+};
+class BExceptionIncr : public std::exception
+{
+    public:
+        virtual const char* what() const throw();
+};
+class BExceptionDec : public std::exception
+{
+    public:
+        virtual const char* what() const throw();
+};
+class BSignForm : public std::exception
+{
+    public:
+        virtual const char* what() const throw();
+};
 
 #endif

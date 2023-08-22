@@ -70,6 +70,7 @@
         "fstream": "cpp",
         "iomanip": "cpp",
         "stack": "cpp",
-        "tukka_shrubbery": "cpp"
+        "tukka_shrubbery": "cpp",
+        "filesystem": "cpp"
     }
 }

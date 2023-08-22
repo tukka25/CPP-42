@@ -31,8 +31,9 @@ Robot&  Robot::operator=(const Robot &s)
 void    Robot::signForm() const
 {
     if (this->getSign())
-        throw (42);
-    throw (410);
+        std::cout << " signed " << this->getFormName() << std::endl;
+    else
+        throw (BSignForm());
 }
 
 void    Robot::makeNoises(std::string name) const
