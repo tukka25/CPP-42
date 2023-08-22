@@ -15,10 +15,10 @@ class AForm
         AForm();
         AForm(int grade1, int grade2);
         AForm(std::string name, int grade1, int grade2);
-        // Form(std::string str, int grade);
+        AForm(const AForm &f);
         std::string    getFormName() const;
-        virtual void    signForm() const = 0;
         AForm&           operator=(const AForm & f);
+        virtual void    signForm() const = 0;
         void            beSigned(Bureaucrat &b);
         bool           getSign() const;
         int            getGradeSign() const;
@@ -28,5 +28,35 @@ class AForm
 };
 std::ostream&   operator<<(std::ostream &os, const AForm& b2);
 
+class BFormHigh : public std::exception
+{
+    public:
+        virtual const char* what() const throw();
+};
+class BFormLow : public std::exception
+{
+    public:
+        virtual const char* what() const throw();
+};
+class BFormIncr : public std::exception
+{
+    public:
+        virtual const char* what() const throw();
+};
+class BFormDec : public std::exception
+{
+    public:
+        virtual const char* what() const throw();
+};
+class BBesigned : public std::exception
+{
+    public:
+        virtual const char* what() const throw();
+};
 
+class BExcuted : public std::exception
+{
+    public:
+        virtual const char* what() const throw();
+};
 #endif

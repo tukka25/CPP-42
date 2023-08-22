@@ -58,8 +58,9 @@ Shrubbery&  Shrubbery::operator=(const Shrubbery &s)
 void    Shrubbery::signForm() const
 {
     if (this->getSign())
-        throw (42);
-    throw (410);
+        std::cout << " signed " << this->getFormName() << std::endl;
+    else
+        throw (BSignForm());
 }
 
 void    Shrubbery::printAsciiTree(std::ofstream &outfile)
