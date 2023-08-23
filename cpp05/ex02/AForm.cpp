@@ -9,7 +9,7 @@ AForm::AForm() :formName("tForm"), gradeSign(10), gradeExec(10)
 AForm::AForm(int grade1, int grade2) :formName("tform"), gradeSign(grade1), gradeExec(grade2)
 {
     if (grade1 < 0 || grade2 < 0)
-        throw(BFormHigh());
+        exit(0);
     if (grade1 > 150 || grade2 > 150)
         throw (BFormLow());
     this->sign = false;
