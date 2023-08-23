@@ -1,13 +1,13 @@
 #include "PresidentialPardonForm.hpp"
 
-Presidential::Presidential() : AForm("Presidential", 1250, -1)
+Presidential::Presidential() : AForm("Presidential", 25, 5)
 {
     std::cout << "Presidential Default Constructor Called" << std::endl;
     flag = 0;
     this->printMsg("default");
 }
 
-Presidential::Presidential(std::string name) : AForm(name, 1125, -5)
+Presidential::Presidential(std::string name) : AForm(name, 25, 5)
 {
     std::cout << "Presidential Parametrized Constructor Called" << std::endl;
     flag = 0;
