@@ -4,6 +4,7 @@
 #include <iostream>
 #include <sstream>
 #include <iomanip>
+#include <exception>
 
 class ScalarConverter
 {
@@ -17,6 +18,26 @@ class ScalarConverter
 		static void	toDouble(std::string str);
 		static void	toFloat(std::string str);
 		~ScalarConverter();
+};
+
+class intException : public std::exception
+{
+	const char *what() const throw();
+};
+
+class floatException : public std::exception
+{
+	const char *what() const throw();
+};
+
+class doubleException : public std::exception
+{
+	const char *what() const throw();
+};
+
+class charException : public std::exception
+{
+	const char *what() const throw();
 };
 
 #endif

@@ -9,22 +9,31 @@ void	ScalarConverter::toInt(std::string str)
 {
     std::stringstream ss;
     int    i;
-    // std::atof(str.c_str());
+
     ss << str;
     ss >> i;
-    std::cout << "int = " << i << std::endl;
+    std::cout << "int: " << i << std::endl;
 }
 
 void	ScalarConverter::toChar(std::string str)
 {
-    std::stringstream ss;
-    int    i;
-    char    c;
+    try
+    {
+        std::stringstream ss;
+        int    i;
+        char    c;
 
-    ss << str;
-    ss >> i;
-    c = static_cast<char>(i);
-    std::cout << "char = " << c << std::endl;
+        ss << str;
+        ss >> i;
+        c = static_cast<char>(i);
+        if (!std::isprint(c))
+            throw (charException());
+        std::cout << "char: " << "\'" << c << "\'" << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
 }
 
 void	ScalarConverter::toDouble(std::string str)
@@ -36,7 +45,7 @@ void	ScalarConverter::toDouble(std::string str)
     ss << str;
     ss >> i;
     d = static_cast<double>(i);
-    std::cout << "Double = " << std::setprecision(1) << d << std::endl;
+    std::cout << "double: " << std::setprecision(1) << d << std::endl;
 }
 
 void	ScalarConverter::toFloat(std::string str)
@@ -48,15 +57,35 @@ void	ScalarConverter::toFloat(std::string str)
     ss << str;
     ss >> i;
     f = static_cast<float>(i);
-    std::cout << "Float = " << std::setprecision(1) << std::fixed << f << "f" << std::endl;
+    std::cout << "float: " << std::setprecision(1) << std::fixed << f << "f" << std::endl;
 }
 
 void    ScalarConverter::convert(std::string str)
 {
+    toChar(str);
     toInt(str);
     toFloat(str);
     toDouble(str);
-    toChar(str);
+}
+
+const char* intException::what() const throw()
+{
+    return ("int: impossible");
+}
+
+const char* floatException::what() const throw()
+{
+    return ("float: impossible");
+}
+
+const char* doubleException::what() const throw()
+{
+    return ("double: impossible");
+}
+
+const char* charException::what() const throw()
+{
+    return ("char: impossible");
 }
 
 ScalarConverter::~ScalarConverter()
