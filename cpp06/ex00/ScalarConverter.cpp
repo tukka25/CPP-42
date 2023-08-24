@@ -7,12 +7,21 @@ ScalarConverter::ScalarConverter()
 
 void	ScalarConverter::toInt(std::string str)
 {
-    std::stringstream ss;
-    int    i;
+    try
+    {
+        if (str.empty())
+            throw (intException());
+        std::stringstream ss;
+        int    i;
 
-    ss << str;
-    ss >> i;
-    std::cout << "int: " << i << std::endl;
+        ss << str;
+        ss >> i;
+        std::cout << "int: " << i << std::endl;
+    }
+    catch (std::exception &c)
+    {
+        std::cout << c.what() << std::endl;
+    }
 }
 
 void	ScalarConverter::toChar(std::string str)
@@ -38,26 +47,44 @@ void	ScalarConverter::toChar(std::string str)
 
 void	ScalarConverter::toDouble(std::string str)
 {
-    std::stringstream ss;
-    int    i;
-    double  d;
+    try
+    {
+        if (str.empty())
+            throw (doubleException());
+        std::stringstream ss;
+        int    i;
+        double  d;
 
-    ss << str;
-    ss >> i;
-    d = static_cast<double>(i);
-    std::cout << "double: " << std::setprecision(1) << d << std::endl;
+        ss << str;
+        ss >> i;
+        d = static_cast<double>(i);
+        std::cout << "double: " << std::setprecision(1) << d << std::endl;
+    }
+    catch (std::exception &c)
+    {
+        std::cout << c.what() << std::endl;
+    }
 }
 
 void	ScalarConverter::toFloat(std::string str)
 {
-    std::stringstream ss;
-    int    i;
-    float    f;
+    try
+    {
+        if (str.empty())
+            throw (floatException());
+        std::stringstream ss;
+        int    i;
+        float    f;
 
-    ss << str;
-    ss >> i;
-    f = static_cast<float>(i);
-    std::cout << "float: " << std::setprecision(1) << std::fixed << f << "f" << std::endl;
+        ss << str;
+        ss >> i;
+        f = static_cast<float>(i);
+        std::cout << "float: " << std::setprecision(1) << std::fixed << f << "f" << std::endl;
+    }
+    catch (std::exception &c)
+    {
+        std::cout << c.what() << std::endl;
+    }
 }
 
 void    ScalarConverter::convert(std::string str)
