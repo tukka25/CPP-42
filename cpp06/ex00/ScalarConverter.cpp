@@ -11,6 +11,12 @@ void	ScalarConverter::toInt(std::string str)
     {
         if (str.empty())
             throw (intException());
+        std::string throwme[8] = {"-nan", "nan", "-nanf", "nanf", "-inff", "+inff", "-inf", "+inf"};
+        for (int i = 0; i < 8; i++)
+        {
+            if (str == throwme[i])
+                throw (intException());
+        }
         std::stringstream ss;
         int    i;
 
@@ -28,6 +34,12 @@ void	ScalarConverter::toChar(std::string str)
 {
     try
     {
+        std::string throwme[8] = {"-nan", "nan", "-nanf", "nanf", "-inff", "+inff", "-inf", "+inf"};
+        for (int i = 0; i < 8; i++)
+        {
+            if (str == throwme[i])
+                throw (charException());
+        }
         std::stringstream ss;
         int    i;
         char    c;
@@ -51,6 +63,15 @@ void	ScalarConverter::toDouble(std::string str)
     {
         if (str.empty())
             throw (doubleException());
+        std::string throwme[8] = {"-nan", "nan", "-nanf", "nanf", "-inff", "+inff", "-inf", "+inf"};
+        for (int i = 0; i < 8; i++)
+        {
+            if (str == throwme[i])
+            {
+                std::cout << "double: " << str << std::endl;
+                return ;
+            }
+        }
         std::stringstream ss;
         int    i;
         double  d;
@@ -72,6 +93,15 @@ void	ScalarConverter::toFloat(std::string str)
     {
         if (str.empty())
             throw (floatException());
+        std::string throwme[8] = {"-nan", "nan", "-nanf", "nanf", "-inff", "+inff", "-inf", "+inf"};
+        for (int i = 0; i < 8; i++)
+        {
+            if (str == throwme[i])
+            {
+                std::cout << "float: " << str << "f" << std::endl;
+                return ;
+            }
+        }
         std::stringstream ss;
         int    i;
         float    f;
