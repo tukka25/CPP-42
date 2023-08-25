@@ -1,12 +1,12 @@
-#include "Data.hpp"
+#include "Serializer.hpp"
 
 int main()
 {
-    uintptr_t t;
-    Data *d = NULL;
-    t = Data::serialize(d);
-    if (Data::deserialize(t) == d)
-        std::cout << "Heey u are just a amazing coder" << std::endl;
+    Data data;
+    Serializer *d = NULL;
+    data.t = Serializer::serialize(d);
+    if (Serializer::deserialize(data.t) == d)
+        std::cout << "leessgoooo" << std::endl;
     else
-        std::cout << "booooo looser" << std::endl;
+        std::cout << "looser" << std::endl;
 }

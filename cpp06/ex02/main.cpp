@@ -5,7 +5,8 @@
 
 int main()
 {
-    Base *b = new Base;
-    b = Base::generate();
+    Base *b = Base::generate();
     Base::identify(b);
+    Base::identify(*b);
+    delete b;
 }

@@ -11,7 +11,6 @@ class ScalarConverter
 	private:
 		ScalarConverter();
 	public:
-		// ScalarConverter();
 		static void	convert(std::string str);
 		static void	toInt(std::string str);
 		static void	toChar(std::string str);

@@ -5,15 +5,33 @@
 #include <sstream>
 #include <iomanip>
 #include <exception>
-#include <typeinfo>
+#include <cstdlib>
+#include <sstream>
 
 class Base
 {
-	// private:
 	public:
-		Base();
         static Base*   generate(void);
         static void identify(Base* p);
+        static void identify(Base& p);
 		virtual ~Base();
+};
+
+class baseExceptionA : std::exception
+{
+	public:
+		const char *what() const throw();
+};
+
+class baseExceptionB : std::exception
+{
+	public:
+		const char *what() const throw();
+};
+
+class baseExceptionC : std::exception
+{
+	public:
+		const char *what() const throw();
 };
 #endif

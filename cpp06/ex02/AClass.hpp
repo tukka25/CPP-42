@@ -9,9 +9,5 @@
 
 class AClass : public Base
 {
-	// private:
-	public:
-		AClass();
-		~AClass();
 };
 #endif
