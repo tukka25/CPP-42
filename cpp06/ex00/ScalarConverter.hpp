@@ -41,4 +41,9 @@ class charException : public std::exception
 	const char *what() const throw();
 };
 
+class charExceptionNonDisplay : public std::exception
+{
+	const char *what() const throw();
+};
+
 #endif

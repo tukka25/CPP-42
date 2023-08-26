@@ -5,13 +5,13 @@ Templates::Templates()
 	std::cout << "Template Default Constructor" << std::endl;
 }
 
-T min(T a, T b)
-{
-	if (a > b)
-		return (a);
-	else
-		return (b);
-}
+// T min(T a, T b)
+// {
+// 	if (a > b)
+// 		return (a);
+// 	else
+// 		return (b);
+// }
 
 Templates::~Templates()
 {

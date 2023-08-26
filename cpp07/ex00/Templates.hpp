@@ -11,7 +11,13 @@ class Templates
 		Templates();
 		~Templates();
 };
-template <class T> T min(T a, T b);
+template <class T> T min(T a, T b)
+{
+        if (a > b)
+                return (a);
+        else
+                return (b);
+}
 
 class intException : public std::exception
 {
