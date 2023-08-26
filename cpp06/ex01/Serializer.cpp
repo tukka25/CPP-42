@@ -5,14 +5,14 @@ Serializer::Serializer()
     std::cout << "Serializer Default Constructor" << std::endl;
 }
 
-uintptr_t Serializer::serialize(Serializer* ptr)
+uintptr_t Serializer::serialize(Data* ptr)
 {
     return (reinterpret_cast<uintptr_t>(ptr));
 }
 
-Serializer*   Serializer::deserialize(uintptr_t raw)
+Data*   Serializer::deserialize(uintptr_t raw)
 {
-    return (reinterpret_cast<Serializer *>(raw));
+    return (reinterpret_cast<Data *>(raw));
 }
 
 Serializer::~Serializer()

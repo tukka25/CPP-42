@@ -3,10 +3,9 @@
 int main()
 {
     Data data;
-    Serializer *d = NULL;
-    data.t = Serializer::serialize(d);
-    if (Serializer::deserialize(data.t) == d)
-        std::cout << "leessgoooo" << std::endl;
-    else
-        std::cout << "looser" << std::endl;
+
+    data.kalam = "Toodope";
+    data.x = 7;
+    std::cout << Serializer::deserialize (Serializer::serialize(&data))->kalam << std::endl;
+    std::cout << Serializer::deserialize (Serializer::serialize(&data))->x << std::endl;
 }

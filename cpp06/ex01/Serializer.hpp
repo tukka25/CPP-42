@@ -7,19 +7,21 @@
 #include <exception>
 #include <stdint.h>
 
+struct Data
+{
+	int	x;
+	std::string kalam;
+};
+
 class Serializer
 {
 	private:
 		Serializer();
 	public:
-		static uintptr_t serialize(Serializer* ptr);
-		static Serializer* deserialize(uintptr_t raw);
+		static uintptr_t serialize(Data* ptr);
+		static Data* deserialize(uintptr_t raw);
 		~Serializer();
 };
 
-struct Data
-{
-	uintptr_t	t;
-};
 
 #endif
