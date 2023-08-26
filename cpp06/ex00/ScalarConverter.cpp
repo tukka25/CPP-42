@@ -9,9 +9,16 @@ void	ScalarConverter::toInt(std::string str)
 {
     try
     {
-        if (str.find_first_not_of("ABCDEGHIJKLMNOPQRSTUVWXYZabcdeghijklmnopgrsyuvwxyz") && str.length() > 1)
+        int    i = 0;
+        if (str.length() == 1 && !str.empty() && str.find_first_not_of("ABCDEGHIJKLMNOPQRSTUVWXYZabcdeghijklmnopgrsyuvwxyz"))
+        {
+            i = (int)str[0];
+            std::cout << "int: " << i << std::endl;
+            return ;
+        }
+        else if (str.find_first_not_of("ABCDEGHIJKLMNOPQRSTUVWXYZabcdeghijklmnopgrsyuvwxyz") && str.length() > 1)
             throw (intException());
-        if (str.empty())
+        else if (str.empty())
             throw (intException());
         std::string throwme[8] = {"-nan", "nan", "-nanf", "nanf", "-inff", "+inff", "-inf", "+inf"};
         for (int i = 0; i < 8; i++)
@@ -20,7 +27,6 @@ void	ScalarConverter::toInt(std::string str)
                 throw (intException());
         }
         std::stringstream ss;
-        int    i;
 
         ss << str;
         ss >> i;
@@ -36,9 +42,17 @@ void	ScalarConverter::toChar(std::string str)
 {
     try
     {
-        if (str.find_first_not_of("ABCDEGHIJKLMNOPQRSTUVWXYZabcdeghijklmnopgrsyuvwxyz") && str.length() > 1)
+        int    i;
+        if (str.length() == 1 && !str.empty() && str.find_first_not_of("ABCDEGHIJKLMNOPQRSTUVWXYZabcdeghijklmnopgrsyuvwxyz"))
+        {
+            i = (int)str[0];
+            char c = static_cast<char>(i);
+            std::cout << "char: " << "\'" << c << "\'" << std::endl;
+            return ;
+        }
+        else if (str.find_first_not_of("ABCDEGHIJKLMNOPQRSTUVWXYZabcdeghijklmnopgrsyuvwxyz") && str.length() > 1)
             throw (charException());
-        if (str.empty())
+        else if (str.empty())
             throw (charException());
         std::string throwme[8] = {"-nan", "nan", "-nanf", "nanf", "-inff", "+inff", "-inf", "+inf"};
         for (int i = 0; i < 8; i++)
@@ -47,13 +61,12 @@ void	ScalarConverter::toChar(std::string str)
                 throw (charException());
         }
         std::stringstream ss;
-        int    i;
         char    c;
 
         ss << str;
         ss >> i;
         c = static_cast<char>(i);
-        if (!std::isprint(c))
+        if (!std::isprint(c) || i > 128)
             throw (charException());
         std::cout << "char: " << "\'" << c << "\'" << std::endl;
     }
@@ -67,9 +80,17 @@ void	ScalarConverter::toDouble(std::string str)
 {
     try
     {
-        if (str.find_first_not_of("ABCDEGHIJKLMNOPQRSTUVWXYZabcdeghijklmnopgrsyuvwxyz") && str.length() > 1)
+        double  d;
+        if (str.length() == 1 && !str.empty() && str.find_first_not_of("ABCDEGHIJKLMNOPQRSTUVWXYZabcdeghijklmnopgrsyuvwxyz"))
+        {
+            d = (int)str[0];
+            d = static_cast<double>(d);
+            std::cout << "double: " << std::setprecision(1) << d << std::endl;
+            return ;
+        }
+        else if (str.find_first_not_of("ABCDEGHIJKLMNOPQRSTUVWXYZabcdeghijklmnopgrsyuvwxyz") && str.length() > 1)
             throw (doubleException());
-        if (str.empty())
+        else if (str.empty())
             throw (doubleException());
         std::string throwme[8] = {"-nan", "nan", "-nanf", "nanf", "-inff", "+inff", "-inf", "+inf"};
         for (int i = 0; i < 8; i++)
@@ -80,10 +101,10 @@ void	ScalarConverter::toDouble(std::string str)
                 return ;
             }
         }
-        double  d;
-        char    *j;
-
-        d = static_cast<double>(std::strtod(str.c_str(), &j));
+        char *j;
+        d = static_cast<double>(strtod(str.c_str(), &j));
+        if (d > 2147483647)
+            d = static_cast<double>(strtod("2147483647", &j));
         std::cout << "double: " << std::setprecision(1) << d << std::endl;
     }
     catch (std::exception &c)
@@ -96,6 +117,11 @@ void	ScalarConverter::toFloat(std::string str)
 {
     try
     {
+        float    f;
+        if (str.length() == 1 && !str.empty() && str.find_first_not_of("ABCDEGHIJKLMNOPQRSTUVWXYZabcdeghijklmnopgrsyuvwxyz"))
+        {
+            f = (int)str[0];
+        }
         if (str.find_first_not_of("ABCDEGHIJKLMNOPQRSTUVWXYZabcdeghijklmnopgrsyuvwxyz") && str.length() > 1)
             throw (floatException());
         if (str.empty())
@@ -111,11 +137,12 @@ void	ScalarConverter::toFloat(std::string str)
         }
         // std::stringstream ss;
         // int    i;
-        float    f;
 
         // ss << str;
         // ss >> i;
-        f = static_cast<float>(std::atof(str.c_str()));
+        f = static_cast<float>(atof(str.c_str()));
+        if (f > 2147483647)
+             f = static_cast<float>(atof("2147483647"));
         std::cout << "float: " << std::setprecision(1) << std::fixed << f << "f" << std::endl;
     }
     catch (std::exception &c)
