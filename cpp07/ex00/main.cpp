@@ -6,6 +6,10 @@ int main(void)
 
 	int i = 9;
 	int k = 5;
+	int a = 1;
+	int b = 2;
 
-	min(i, k);
+	std::cout << ::min(i, k) << std::endl;
+	::swap( a, b );
+	std::cout << "a = " << a << ", b = " << b << std::endl;
 }

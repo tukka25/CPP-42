@@ -2,6 +2,7 @@
 #define TEMPLATES_HPP
 
 #include <iostream>
+#include "Templates.tpp"
 
 // template <class T>
 class Templates
@@ -11,13 +12,12 @@ class Templates
 		Templates();
 		~Templates();
 };
-template <class T> T min(T a, T b)
-{
-        if (a > b)
-                return (a);
-        else
-                return (b);
-}
+
+template <class T> T min(T a, T b);
+
+template <class T> T max(T a, T b);
+
+template <class T> void swap(T &a, T &b);
 
 class intException : public std::exception
 {
