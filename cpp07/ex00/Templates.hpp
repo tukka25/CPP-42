@@ -8,7 +8,8 @@
 class Templates
 {
 	public:
-		// T min();
+		Templates(const Templates& t);
+		Templates&	operator=(const Templates &t);
 		Templates();
 		~Templates();
 };

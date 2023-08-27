@@ -5,13 +5,17 @@ Templates::Templates()
 	std::cout << "Template Default Constructor" << std::endl;
 }
 
-// T min(T a, T b)
-// {
-// 	if (a > b)
-// 		return (a);
-// 	else
-// 		return (b);
-// }
+Templates::Templates(const Templates &t)
+{
+	(void)t;
+	std::cout << "Template Copy Constructor" << std::endl;
+}
+
+Templates& Templates::operator=(const Templates& t)
+{
+	(void)t;
+	return (*this);
+}
 
 Templates::~Templates()
 {
