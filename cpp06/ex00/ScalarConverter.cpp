@@ -51,10 +51,7 @@ void	ScalarConverter::toChar(std::string str)
         for (int i = 0; i < 8; i++)
         {
             if (str == throwme[i])
-            {
-                std::cout << "float: " << str << std::endl;
-                return ;
-            }
+                throw (charException());
         }
         if (str.empty())
             throw (charExceptionNonDisplay());
@@ -105,7 +102,10 @@ void	ScalarConverter::toDouble(std::string str)
         {
             if (str == throwme[i])
             {
-                std::cout << "double: " << str << std::endl;
+                if (str == "nanf")
+                    std::cout << "double: " << "nan" << std::endl;
+                else
+                    std::cout << "double: " << str << std::endl;
                 return ;
             }
         }
@@ -147,7 +147,10 @@ void	ScalarConverter::toFloat(std::string str)
         {
             if (str == throwme[i])
             {
-                std::cout << "float: " << str << "f" << std::endl;
+                if (str == "nanf")
+                    std::cout << "float: " << str << std::endl;
+                else
+                    std::cout << "float: " << str << "f" << std::endl;
                 return ;
             }
         }
