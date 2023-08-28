@@ -5,10 +5,10 @@ template <class T>
 Array<T>::Array(T n)
 {
         this->arr = new T[n];
-        for (int i = 0; i < n; i++)
-        {
-                T[i] = 0;
-        }
+        // for (int i = 0; i < n; i++)
+        // {
+                // T[0] = 0;
+        // }
 	std::cout << "Template Parameterized Constructor" << std::endl;
 }
 
@@ -18,6 +18,12 @@ Array<T>::Array()
 	this->arr = new T[1];
         this->arr[0] = 0;
 	std::cout << "Template Default Constructor" << std::endl;
+}
+
+template <class T>
+T&    Array<T>::operator[](const int index)
+{
+	return (this->arr[index]);
 }
 
 
