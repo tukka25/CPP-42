@@ -12,7 +12,9 @@ class Array
 		// Array(const Array& t);
 		// Array&	operator=(const Array &t);
 		Array(T n);
-		T&	operator[](const int index);
+		// Array(const T &n);
+		int	size() const;
+		T&	operator[](const int index) const;
 		Array();
 		// ~Array();
 };

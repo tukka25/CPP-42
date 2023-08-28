@@ -6,8 +6,8 @@
 class Fixed 
 {
     private:
-		int			num;
-		const static int	frac = 8;
+      int			num;
+      const static int	frac = 8;
     public:
         Fixed();
         Fixed(const Fixed &t);
