@@ -7,8 +7,6 @@
 
 class Shrubbery : public AForm
 {
-    private:
-        int flag;
     public:
     Shrubbery();
     Shrubbery( std::string name);

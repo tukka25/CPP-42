@@ -2,19 +2,21 @@
 #define ARRAY_HPP
 
 #include <iostream>
+#include <exception>
 
 template <class T>
 class Array
 {
 	private:
 		T *arr;
+		int	len;
 	public:
-		// Array(const Array& t);
-		// Array&	operator=(const Array &t);
-		Array(T n);
-		// Array(const T &n);
+		Array(int n);
+		void	PrintArr() const;
+		Array(const Array<T> &n);
 		int	size() const;
-		T&	operator[](const int index) const;
+		T&	operator[](const int index);
+		const T&    operator[](const int index) const;
 		Array();
 		// ~Array();
 };
@@ -25,25 +27,25 @@ class Array
 
 // template <class C> char Encryption(C c);
 // template <class C> char Decryption(C c);
-
-class intException : public std::exception
+// template <class E>
+class OutOfBounds : public std::exception
 {
         const char *what() const throw();
 };
 
-class floatException : public std::exception
-{
-        const char *what() const throw();
-};
+// class floatException : public std::exception
+// {
+//         const char *what() const throw();
+// };
 
-class doubleException : public std::exception
-{
-        const char *what() const throw();
-};
+// class doubleException : public std::exception
+// {
+//         const char *what() const throw();
+// };
 
-class charException : public std::exception
-{
-        const char *what() const throw();
-};
+// class charException : public std::exception
+// {
+//         const char *what() const throw();
+// };
 
 #endif 

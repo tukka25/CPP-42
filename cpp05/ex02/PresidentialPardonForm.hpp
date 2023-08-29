@@ -7,8 +7,6 @@
 
 class Presidential : public AForm
 {
-    private:
-        int flag;
     public:
     Presidential();
     Presidential(const Presidential & p);

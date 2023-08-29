@@ -18,6 +18,11 @@
 // 	return (*this);
 // }
 
+// const char * OutOfBounds::what() const throw()
+// {
+//     return ("Out Of Bounds");
+// }
+
 // Array::~Array()
 // {
 // 	std::cout << "Template Default Desstructor" << std::endl;

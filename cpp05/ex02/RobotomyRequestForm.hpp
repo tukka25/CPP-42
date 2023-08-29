@@ -7,8 +7,6 @@
 
 class Robot : public AForm
 {
-    private:
-        int flag;
     public:
     Robot();
     Robot(std::string name);
