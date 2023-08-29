@@ -12,7 +12,7 @@ template <class T>
 Array<T>::Array(int n)
 {
         if (n <= 0)
-                throw (std::runtime_error("shit"));
+                throw (std::runtime_error("Failed to Allocate"));
 	std::cout << "Template Parameterized Constructor" << std::endl;
         this->arr = new T[n];
         this->len = n;
@@ -54,47 +54,26 @@ void	Array<T>::PrintArr() const
                         std::cout << this->arr[i] << " " << "," << std::endl;
         }
 }
-// template <class T>
-// T&	Array<T>::Array(const T &n)
-// {
-//         // if (this != &n)
-//         // {
-
-//         // }
-//         return (*this);
-// }
-
 
 template <class T>
 T&    Array<T>::operator[](const int index)
 {
         if (index < 0 || index >= len)
-                throw (std::runtime_error("shit"));
+                throw (std::runtime_error("Out Of Bounds"));
 	return (this->arr[index]);
 }
-
-// template <class E>
-// const char *OutOfBounds<E>::what() const throw()
-// {
-//     return ("Out Of Bounds");
-// }
 
 template <class T>
 const T&    Array<T>::operator[](const int index) const
 {
         if (index < 0 || index >= len)
-                throw (std::runtime_error("shit"));
+                throw (std::runtime_error("Out Of Bounds"));
 	return (this->arr[index]);
 }
 
 template <class T>
 int	Array<T>::size() const
 {
-        // int i = 0;
-        // if (!arr)
-        //         return (0);
-        // while (arr[i])
-        //         i++;
         return (this->len);
 }
 

@@ -3,7 +3,6 @@
 int main(void)
 {
 	std::string str = "tukka";
-	// std::string str = "tukka";
 
 	std::cout << "Basic one using a function" << std::endl;
 	Iter(str, 5, toupper);

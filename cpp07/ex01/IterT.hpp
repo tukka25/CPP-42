@@ -4,7 +4,6 @@
 #include <iostream>
 #include "IterT.tpp"
 
-// template <class T>
 class IterT
 {
 	public:

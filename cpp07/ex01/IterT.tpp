@@ -7,7 +7,6 @@ template <class S, class T, class F> void Iter(S &a, T length, F function)
         for (int i = 0; i < length; i++)
         {
                 a[i] = function(a[i]);
-                // std::cout << a[i] << std::endl;
         }
 }
 

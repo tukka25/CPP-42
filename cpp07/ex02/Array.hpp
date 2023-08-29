@@ -24,29 +24,9 @@ class Array
 
 #include "Array.tpp"
 
-// template <class S, class T, class F> void Iter(S &a, T length, F function);
-
-// template <class C> char Encryption(C c);
-// template <class C> char Decryption(C c);
-// template <class E>
 class OutOfBounds : public std::exception
 {
         const char *what() const throw();
 };
-
-// class floatException : public std::exception
-// {
-//         const char *what() const throw();
-// };
-
-// class doubleException : public std::exception
-// {
-//         const char *what() const throw();
-// };
-
-// class charException : public std::exception
-// {
-//         const char *what() const throw();
-// };
 
 #endif 
