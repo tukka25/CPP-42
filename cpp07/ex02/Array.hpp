@@ -18,7 +18,7 @@ class Array
 		T&	operator[](const int index);
 		const T&    operator[](const int index) const;
 		Array();
-		// ~Array();
+		~Array();
 };
 
 #include "Array.tpp"

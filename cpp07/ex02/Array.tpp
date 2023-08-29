@@ -87,4 +87,11 @@ int	Array<T>::size() const
         return (this->len);
 }
 
+template <class T>
+Array<T>::~Array()
+{
+        delete[] this->arr;
+	std::cout << "Template Parameterized Destructor" << std::endl;
+}
+
 #endif
