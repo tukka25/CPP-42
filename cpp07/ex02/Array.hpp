@@ -16,6 +16,7 @@ class Array
 		Array(const Array<T> &n);
 		int	size() const;
 		T&	operator[](const int index);
+		Array<T>&	operator=(const Array<T> &a);
 		const T&    operator[](const int index) const;
 		Array();
 		~Array();

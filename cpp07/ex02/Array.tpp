@@ -2,6 +2,13 @@
 # define ARRAY_TPP
 
 template <class T>
+Array<T>::Array()
+{
+	std::cout << "Template Default Constructor" << std::endl;
+	this->arr = NULL;
+}
+
+template <class T>
 Array<T>::Array(int n)
 {
         if (n <= 0)
@@ -14,16 +21,26 @@ Array<T>::Array(int n)
 template <class T>
 Array<T>::Array(const Array &n)
 {
-        std::cout << "copy constructor" << std::endl;
+        std::cout << "Template Copy Constructor" << std::endl;
         this->arr = new T[n.size()];
-        std::cout << "Size = " << n.size() << std::endl;
         for (int i = 0; i < n.size(); i++)
-        {
                 this->arr[i] = n.arr[i];
-                // len = i;
-                // std::cout << this->arr[i] << std::endl;
+        this->len = n.size();
+}
+
+template <class T>
+Array<T>&     Array<T>::operator=(const Array<T> &a)
+{
+        if (this != &a)
+        {
+                std::cout << "Copy Assignment Operator" << std::endl;
+                if (!this->arr)
+                        this->arr = new T[a.size()];
+                for (int i = 0; i < a.size(); i++)
+                        this->arr[i] = a.arr[i];
+                this->len = a.size();
         }
-        len = n.size();
+        return (*this);
 }
 
 template <class T>
@@ -47,12 +64,6 @@ void	Array<T>::PrintArr() const
 //         return (*this);
 // }
 
-template <class T>
-Array<T>::Array()
-{
-	std::cout << "Template Default Constructor" << std::endl;
-	this->arr = NULL;
-}
 
 template <class T>
 T&    Array<T>::operator[](const int index)

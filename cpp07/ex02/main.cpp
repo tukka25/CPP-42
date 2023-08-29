@@ -16,7 +16,8 @@ int main(void)
 	std::cout << "a Arr" << std::endl;
 	std::cout << "----------------------" << std::endl;
 
-	Array<int> b(a);
+	Array<int> b;
+	b = a;
 	b.PrintArr();
 	std::cout << "b Arr" << std::endl;
 	std::cout << "----------------------" << std::endl;
