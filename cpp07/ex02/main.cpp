@@ -9,13 +9,12 @@ int main(void)
 		{
 			a[i] = i;
 		}
-		a[32] = 0;
 		a.PrintArr();
 		std::cout << "a Arr" << std::endl;
 		std::cout << "----------------------" << std::endl;
 
 		Array<int> b;
-		b = a;
+		// b = a;
 		b.PrintArr();
 		std::cout << "b Arr" << std::endl;
 		std::cout << "----------------------" << std::endl;

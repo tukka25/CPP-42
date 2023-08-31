@@ -2,7 +2,7 @@ NAME = Array
 
 CXX = c++
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g3 -fsanitize=address
 
 SRCS =	main.cpp \
 		Array.cpp

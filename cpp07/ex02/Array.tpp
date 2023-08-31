@@ -14,7 +14,8 @@ Array<T>::Array(int n)
         if (n <= 0)
                 throw (std::runtime_error("Failed to Allocate"));
 	std::cout << "Template Parameterized Constructor" << std::endl;
-        this->arr = new T[n];
+        this->arr = new T[n + 1];
+        this->arr[n] = 0;
         this->len = n;
 }
 
@@ -22,9 +23,10 @@ template <class T>
 Array<T>::Array(const Array &n)
 {
         std::cout << "Template Copy Constructor" << std::endl;
-        this->arr = new T[n.size()];
+        this->arr = new T[n.size() + 1];
         for (int i = 0; i < n.size(); i++)
                 this->arr[i] = n.arr[i];
+        this->arr[n.size] = 0;
         this->len = n.size();
 }
 
@@ -38,6 +40,7 @@ Array<T>&     Array<T>::operator=(const Array<T> &a)
                         this->arr = new T[a.size()];
                 for (int i = 0; i < a.size(); i++)
                         this->arr[i] = a.arr[i];
+                this->arr[a.size] = 0;
                 this->len = a.size();
         }
         return (*this);
@@ -46,6 +49,8 @@ Array<T>&     Array<T>::operator=(const Array<T> &a)
 template <class T>
 void	Array<T>::PrintArr() const
 {
+        if (!this->arr)
+                return ;
         for (int i = 0; i < this->size(); i++)
         {
                 if (i == this->size() - 1)
