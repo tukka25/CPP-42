@@ -14,7 +14,6 @@ int main(void)
 		std::cout << "----------------------" << std::endl;
 
 		Array<int> b;
-		// b = a;
 		b.PrintArr();
 		std::cout << "b Arr" << std::endl;
 		std::cout << "----------------------" << std::endl;
