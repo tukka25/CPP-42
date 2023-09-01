@@ -2,6 +2,7 @@
 # define EASYFIND_HPP
 
 # include <iostream>
+# include <vector>
 # include "easyfind.tpp"
 
 class EFind
