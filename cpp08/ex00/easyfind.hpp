@@ -15,6 +15,13 @@ class EFind
         ~EFind();
 };
 
+struct list 
+{
+        struct  list *prev;
+        struct  list *next;
+        int     content;
+};
+
 template <typename T, int N> void  easyfind(T a, int n);
 
 class Error : public std::exception
