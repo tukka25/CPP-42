@@ -7,6 +7,7 @@ int main()
     // struct list *b = NULL;
     
     // b = new struct list;
+    // b->content = 2;
     std::vector<int> v;
     std::array<int, 5>  a = {1, 2, 3, 4, 5};
     // std::array<int, 5> arr;
