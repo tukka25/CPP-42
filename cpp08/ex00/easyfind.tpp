@@ -1,7 +1,7 @@
 #ifndef EASYFINF_TPP
 # define EASYFINF_TPP
 
-template <typename T, typename I> void  easyfind(T a, I n)
+template <typename T, int N> void  easyfind(T a, int n)
 {
     for (int i = 0; i < (int)a.size(); i++)
     {

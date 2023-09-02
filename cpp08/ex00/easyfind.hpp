@@ -14,7 +14,7 @@ class EFind
         ~EFind();
 };
 
-template <typename T, typename I> void  easyfind(T a, I n);
+template <typename T, int N> void  easyfind(T a, int n);
 
 class Error : public std::exception
 {

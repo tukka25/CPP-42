@@ -4,7 +4,7 @@ int main()
 {
     EFind    e;
     std::vector<int> v;
-    std::array<int, 5> arr;
+    // std::array<int, 5> arr;
 
     for (int i = 2; i <= 5; i++)
         v.push_back(i);
@@ -13,7 +13,7 @@ int main()
     {
         std::cout << v.at(i) << std::endl;
     }
-    easyfind(v, 1);
+    easyfind<std::vector<int>, 7>(v, 7);
     // std::cout << *v.begin() << std::endl;
     // for (const int &i : v)
     // {
