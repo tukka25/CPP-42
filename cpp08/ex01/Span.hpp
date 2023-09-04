@@ -3,14 +3,18 @@
 
 # include <iostream>
 # include <vector>
-# include "easyfind.tpp"
+# include <iterator>
+# include <set>
 
 class Span
 {
     private:
-
+        std::multiset<int, std::greater<int> > arr;
+        int max;
     public:
         Span();
+        Span(unsigned int n);
+        void    addNumber(int a);
         ~Span();
 };
 

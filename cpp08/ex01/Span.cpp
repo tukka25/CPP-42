@@ -1,16 +1,29 @@
-# include "easyfind.hpp"
+# include "Span.hpp"
 
-EFind::EFind()
+Span::Span()
 {
     std::cout << "Default Contructor Called" << std::endl;
 }
 
-const char *Error::what() const throw ()
+Span::Span(unsigned int n)
 {
-    return ("Element Not Found");
+    std::cout << "Parameterized Contructor Called" << std::endl;
+    if (n == 0)
+        throw (Error());
+    this->max = n;
 }
 
-EFind::~EFind()
+const char *Error::what() const throw ()
+{
+    return ("Cant allocate");
+}
+
+void    Span::addNumber(int a)
+{
+    
+}
+
+Span::~Span()
 {
     std::cout << "Default Destructor Called" << std::endl;
 }
