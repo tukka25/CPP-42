@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <vector>
+# include <list>
 # include "easyfind.tpp"
 
 class EFind

@@ -11,23 +11,28 @@ class Span
     private:
         std::multiset<int, std::greater<int> > arr;
         int max;
+        int shortest;
     public:
         Span();
         Span(unsigned int n);
         void    addNumber(int a);
+        void    printt(void);
+        int     shortestSpan(void);
+        int     longestSpan(void);
         ~Span();
 };
 
-struct list 
+class Error : public std::exception
 {
-        struct  list *prev;
-        struct  list *next;
-        int     content;
+        const char *what() const throw();
 };
 
-// template <typename T, int N> void  easyfind(T a, int n);
+class fullySet : public std::exception
+{
+        const char *what() const throw();
+};
 
-class Error : public std::exception
+class noSpan : public std::exception
 {
         const char *what() const throw();
 };

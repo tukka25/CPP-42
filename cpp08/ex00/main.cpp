@@ -3,7 +3,7 @@
 int main()
 {
     EFind    e;
-    // list    l;
+    std::list    l;
     // struct list *b = NULL;
     // struct list *c = NULL;
     // struct list *d = NULL;
