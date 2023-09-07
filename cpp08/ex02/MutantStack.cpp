@@ -1,11 +1,11 @@
-# include "Span.hpp"
+# include "MutantStack.hpp"
 
-Span::Span()
+MutantStack::MutantStack()
 {
     std::cout << "Default Contructor Called" << std::endl;
 }
 
-Span::Span(unsigned int n)
+MutantStack::MutantStack(unsigned int n)
 {
     std::cout << "Parameterized Contructor Called" << std::endl;
     if (n == 0)
@@ -14,7 +14,7 @@ Span::Span(unsigned int n)
     shortest = INT_MAX;
 }
 
-void    Span::addNumber(int a)
+void    MutantStack::addNumber(int a)
 {
     static int i;
     if (i == max)
@@ -23,13 +23,13 @@ void    Span::addNumber(int a)
     i++;
 }
 
-void    Span::ultimateAddNumber(void)
+void    MutantStack::ultimateAddNumber(void)
 {
     for (int i = 0;i < this->max;i++)
         this->arr.insert(rand() / 5);    
 }
 
-void    Span::printt(void)
+void    MutantStack::printt(void)
 {
     std::multiset<int>::iterator t;
     for (t = this->arr.begin(); t != arr.end(); t++)
@@ -38,12 +38,12 @@ void    Span::printt(void)
     }
 }
 
-int Span::shortestSpan(void)
+int MutantStack::shortestMutantStack(void)
 {
     int tmp = 0;
 
     if (this->arr.size() <= 1)
-        throw (noSpan());
+        throw (noMutantStack());
     std::multiset<int>::iterator t = ++this->arr.begin();
     for (;t != this->arr.end(); t++)
     {
@@ -55,10 +55,10 @@ int Span::shortestSpan(void)
     return (this->shortest);
 }
 
-int Span::longestSpan(void)
+int MutantStack::longestMutantStack(void)
 {
     if (this->arr.size() <= 1)
-        throw (noSpan());
+        throw (noMutantStack());
     return (*this->arr.begin() - *--this->arr.end());
 }
 
@@ -72,12 +72,12 @@ const char *fullySet::what() const throw ()
     return ("no more space");
 }
 
-const char *noSpan::what() const throw ()
+const char *noMutantStack::what() const throw ()
 {
-    return ("Cant Find a Span");
+    return ("Cant Find a MutantStack");
 }
 
-Span::~Span()
+MutantStack::~MutantStack()
 {
     std::cout << "Default Destructor Called" << std::endl;
 }

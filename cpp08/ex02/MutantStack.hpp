@@ -1,26 +1,27 @@
-#ifndef SPAN_HPP
-# define SPAN_HPP
+#ifndef MUTANTSTACK_HPP
+# define MUTANTSTACK_HPP
 
 # include <iostream>
 # include <vector>
 # include <iterator>
+# include <stack>
 # include <set>
 
-class Span
+class MutantStack : std::stack<int>
 {
     private:
         std::multiset<int, std::greater<int> > arr;
         int max;
         int shortest;
     public:
-        Span();
-        Span(unsigned int n);
+        MutantStack();
+        MutantStack(unsigned int n);
         void    addNumber(int a);
         void    ultimateAddNumber(void);
         void    printt(void);
-        int     shortestSpan(void);
-        int     longestSpan(void);
-        ~Span();
+        int     shortestMutantStack(void);
+        int     longestMutantStack(void);
+        ~MutantStack();
 };
 
 class Error : public std::exception
@@ -33,7 +34,7 @@ class fullySet : public std::exception
         const char *what() const throw();
 };
 
-class noSpan : public std::exception
+class noMutantStack : public std::exception
 {
         const char *what() const throw();
 };
