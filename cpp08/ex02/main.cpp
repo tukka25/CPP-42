@@ -3,27 +3,24 @@
 int main()
 {
     std::stack<int> s;
-    s.push(21);
-    s.push(22);
-    while (!s.empty())
-    {
-        std::cout << s.top() << std::endl;
-        s.pop();
-    }
-    // try
-    // {
-    //     Span sp = Span(5);
-    //     sp.addNumber(6);
-    //     sp.addNumber(3);
-    //     sp.addNumber(17);
-    //     sp.addNumber(9);
-    //     sp.addNumber(11);
-    //     std::cout << sp.shortestSpan() << std::endl;
-    //     std::cout << sp.longestSpan() << std::endl;
-    // }
-    // catch(const std::exception& e)
-    // {
-    //     std::cerr << e.what() << std::endl;
-    // }
+    // MutantStack<int> m;
+    // s.push(21);
+    // s.push(22);
+    MutantStack<int> mstack;
+    mstack.push(5);
+    mstack.push(17);
+    s.push(5);
+    s.push(17);
+    std::cout << "m = " << mstack.top() << std::endl;
+    std::cout << s.top() << std::endl;
+    mstack.pop();
+    std::cout << "top of m = " << mstack.top() << std::endl;
+    std::cout << "m = " << mstack.size() << std::endl;
+    s.pop();
+    std::cout << s.size() << std::endl;
+    mstack.push(3);
+    mstack.push(5);
+    mstack.push(737);
+    mstack.push(0);
     
 }
