@@ -18,6 +18,15 @@ int main()
         std::cout << "sp = " << sp.longestSpan() << std::endl;
         std::cout << "tmp = " << tmp.shortestSpan() << std::endl;
         std::cout << "tmp = " << tmp.longestSpan() << std::endl;
+    
+        std::multiset<int>  d;
+        Span    tm = Span(100);
+        for (int i = 0; i < 700; i++)
+        {
+            d.insert(i);
+        }
+        tm.ultimateAddNumber(d.begin(), d.end());
+        tm.printt();
     }
     catch(const std::exception& e)
     {

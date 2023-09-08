@@ -45,10 +45,15 @@ void    Span::addNumber(int a)
     i++;
 }
 
-void    Span::ultimateAddNumber(void)
+void    Span::ultimateAddNumber(std::multiset<int>::iterator begin, std::multiset<int>::iterator end)
 {
-    for (int i = 0;i < this->max;i++)
-        this->arr.insert(rand() / 5);    
+    int i = 0;
+
+    for (;begin != end && i < this->max;begin++)
+    {
+        this->arr.insert(*begin);
+        i++;
+    }
 }
 
 void    Span::printt(void)

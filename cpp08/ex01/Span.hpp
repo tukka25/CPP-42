@@ -20,7 +20,7 @@ class Span
         Span    &operator=(const Span & s);
         Span(unsigned int n);
         void    addNumber(int a);
-        void    ultimateAddNumber(void);
+        void    ultimateAddNumber(std::multiset<int>::iterator begin, std::multiset<int>::iterator end);
         void    printt(void);
         int     shortestSpan(void);
         int     longestSpan(void);
