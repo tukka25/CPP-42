@@ -5,6 +5,28 @@ Span::Span()
     std::cout << "Default Contructor Called" << std::endl;
 }
 
+Span::Span(const Span &s)
+{
+    *this = s;
+    std::cout << "Copy Contructor Called" << std::endl;
+}
+
+Span    &Span::operator=(const Span & s)
+{
+    if (s.arr.empty() || this == &s)
+    {
+        return (*this);
+    }
+    std::multiset<int>::iterator it;
+
+    for (it = s.arr.begin(); it != s.arr.end(); it++)
+    {
+        this->arr.insert(*it);
+    }
+    this->shortest = INT_MAX;
+    return (*this);
+}
+
 Span::Span(unsigned int n)
 {
     std::cout << "Parameterized Contructor Called" << std::endl;

@@ -64,6 +64,9 @@
 		"compare": "cpp",
 		"concepts": "cpp",
 		"algorithm": "cpp",
-		"*.tpp": "cpp"
+		"*.tpp": "cpp",
+		"deque": "cpp",
+		"list": "cpp",
+		"stack": "cpp"
 	}
 }

@@ -14,6 +14,8 @@ class Span
         int shortest;
     public:
         Span();
+        Span(const Span &s);
+        Span    &operator=(const Span & s);
         Span(unsigned int n);
         void    addNumber(int a);
         void    ultimateAddNumber(void);

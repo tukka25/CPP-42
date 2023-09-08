@@ -10,8 +10,14 @@ int main()
         sp.addNumber(17);
         sp.addNumber(9);
         sp.addNumber(11);
-        std::cout << sp.shortestSpan() << std::endl;
-        std::cout << sp.longestSpan() << std::endl;
+        Span tmp = sp;
+        std::cout << "after copying" << std::endl;
+        tmp.printt();
+        std::cout << "----------------" << std::endl;
+        std::cout << "sp = " << sp.shortestSpan() << std::endl;
+        std::cout << "sp = " << sp.longestSpan() << std::endl;
+        std::cout << "tmp = " << tmp.shortestSpan() << std::endl;
+        std::cout << "tmp = " << tmp.longestSpan() << std::endl;
     }
     catch(const std::exception& e)
     {
