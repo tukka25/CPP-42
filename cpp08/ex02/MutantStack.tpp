@@ -14,4 +14,13 @@ MutantStack<T>::~MutantStack()
     std::cout << "Default Destructor Called" << std::endl;
 }
 
+// typedef typename container::iterator iterator;
+// iterator begin()
+// {
+//     return (this->c.begin());
+// }
+// iterator end()
+// {
+//     return (this->c.end());
+// }
 #endif

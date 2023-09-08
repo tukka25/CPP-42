@@ -2,25 +2,30 @@
 
 int main()
 {
-    std::stack<int> s;
-    // MutantStack<int> m;
-    // s.push(21);
-    // s.push(22);
     MutantStack<int> mstack;
     mstack.push(5);
     mstack.push(17);
-    s.push(5);
-    s.push(17);
-    std::cout << "m = " << mstack.top() << std::endl;
-    std::cout << s.top() << std::endl;
+    std::cout << mstack.top() << std::endl;
     mstack.pop();
-    std::cout << "top of m = " << mstack.top() << std::endl;
-    std::cout << "m = " << mstack.size() << std::endl;
-    s.pop();
-    std::cout << s.size() << std::endl;
+    std::cout << mstack.size() << std::endl;
     mstack.push(3);
     mstack.push(5);
     mstack.push(737);
     mstack.push(0);
-    
+    MutantStack<int>::iterator it = mstack.begin();
+    MutantStack<int>::iterator ite = mstack.end();
+    ++it;
+    --it;
+    while (it != ite)
+    {
+        std::cout << *it << std::endl;
+        ++it;
+    }
+    std::stack<int> s(mstack);
+    std::cout << "-------------------------------" << std::endl;
+    std::cout << "extra tests" << std::endl;
+    MutantStack<int>::iterator t = mstack.begin();
+    for (; t != mstack.end();t++)
+        std::cout << "t value is = " << *t << std::endl;
+    return 0;
 }

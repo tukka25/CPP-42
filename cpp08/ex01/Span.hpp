@@ -4,6 +4,8 @@
 # include <iostream>
 # include <vector>
 # include <iterator>
+# include <climits>
+# include <cstdlib>
 # include <set>
 
 class Span
