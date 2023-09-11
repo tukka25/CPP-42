@@ -58,8 +58,11 @@ int    Bitcoin::parseDate(std::string  str)
 
 bool    Bitcoin::validateDayWithMonth(std::string s, std::string month, std::string year)
 {
-    (void)s;
-    (void)month;
+    // (void)s;
+    // (void)month;
+    // std::cout << std::atoi(s.c_str()) << std::endl;
+    if (std::atoi(month.c_str()) == 2 && std::atoi(s.c_str()) > 29)
+        return (false);
     if (std::atoi(month.c_str()) == 2 && !this->checkLeapYear(year, month) && std::atoi(s.c_str()) > 28)
         return (false);
     return (true);
@@ -68,7 +71,12 @@ bool    Bitcoin::validateDayWithMonth(std::string s, std::string month, std::str
 bool    Bitcoin::checkLeapYear(std::string year, std::string month)
 {
     if (std::atoi(month.c_str()) == 2 && (std::atoi(year.c_str()) % 4 == 0
-    || (std::atoi(year.c_str()) % 100 == 0 && std::atoi(year.c_str()) % 4 == 0)))
+    || (std::atoi(year.c_str()) % 100 == 0 && std::atoi(year.c_str()) % 400 == 0)))
+    {
+        // std::cout << "here" << std::endl;
+        return (true);
+    }
+    return (false);
 }
 
 void    Bitcoin::execution(char *str)
@@ -103,26 +111,32 @@ void    Bitcoin::parseFile(void)
                 tmp = tmp2;
             i++;
         }
+        // if (i < 3)
+        //     std::cout << InvalidFormat().what() << std::endl;
         ss.clear();
+        if (tmp2 == "|")
+            tmp2 = "";
         this->m.insert(std::pair<std::string, std::string>(tmp, tmp2));
     }
     std::multimap<std::string, std::string>::iterator   t = this->m.begin();
     for(; t != this->m.end(); t++)
     {
+        // std::cout << "sec = " << t->second << std::endl;
         int del = parseDate(t->first);
-        if (del == wrongvalue)
+        if (del == wrongvalue || t->first.empty() || t->second.empty())
         {
-            throw (InvalidFormat());
+            std::cout << "Error: Invalid Format" << std::endl;;
         }
-        if (del == wrongday)
+        else if (del == wrongday)
         {
-            throw (InvalidDay());
+            std::cout << "Error: Invalid Day" << std::endl;;
         }
-        if (del == wrongmonth)
+        else if (del == wrongmonth)
         {
-            throw (InvalidMonth());
+            std::cout << "Error: Invalid Month" << std::endl;;
         }
-        std::cout << t->first << '\t' << t->second << std::endl;
+        else
+            std::cout << t->first << '\t' << t->second << std::endl;
     }
 }
 
