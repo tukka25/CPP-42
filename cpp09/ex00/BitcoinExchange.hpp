@@ -7,21 +7,49 @@
 # include <cstring>
 # include <cstdlib>
 # include <fstream>
+#include <sstream>
 # include <algorithm>
 # include <map>
+
+enum    errorDate
+{
+    nodate = 1,
+    wrongmonth,
+    wrongday,
+    wrongvalue
+};
 
 class Bitcoin
 {
     private:
-
+        std::multimap<std::string, std::string>  m;
+        std::ifstream                           f;
     public:
         Bitcoin();
-        void    execution(char *str);
+        void    execution(char *);
+        void    parseFile(void);
+        int     parseDate(std::string   str);
+        bool    validateDayWithMonth(std::string s, std::string month);
         bool    checkFile(char *str);
         ~Bitcoin();
 };
 
 class   FileError : public std::exception
+{
+    public:
+        const char *what() const throw();
+};
+class   InvalidDay : public std::exception
+{
+    public:
+        const char *what() const throw();
+};
+class   InvalidMonth : public std::exception
+{
+    public:
+        const char *what() const throw();
+};
+class   InvalidFormat : public std::exception
 {
     public:
         const char *what() const throw();
