@@ -17,21 +17,24 @@ int    Bitcoin::parseDate(std::string  str)
 {
     int                 i = 0;
     std::string         month;
+    std::string         year;
     std::string         s;
     std::stringstream   ss;
     std::string::difference_type n = std::count(str.begin(), str.end(), '-');
 
-    // std::cout << n << std::endl;
+    ss << str;
     if (str.empty())
         return (nodate);
     if (n != 2)
         return (wrongvalue);
-    // std::cout << str << std::endl;
-    while (getline(ss, s, '-') || !str.empty())
+    // std::cout << "bef" << std::endl;
+    while (getline(ss, s, '-'))
     {
-        std::cout << "s in = " << s << std::endl;
+        // std::cout << "s in = " << s << std::endl;
         if (s.empty() && str.empty())
             return (wrongvalue);
+        if (i == 0)
+            year = s;
         if (i == 1)
         {
             // std::cout << "month atoi = " << std::atoi(s.c_str()) << std::endl;
@@ -42,21 +45,30 @@ int    Bitcoin::parseDate(std::string  str)
         if (i == 2)
         {
             if (std::atoi(s.c_str()) > 31 || std::atoi(s.c_str()) <= 0
-            || !this->validateDayWithMonth(s, month))
+            || !this->validateDayWithMonth(s, month, year))
                 return (wrongday);
         }
         i++;
         str = str.substr(str.find('-') + 1, str.length());
-        std::cout << "sub = " << str << std::endl;
+        // std::cout << "sub = " << str << std::endl;
     }
+    ss.clear();
     return (0);
 }
 
-bool    Bitcoin::validateDayWithMonth(std::string s, std::string month)
+bool    Bitcoin::validateDayWithMonth(std::string s, std::string month, std::string year)
 {
     (void)s;
     (void)month;
+    if (std::atoi(month.c_str()) == 2 && !this->checkLeapYear(year, month) && std::atoi(s.c_str()) > 28)
+        return (false);
     return (true);
+}
+
+bool    Bitcoin::checkLeapYear(std::string year, std::string month)
+{
+    if (std::atoi(month.c_str()) == 2 && (std::atoi(year.c_str()) % 4 == 0
+    || (std::atoi(year.c_str()) % 100 == 0 && std::atoi(year.c_str()) % 4 == 0)))
 }
 
 void    Bitcoin::execution(char *str)
@@ -97,15 +109,16 @@ void    Bitcoin::parseFile(void)
     std::multimap<std::string, std::string>::iterator   t = this->m.begin();
     for(; t != this->m.end(); t++)
     {
-        if (parseDate(t->first) == wrongvalue)
+        int del = parseDate(t->first);
+        if (del == wrongvalue)
         {
             throw (InvalidFormat());
         }
-        if (parseDate(t->first) == wrongday)
+        if (del == wrongday)
         {
             throw (InvalidDay());
         }
-        if (parseDate(t->first) == wrongmonth)
+        if (del == wrongmonth)
         {
             throw (InvalidMonth());
         }

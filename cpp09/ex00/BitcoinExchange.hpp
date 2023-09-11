@@ -29,7 +29,8 @@ class Bitcoin
         void    execution(char *);
         void    parseFile(void);
         int     parseDate(std::string   str);
-        bool    validateDayWithMonth(std::string s, std::string month);
+        bool    checkLeapYear(std::string year, std::string month);
+        bool    validateDayWithMonth(std::string s, std::string month, std::string year);
         bool    checkFile(char *str);
         ~Bitcoin();
 };
