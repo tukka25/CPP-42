@@ -23,6 +23,7 @@ class Bitcoin
 {
     private:
         std::multimap<std::string, std::string>  m;
+        std::multimap<std::string, std::string>  database;
         std::ifstream                           f;
     public:
         Bitcoin();
@@ -30,6 +31,7 @@ class Bitcoin
         void    parseFile(void);
         int     parseDate(std::string   str);
         bool    checkLeapYear(std::string year, std::string month);
+        void    storeDatabase();
         bool    validateDayWithMonth(std::string s, std::string month, std::string year);
         bool    checkFile(char *str);
         ~Bitcoin();
@@ -46,6 +48,11 @@ class   InvalidDay : public std::exception
         const char *what() const throw();
 };
 class   InvalidMonth : public std::exception
+{
+    public:
+        const char *what() const throw();
+};
+class   NoDatabase : public std::exception
 {
     public:
         const char *what() const throw();

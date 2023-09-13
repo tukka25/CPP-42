@@ -49,7 +49,7 @@ int    Bitcoin::parseDate(std::string  str)
                 return (wrongday);
         }
         i++;
-        str = str.substr(str.find('-') + 1, str.length());
+        // str = str.substr(str.find('-') + 1, str.length());
         // std::cout << "sub = " << str << std::endl;
     }
     ss.clear();
@@ -91,6 +91,22 @@ void    Bitcoin::execution(char *str)
     {
         std::cout << e.what() << std::endl;
     }
+}
+
+void    Bitcoin::storeDatabase()
+{
+    std::ifstream   file;
+    std::stringstream   ss;
+    std::string         str;
+
+    file.open("data.csv");
+    if (file.fail())
+        throw (NoDatabase());
+    while (getline(file, str))
+    {
+
+    }
+    
 }
 
 void    Bitcoin::parseFile(void)
@@ -153,6 +169,11 @@ const char *InvalidDay::what() const throw()
 const char *InvalidMonth::what() const throw()
 {
     return ("Error: Invalid Month");
+}
+
+const char *NoDatabase::what() const throw()
+{
+    return ("Error: No Database");
 }
 
 const char *InvalidFormat::what() const throw()
