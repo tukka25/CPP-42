@@ -15,13 +15,14 @@ void    Rpn::execution(char *argv)
     s = argv;
     if (s.find_first_not_of("0987654321 *+-/") != std::string::npos || s.empty())
         throw (WrongInput());
-    ss << argv;
-    while (getline(ss, s, ' '))
+    // ss << argv;
+    while (ss << argv)
     {
+        ss >> s;
         if (s.size() > 1)
             throw (WrongInput());
         if (s.find_first_not_of("0987654321") == std::string::npos)
-        st.push(std::atoi(s.c_str()));
+            st.push(std::atoi(s.c_str()));
         if (st.size() >= 2 && s.find_first_of("+-/*") != std::string::npos)
         {
             g = st.top();
@@ -29,11 +30,15 @@ void    Rpn::execution(char *argv)
             g2 = st.top();
             st.pop();
             st.push(this->doOperation(g2, g, s));
-            std::cout << st.top() << std::endl;
+            // std::cout << st.top() << std::endl;
         } 
     }
-    if (st.size() >= 2)
+    std::cout << "size = " << st.size() << std::endl;
+    if (st.size() >= 2 || st.size() == 0)
+    {
+        std::cout << "fuck" << std::endl;
         throw (WrongInput());
+    }
     std::cout << "Result => "  << st.top() << std::endl;
     
 }

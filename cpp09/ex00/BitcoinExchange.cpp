@@ -85,7 +85,8 @@ void    Bitcoin::execution(char *str)
     {
         if (!this->checkFile(str))
             throw (FileError());
-        this->parseFile();
+        // this->parseFile();
+        this->storeDatabase();
     }
     catch (const std::exception &e)
     {
@@ -98,15 +99,31 @@ void    Bitcoin::storeDatabase()
     std::ifstream   file;
     std::stringstream   ss;
     std::string         str;
+    std::string         splitedstr;
+    std::string         tmp;
+    int                 i = 0;
 
     file.open("data.csv");
     if (file.fail())
         throw (NoDatabase());
     while (getline(file, str))
     {
-
+        ss << str;
+        i = 0;
+        while (getline(ss, splitedstr, ','))
+        {
+            if (i == 0)
+                tmp = splitedstr;
+            i++;
+        }
+        this->database.insert(std::pair<std::string, std::string>(tmp, splitedstr));
+        ss.clear();
     }
-    
+    std::multimap<std::string, std::string>::iterator   t = database.begin();
+    for(; t != this->database.end(); t++)
+    {
+        std::cout << t->first << "   ==>   " << t->second << std::endl;
+    }
 }
 
 void    Bitcoin::parseFile(void)
