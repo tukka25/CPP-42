@@ -13,6 +13,14 @@
 # include <stdlib.h>
 # include <map>
 
+enum flag
+{
+    minus = '-',
+    plus = '+',
+    mult = '*',
+    divi = '/'
+};
+
 class   Rpn
 {
     private:
@@ -20,7 +28,7 @@ class   Rpn
     public:
         Rpn();
         ~Rpn();
-        int     doOperation(int num1, int num2, std::string flag);
+        int     doOperation(int num1, int num2, int flag);
         void    execution(char *argv);
 };
 

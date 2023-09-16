@@ -7,6 +7,7 @@ Rpn::Rpn()
 
 void    Rpn::execution(char *argv)
 {
+    // int         f = 0;
     std::string s;
     int          g;
     int          g2;
@@ -15,10 +16,9 @@ void    Rpn::execution(char *argv)
     s = argv;
     if (s.find_first_not_of("0987654321 *+-/") != std::string::npos || s.empty())
         throw (WrongInput());
-    // ss << argv;
-    while (ss << argv)
+    ss << argv;
+    while (ss >> s)
     {
-        ss >> s;
         if (s.size() > 1)
             throw (WrongInput());
         if (s.find_first_not_of("0987654321") == std::string::npos)
@@ -29,14 +29,16 @@ void    Rpn::execution(char *argv)
             st.pop();
             g2 = st.top();
             st.pop();
-            st.push(this->doOperation(g2, g, s));
-            // std::cout << st.top() << std::endl;
-        } 
+            st.push(this->doOperation(g2, g, (int)s[0]));
+            std::cout << "top = " <<  st.top() << std::endl;
+        }
+        // f++;
     }
-    std::cout << "size = " << st.size() << std::endl;
+    // std::cout << "f =" << f << std::endl;
+    // std::cout << "s = " << s << std::endl;
     if (st.size() >= 2 || st.size() == 0)
     {
-        std::cout << "fuck" << std::endl;
+        // std::cout << "fuck" << std::endl;
         throw (WrongInput());
     }
     std::cout << "Result => "  << st.top() << std::endl;
@@ -48,19 +50,32 @@ const char *WrongInput::what() const throw()
     return ("Error: Invalid Number");
 }
 
-int     Rpn::doOperation(int num1, int num2, std::string flag)
+int     Rpn::doOperation(int num1, int num2, int flag)
 {
-    if (flag == "-")
-        return (num1 - num2);
-    else if (flag == "+")
+    switch (flag)
     {
-        std::cout << "num = " << num1 << '\t' << "num2 = " << num2 << std::endl;
-        return (num1 + num2);
+        case plus:
+        {
+            return (num1 + num2);
+            break;
+        }
+        case minus:
+        {
+            return (num1 - num2);
+            break;
+        }
+        case mult:
+        {
+            return (num1 * num2);
+            break;
+        }
+        case divi:
+        {
+            return (num1 / num2);
+            break;
+        }
     }
-    else if (flag == "*")
-        return (num1 * num2);
-    else
-        return (num1 / num2);
+    return (0);
 }
 
 Rpn::~Rpn()
