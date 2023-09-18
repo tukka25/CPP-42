@@ -85,8 +85,8 @@ void    Bitcoin::execution(char *str)
     {
         if (!this->checkFile(str))
             throw (FileError());
-        // this->parseFile();
         this->storeDatabase();
+        this->parseFile();
     }
     catch (const std::exception &e)
     {
@@ -119,11 +119,6 @@ void    Bitcoin::storeDatabase()
         this->database.insert(std::pair<std::string, std::string>(tmp, splitedstr));
         ss.clear();
     }
-    std::multimap<std::string, std::string>::iterator   t = database.begin();
-    for(; t != this->database.end(); t++)
-    {
-        std::cout << t->first << "   ==>   " << t->second << std::endl;
-    }
 }
 
 void    Bitcoin::parseFile(void)
@@ -154,7 +149,6 @@ void    Bitcoin::parseFile(void)
     std::multimap<std::string, std::string>::iterator   t = this->m.begin();
     for(; t != this->m.end(); t++)
     {
-        // std::cout << "sec = " << t->second << std::endl;
         int del = parseDate(t->first);
         if (del == wrongvalue || t->first.empty() || t->second.empty())
         {
@@ -169,7 +163,17 @@ void    Bitcoin::parseFile(void)
             std::cout << "Error: Invalid Month" << std::endl;;
         }
         else
-            std::cout << t->first << '\t' << t->second << std::endl;
+        {
+            std::multimap<std::string, std::string>::iterator   db = this->database.begin();
+            for (; db != database.end();db++)
+            {
+                if (t->first == db->first)
+                {
+                    double b = std::strtof(db->second.c_str(), NULL) * std::strtof(t->second.c_str(), NULL);
+                    std::cout << t->first << "  ==>  " << std::fixed << std::setprecision(2) << b << std::endl;
+                }
+            }
+        }
     }
 }
 
