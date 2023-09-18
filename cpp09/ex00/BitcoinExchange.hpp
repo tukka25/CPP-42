@@ -36,6 +36,7 @@ class Bitcoin
         bool    validateDayWithMonth(std::string s, std::string month, std::string year);
         bool    checkFile(char *str);
         void    printing(std::string key, std::string value);
+        bool    checkValue(std::string value);
         ~Bitcoin();
 };
 

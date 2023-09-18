@@ -143,13 +143,28 @@ void    Bitcoin::parseFile(void)
         if (tmp2 == "|")
             tmp2 = "";
         this->printing(tmp, tmp2);
+        // tmp = "";
+        // tmp2 = "";
     }
+}
+
+bool    Bitcoin::checkValue(std::string value)
+{
+    if (value.empty())
+        return (false);
+    std::string::difference_type n = std::count(value.begin(), value.end(), '.');
+    if (value.find_first_not_of("0987654321.") != std::string::npos || n > 1
+    || std::strtof(value.c_str(), NULL) > 1000)
+        return (false);
+    return (true);
 }
 
 void    Bitcoin::printing(std::string key, std::string value)
 {
     int del = parseDate(key);
-        if (del == wrongvalue || key.empty() || value.empty() || std::strtof(value.c_str(), NULL) < 0)
+        if (!this->checkValue(value))
+            std::cout << "Error: Invalid Value" << std::endl;
+        else if (del == wrongvalue || key.empty() || value.empty())
         {
             std::cout << "Error: Invalid Format" << std::endl;
         }
