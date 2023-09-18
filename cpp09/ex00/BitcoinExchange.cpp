@@ -139,42 +139,47 @@ void    Bitcoin::parseFile(void)
                 tmp = tmp2;
             i++;
         }
-        // if (i < 3)
-        //     std::cout << InvalidFormat().what() << std::endl;
         ss.clear();
         if (tmp2 == "|")
             tmp2 = "";
-        this->m.insert(std::pair<std::string, std::string>(tmp, tmp2));
+        this->printing(tmp, tmp2);
     }
-    std::multimap<std::string, std::string>::iterator   t = this->m.begin();
-    for(; t != this->m.end(); t++)
-    {
-        int del = parseDate(t->first);
-        if (del == wrongvalue || t->first.empty() || t->second.empty())
+}
+
+void    Bitcoin::printing(std::string key, std::string value)
+{
+    int del = parseDate(key);
+        if (del == wrongvalue || key.empty() || value.empty() || std::strtof(value.c_str(), NULL) < 0)
         {
-            std::cout << "Error: Invalid Format" << std::endl;;
+            std::cout << "Error: Invalid Format" << std::endl;
         }
         else if (del == wrongday)
         {
-            std::cout << "Error: Invalid Day" << std::endl;;
+            std::cout << "Error: Invalid Day" << std::endl;
         }
         else if (del == wrongmonth)
         {
-            std::cout << "Error: Invalid Month" << std::endl;;
+            std::cout << "Error: Invalid Month" << std::endl;
+        }
+        else if (del == nodate)
+        {
+            std::cout << "Error: no data" << std::endl;
         }
         else
         {
-            std::multimap<std::string, std::string>::iterator   db = this->database.begin();
-            for (; db != database.end();db++)
+            std::multimap<std::string, std::string>::iterator   db = this->database.find(key);
+            if (db != database.end())
             {
-                if (t->first == db->first)
-                {
-                    double b = std::strtof(db->second.c_str(), NULL) * std::strtof(t->second.c_str(), NULL);
-                    std::cout << t->first << "  ==>  " << std::fixed << std::setprecision(2) << b << std::endl;
-                }
+                double b = std::strtof(db->second.c_str(), NULL) * std::strtof(value.c_str(), NULL);
+                std::cout << key << "  ==>  " << std::fixed << std::setprecision(2) << b << std::endl;
+            }
+            else
+            {
+                std::multimap<std::string, std::string>::iterator   db2 = this->database.lower_bound(key);
+                double b = std::strtof(db2->second.c_str(), NULL) * std::strtof(value.c_str(), NULL);
+                std::cout << key << "  ==>  " << std::fixed << std::setprecision(2) << b << std::endl;
             }
         }
-    }
 }
 
 const char *FileError::what() const throw()
