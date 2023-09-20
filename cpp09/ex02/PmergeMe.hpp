@@ -16,11 +16,13 @@
 class Pmerge
 {
 	private:
-		std::vector<int>	vec;
+		std::vector<int>	vecA;
+		std::vector<int>	vecB;
 	public:
 		Pmerge(char *av[]);
 		bool	checkValues(char *av[]);
 		void	printBefSort();
+		void	sortVector();
 };
 
 class   WrongInput: public std::exception
