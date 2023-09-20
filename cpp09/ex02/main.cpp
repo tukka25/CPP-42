@@ -12,7 +12,7 @@ int main(int ac, char *av[])
 		Pmerge	p(av);
 		p.printBefSort();
 		p.sortVector();
-		p.printBefSort();
+		// p.printBefSort();
 	}
 	catch (std::exception &e)
     {

@@ -12,12 +12,15 @@
 # include <algorithm>
 # include <stdlib.h>
 # include <map>
+# include <utility>
 
 class Pmerge
 {
 	private:
 		std::vector<int>	vecA;
+		std::vector<std::pair<int, int> >	vecpairs;
 		std::vector<int>	vecB;
+		std::vector<int>	tmp;
 	public:
 		Pmerge(char *av[]);
 		bool	checkValues(char *av[]);
