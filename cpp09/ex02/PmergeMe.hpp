@@ -22,6 +22,7 @@ class Pmerge
 		Pmerge(char *av[]);
 		bool	checkValues(char *av[]);
 		void	printBefSort();
+		void	recSort(int a1, int a2);
 		void	sortVector();
 };
 

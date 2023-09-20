@@ -34,41 +34,56 @@ void	Pmerge::printBefSort()
 
 void	Pmerge::sortVector()
 {
-	int	i = 0;
-	std::vector<int>	tmp;
-	for (;i < (int)this->vecA.size(); i++)
-	{
-		if (i % 2 == 1)
-		{
-			if (this->vecA[i] < this->vecA[i - 1])
-				std::swap(this->vecA[i], this->vecA[i - 1]);
-			this->vecB.push_back(this->vecA[i]);
-			tmp.push_back(this->vecA[i - 1]);
-		}
-		// i++;
-	}
+	// int	i = 0;
+	// std::vector<int>	tmp;
+	this->recSort(this->vecA[0], this->vecA[1]);
+	// for (;i < (int)this->vecA.size(); i++)
+	// {
+	// 	if (i % 2 == 1)
+	// 	{
+	// 		if (this->vecA[i] < this->vecA[i - 1])
+	// 			std::swap(this->vecA[i], this->vecA[i - 1]);
+	// 		this->vecB.push_back(this->vecA[i]);
+	// 		tmp.push_back(this->vecA[i - 1]);
+	// 	}
+	// 	// i++;
+	// }
+	// if (this->vecA.size() % 2 == 1)
+	// 	this->vecB.push_back(this->vecA[i - 1]);
 	// if (this->vecA[i] < this->vecA[i - 1])
 	// 			std::swap(this->vecA[i], this->vecA[i - 1]);
-	// 	this->vecB.push_back(this->vecA[i]);
 	// 	tmp.push_back(this->vecA[i - 1]);
-	std::vector<int>::iterator		t1 = tmp.begin();
-	std::vector<int>::iterator		t2 = this->vecB.begin();
+	// std::vector<int>::iterator		t1 = tmp.begin();
+	// std::vector<int>::iterator		t2 = this->vecB.begin();
 
-	for (; t1 != tmp.end(); t1++)
-	{
-		std::cout << *t1 << " ";
-	}
-	std::cout << std::endl;
-	for (; t2 != this->vecB.end(); t2++)
-	{
-		std::cout << *t2 << " ";
-	}
+	// for (; t1 != tmp.end(); t1++)
+	// {
+	// 	std::cout << *t1 << " ";
+	// }
+	// std::cout << std::endl;
+	// for (; t2 != this->vecB.end(); t2++)
+	// {
+	// 	std::cout << *t2 << " ";
+	// }
 	// i = (int)this->vecA.size() - 1;
 	// std::cout << "i = " << i << std::endl;
 	// if (this->vecA[i] < this->vecA[i - 1])
 	// 			std::swap(this->vecA[i], this->vecA[i - 1]);
 	// this->vecB.push_back(this->vecA[i]);
 	// this->vecA.erase(this->vecA.begin() + i);
+}
+
+void	Pmerge::recSort(int a1, int a2)
+{
+	static int i;
+
+	if (a1 > a2)
+		std::swap(this->vecA[i], this->vecA[i + 1]);
+	i += 2;
+	if (i >= (int)this->vecA.size() || this->vecA[i] == *--this->vecA.end())
+		return ;
+	// if (this->vecA[i])
+	recSort(this->vecA[i], this->vecA[i + 1]);
 }
 
 bool	Pmerge::checkValues(char *av[])
