@@ -20,7 +20,7 @@ def split_teams(names):
 # Example usage
 if __name__ == "__main__":
     # Replace these names with your own list of 18 names
-    names = ["Tukka", "ahsalem", "ayassin", "anas", "omar", "kanbari", "steve", "abdulo", "disogi", "imad", "ayoob", "hussain", "doston", "mousa", "danish", "shah", "malik", "yassir"]
+    names = ["Tukka", "ahsalem", "ayassin", "anas", "omar", "kanbari", "steve", "abdulo", "disogi", "imad", "ayoob", "hussain", "doston", "mousa", "danish", "shah", "malik", "yassir", "yossef", "mekky"]
 
     result = split_teams(names)
     print(result)

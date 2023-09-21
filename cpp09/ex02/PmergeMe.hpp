@@ -12,6 +12,7 @@
 # include <algorithm>
 # include <stdlib.h>
 # include <map>
+// #include <bits/stdc++.h>
 # include <utility>
 
 class Pmerge
@@ -27,6 +28,7 @@ class Pmerge
 		void	printBefSort();
 		void	recSort(std::vector<std::pair<int, int> > &t);
 		void	recSortb(std::vector<std::pair<int, int> > &t);
+		void	binarySearchInsert(std::vector<std::pair<int, int> > &t);
 		void	sortVector();
 };
 

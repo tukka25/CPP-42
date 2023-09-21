@@ -112,6 +112,7 @@ void	Pmerge::sortVector()
 		// std::make_pair(*t, *t);
 	}
 	std::cout << std::endl;
+	this->binarySearchInsert(this->vecpairs);
 	// this->recSort(this->vecA[0], this->vecA[1]);
 	// for (;i < (int)this->vecA.size(); i++)
 	// {
@@ -127,6 +128,13 @@ void	Pmerge::sortVector()
 	// if (this->vecA.size() % 2 == 1)
 	// 	this->vecB.push_back(this->vecA[i - 1]);
 }
+
+void	Pmerge::binarySearchInsert(std::vector<std::pair<int, int> > &t)
+{
+	std::cout << "size = " << this->vecA.size() << std::endl;
+	std::cout << "ind = " << std::upper_bound(this->vecA.begin(), this->vecA.end(), t[0].second) - this->vecA.begin() << std::endl;
+}
+
 
 void	Pmerge::recSort(std::vector<std::pair<int, int> > &t)
 {
