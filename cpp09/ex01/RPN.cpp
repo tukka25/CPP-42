@@ -7,7 +7,6 @@ Rpn::Rpn()
 
 void    Rpn::execution(char *argv)
 {
-    // int         f = 0;
     std::string s;
     int          g;
     int          g2;
@@ -30,17 +29,10 @@ void    Rpn::execution(char *argv)
             g2 = st.top();
             st.pop();
             st.push(this->doOperation(g2, g, (int)s[0]));
-            std::cout << "top = " <<  st.top() << std::endl;
         }
-        // f++;
     }
-    // std::cout << "f =" << f << std::endl;
-    // std::cout << "s = " << s << std::endl;
     if (st.size() >= 2 || st.size() == 0)
-    {
-        // std::cout << "fuck" << std::endl;
         throw (WrongInput());
-    }
     std::cout << "Result => "  << st.top() << std::endl;
     
 }
