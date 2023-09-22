@@ -22,12 +22,14 @@ class Pmerge
 		std::vector<std::pair<int, int> >	vecpairs;
 		std::vector<int>	vecB;
 		std::vector<int>	tmp;
+		int					odd;
 	public:
 		Pmerge(char *av[]);
 		bool	checkValues(char *av[]);
 		void	printBefSort();
 		void	recSort(std::vector<std::pair<int, int> > &t);
 		void	recSortb(std::vector<std::pair<int, int> > &t);
+		int		returnIndex(int number);
 		void	binarySearchInsert(std::vector<std::pair<int, int> > &t);
 		void	sortVector();
 };
@@ -38,3 +40,31 @@ class   WrongInput: public std::exception
         const char *what() const throw();    
 };
 # endif
+
+// void	Pmerge::recSort(std::vector<std::pair<int, int> > &t)
+// {
+// 	static int	i;
+// 	static int	j;
+
+// 	// t[0].first
+// 	std::cout << "t[i] = " << t[i].first << std::endl;
+// 	std::cout << "t[i + 1] = " << t[i + 1].first << std::endl;
+// 	if (t[j].first < t[j + 1].first)
+// 	{
+// 		if (j + 1 >= (int)t.size())
+// 			return ;
+// 		std::swap(t[j].first, t[j + 1].first);
+// 		j++;
+// 		std::cout << "j = " << j << std::endl;
+// 		recSort(this->vecpairs);
+// 	}
+// 	j = i;
+// 	// this->tmp.push_back(this->vecA[i]);
+// 	// this->vecB.push_back(this->vecA[i + 1]);
+// 	i++;
+// 	if (i + 1 >= (int)t.size())
+// 		return ;
+// 	std::cout << "here" << std::endl;
+// 	// // if (this->vecA[i])
+// 	recSort(this->vecpairs);
+// }
