@@ -113,6 +113,7 @@ void	Pmerge::sortVector()
 	}
 	std::cout << std::endl;
 	this->binarySearchInsert(this->vecpairs);
+	this->printBefSort();
 	// this->recSort(this->vecA[0], this->vecA[1]);
 	// for (;i < (int)this->vecA.size(); i++)
 	// {
@@ -132,7 +133,10 @@ void	Pmerge::sortVector()
 void	Pmerge::binarySearchInsert(std::vector<std::pair<int, int> > &t)
 {
 	std::cout << "size = " << this->vecA.size() << std::endl;
-	std::cout << "ind = " << std::upper_bound(this->vecA.begin(), this->vecA.end(), t[0].second) - this->vecA.begin() << std::endl;
+	std::vector<int>::iterator	k = std::lower_bound(this->vecA.begin(), this->vecA.end(), t[0].second);
+	int in = std::distance(this->vecA.begin(), k);
+	this->vecA.insert(this->vecA.begin() + in - 1, t[0].second);
+	std::cout << "ind = " << in << std::endl;
 }
 
 
