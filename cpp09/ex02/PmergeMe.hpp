@@ -25,6 +25,7 @@ class Pmerge
 		int					odd;
 	public:
 		Pmerge(char *av[]);
+		bool	checkM(int i);
 		bool	checkValues(char *av[]);
 		void	printBefSort();
 		void	recSort(std::vector<std::pair<int, int> > &t);

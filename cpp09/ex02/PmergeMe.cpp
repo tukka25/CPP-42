@@ -6,7 +6,10 @@ Pmerge::Pmerge(char *av[])
 	for (int i = 1; av[i]; i++)
 	{
 		str = av[i];
+		// std::cout << std::atoi(av[i]) << std::endl;
 		if (str.empty() || str.find_first_not_of("0987654321") != std::string::npos)
+			throw (WrongInput());
+		if (std::find(this->vecA.begin(), this->vecA.end(), std::atoi(av[i])) != this->vecA.end())
 			throw (WrongInput());
 		this->vecA.push_back(std::atoi(av[i]));
 	}
@@ -164,6 +167,23 @@ int		Pmerge::returnIndex(int number)
 	return (i);
 }
 
+bool	Pmerge::checkM(int i)
+{
+	std::vector<int>	aPair;
+	// int					j = 0;
+	std::vector<std::pair<int, int> >::iterator	t = this->vecpairs.begin();
+
+	for(;t != this->vecpairs.end(); t++)
+	{
+		// std::cout << "t = " << t.fi << std::endl;
+		aPair.push_back(t->first);
+		// j++;
+	}
+	if(i == *std::max_element(aPair.begin(), aPair.end()))
+		return (true);
+	return (false);
+}
+
 void	Pmerge::recSort(std::vector<std::pair<int, int> > &t)
 {
 	static int i;
@@ -171,17 +191,18 @@ void	Pmerge::recSort(std::vector<std::pair<int, int> > &t)
 
 	// t[0].first
 		// std::cout << "si = " << t.size() << std::endl;
-		std::cout << "j = " << j << std::endl;
+		// std::cout << "j = " << j << std::endl;
 	if (j < (int)t.size())
 	{
-		std::cout << "j in = " << j << std::endl;
+		// std::cout << "j in = " << j << std::endl;
 		if (j + 1 == (int)t.size())
 			j--;
-		std::cout << "t[i] = " << t[j].first << std::endl;
-		std::cout << "i = " << i << std::endl;
-		if (j > 0 && i + 2 == (int)t.size())
+		// std::cout << "t[i] = " << t[j].first << std::endl;
+		// std::cout << "i = " << i << std::endl;
+		if (j > 0 && this->checkM(t[j].first))
 		{
-			std::cout << "jkdbjkdfjkbfdjkbf" << std::endl;
+			std::cout << "t[j] = " << t[j].first << std::endl;
+			std::cout << "t[j - 1] = " << t[j - 1].first << std::endl;
 			if (t[j].first > t[j - 1].first)
 			{
 				// std::cout << "swaped" << std::endl;
