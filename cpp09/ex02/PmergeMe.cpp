@@ -6,91 +6,101 @@ Pmerge::Pmerge(char *av[])
 	for (int i = 1; av[i]; i++)
 	{
 		str = av[i];
-		// std::cout << std::atoi(av[i]) << std::endl;
 		if (str.empty() || str.find_first_not_of("0987654321") != std::string::npos)
 			throw (WrongInput());
 		if (std::find(this->vecA.begin(), this->vecA.end(), std::atoi(av[i])) != this->vecA.end())
 			throw (WrongInput());
 		this->vecA.push_back(std::atoi(av[i]));
+		this->listA.push_back(std::atoi(av[i]));
 	}
 	if (this->vecA.size() % 2 == 1)
-		odd = *--this->vecA.end();
+	{
+		this->vecOdd = *--this->vecA.end();
+		this->listOdd = this->vecOdd;
+	}
 	else
-		odd = -1;
+	{
+		this->vecOdd = -1;
+		this->listOdd = -1;
+	}
+	sortVector(this->vecA, this->vecpairs);
 }
 
 
 void	Pmerge::printBefSort()
 {
 	std::vector<int>::iterator	t = this->vecA.begin();
-	std::vector<int>::iterator	t2 = this->vecB.begin();
+	// std::vector<int>::iterator	t2 = this->vecB.begin();
 	std::cout << "a = ";
 	for (; t != this->vecA.end(); t++)
 	{
 		std::cout << *t <<  " ";
 	}
 	std::cout << std::endl;
-	std::cout << "b = ";
-	for (; t2 != this->vecB.end(); t2++)
-	{
-		std::cout << *t2 <<  " ";
-	}
+	// std::cout << "b = ";
+	// for (; t2 != this->vecB.end(); t2++)
+	// {
+	// 	std::cout << *t2 <<  " ";
+	// }
 	std::cout << std::endl;
 }
 
-void	Pmerge::sortVector()
-{
-	int	i = 0;
-	std::vector<int>::iterator	t = this->vecA.begin();
-	for (; t != this->vecA.end(); t++)
-	{
-		if (i + 1 != (int)this->vecA.size())
-			this->vecpairs.push_back(std::make_pair(*t, *++t));
-		++++i;
-	}
-	std::vector<std::pair<int, int> >::iterator	tf = this->vecpairs.begin();
-	tf = this->vecpairs.begin();
-	std::cout << "after pairing :" << std::endl;
-	for (; tf != this->vecpairs.end(); tf++)
-	{
-		std::cout << tf->first << std::endl << tf->second << std::endl;
-	}
-	tf = this->vecpairs.begin();
-	for (; tf != this->vecpairs.end(); tf++)
-	{
-		if (tf->first < tf->second)
-			std::swap(tf->first, tf->second);
-	}
-	tf = this->vecpairs.begin();
-	std::cout << "after sort pairs :" << std::endl;
-	for (;tf != this->vecpairs.end(); tf++)
-	{
-		std::cout << tf->first << std::endl;
-	}
-	recSort(this->vecpairs, 0, this->vecpairs.size() - 1);
-	tf = this->vecpairs.begin();
-	std::cout << "after sort a pairs :" << std::endl;
-	std::cout << "len after f-j = " << this->vecpairs.size() << std::endl;
-	for (;tf != this->vecpairs.end(); tf++)
-	{
-		std::cout << tf->first << std::endl;
-	}
-	// exit(0);
-	// tf = this->vecpairs.begin();
-	this->vecA.clear();
-	tf = this->vecpairs.begin();
-	for (; tf != this->vecpairs.end();tf++)
-	{
-		this->vecA.push_back(tf->first);
-	}
-	std::cout << std::endl;
-	this->binarySearchInsert(this->vecpairs);
-	if (!std::is_sorted(this->vecA.rbegin(), this->vecA.rend()))
-		std::cout << "not Sorted" << std::endl;
-	else
-		std::cout << "Sorted" << std::endl;
-	this->printBefSort();
-}
+// void	Pmerge::sortVector()
+// {
+// 	int	i = 0;
+// 	std::vector<int>::iterator	t = this->vecA.begin();
+// 	for (; t != this->vecA.end(); t++)
+// 	{
+// 		if (i + 1 != (int)this->vecA.size())
+// 		{
+// 			this->vecpairs.push_back(std::make_pair(*t, *++t));
+// 			this->listpairs.push_back(std::make_pair(*t, *++t));
+// 		}
+// 		++++i;
+// 	}
+// 	std::vector<std::pair<int, int> >::iterator	tf = this->vecpairs.begin();
+// 	tf = this->vecpairs.begin();
+// 	std::cout << "after pairing :" << std::endl;
+// 	for (; tf != this->vecpairs.end(); tf++)
+// 	{
+// 		std::cout << tf->first << std::endl << tf->second << std::endl;
+// 	}
+// 	tf = this->vecpairs.begin();
+// 	for (; tf != this->vecpairs.end(); tf++)
+// 	{
+// 		if (tf->first < tf->second)
+// 			std::swap(tf->first, tf->second);
+// 	}
+// 	tf = this->vecpairs.begin();
+// 	std::cout << "after sort pairs :" << std::endl;
+// 	for (;tf != this->vecpairs.end(); tf++)
+// 	{
+// 		std::cout << tf->first << std::endl;
+// 	}
+// 	recSort(this->vecpairs, 0, this->vecpairs.size() - 1);
+// 	tf = this->vecpairs.begin();
+// 	std::cout << "after sort a pairs :" << std::endl;
+// 	std::cout << "len after f-j = " << this->vecpairs.size() << std::endl;
+// 	for (;tf != this->vecpairs.end(); tf++)
+// 	{
+// 		std::cout << tf->first << std::endl;
+// 	}
+// 	// exit(0);
+// 	// tf = this->vecpairs.begin();
+// 	this->vecA.clear();
+// 	tf = this->vecpairs.begin();
+// 	for (; tf != this->vecpairs.end();tf++)
+// 	{
+// 		this->vecA.push_back(tf->first);
+// 	}
+// 	std::cout << std::endl;
+// 	this->binarySearchInsert(this->vecpairs);
+// 	if (!std::is_sorted(this->vecA.rbegin(), this->vecA.rend()))
+// 		std::cout << "not Sorted" << std::endl;
+// 	else
+// 		std::cout << "Sorted" << std::endl;
+// 	this->printBefSort();
+// }
 
 void	Pmerge::binarySearchInsert(std::vector<std::pair<int, int> > &t)
 {
@@ -103,8 +113,8 @@ void	Pmerge::binarySearchInsert(std::vector<std::pair<int, int> > &t)
 		std::cout << "ind = " << this->returnIndex(t[i].second) << std::endl;
 		this->vecA.insert(this->vecA.begin() + this->returnIndex(t[i].second), t[i].second);
 	}
-	if (odd != -1)
-		this->vecA.insert(this->vecA.begin() + this->returnIndex(odd), odd);
+	if (this->vecOdd != -1)
+		this->vecA.insert(this->vecA.begin() + this->returnIndex(this->vecOdd), this->vecOdd);
 	// this->vecA.push_back(t[i].second);
 }
 
@@ -171,15 +181,15 @@ void	Pmerge::merge(std::vector<std::pair<int,int> > &vec, int const left, int co
 	}
 }
 
-void	Pmerge::recSort(std::vector<std::pair<int,int> > &vec, int const begin, int const end)
-{
-    if (begin >= end)
-        return;
-    int mid = begin + (end - begin) / 2;
-    recSort(vec, begin, mid);
-    recSort(vec, mid + 1, end);
-    merge(vec, begin, mid, end);
-}
+// void	Pmerge::recSort(std::vector<std::pair<int,int> > &vec, int const begin, int const end)
+// {
+//     if (begin >= end)
+//         return;
+//     int mid = begin + (end - begin) / 2;
+//     recSort(vec, begin, mid);
+//     recSort(vec, mid + 1, end);
+//     merge(vec, begin, mid, end);
+// }
 
 bool	Pmerge::checkValues(char *av[])
 {
