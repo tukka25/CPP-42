@@ -40,7 +40,7 @@ class Pmerge
 		// void	sortVector();
 };
 
-template <typename T, typename P> void	sortVector(T container, P pair, int odd);
+template <typename T, typename P> void	sortVector(T &container, P &pair, int odd);
 template <typename C> void	recSort(C &vec, int begin, int end);
 template<typename C> void	merge(C &vec, int const left, int const mid, int const right);
 template < typename P, typename C> void	binarySearchInsert(P &t, C &container, int vecOdd);

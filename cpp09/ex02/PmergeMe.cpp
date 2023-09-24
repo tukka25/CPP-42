@@ -23,8 +23,26 @@ Pmerge::Pmerge(char *av[])
 		this->vecOdd = -1;
 		this->dequeOdd = -1;
 	}
+	clock_t start, end;
+
+	std::cout << "before ";
+	this->printBefSort();
+	start = clock();
 	sortVector(this->vecA, this->vecpairs, this->vecOdd);
+	end = clock();
+	std::cout << "after ";
+	printBefSort();
+	double time_taken = static_cast<double>(end - start);
+    std::cout << "Time to process a range of "  << this->vecA.size() << " with std::vector : " << std::fixed
+         << time_taken << std::setprecision(5);
+    std::cout << " us " << std::endl;
+	start = clock();
 	sortVector(this->dequeA, this->dequepairs, this->dequeOdd);
+	end = clock();
+	time_taken = static_cast<double>(end - start);
+	std::cout << "Time to process a range of "  << this->dequeA.size() << " with std::deque : " << std::fixed
+         << time_taken << std::setprecision(5);
+    std::cout << " us " << std::endl;
 }
 
 
@@ -35,7 +53,6 @@ void	Pmerge::printBefSort()
 	{
 		std::cout << *t <<  " ";
 	}
-	std::cout << std::endl;
 	std::cout << std::endl;
 }
 

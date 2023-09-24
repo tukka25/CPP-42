@@ -58,7 +58,7 @@ void	recSort(C &vec, int begin, int end)
 }
 
 template <typename T, typename P> 
-void	sortVector(T container, P pair, int odd)
+void	sortVector(T &container, P &pair, int odd)
 {
 	int	i = 0;
 	typename T::iterator	t = container.begin();
@@ -96,10 +96,10 @@ void	sortVector(T container, P pair, int odd)
 		container.push_back(tf->first);
 	}
 	binarySearchInsert(pair, container, odd);
-	if (!std::is_sorted(container.rbegin(), container.rend()))
-		std::cout << "not Sorted" << std::endl;
-	else
-		std::cout << "Sorted" << std::endl;
+	// if (!std::is_sorted(container.rbegin(), container.rend()))
+	// 	std::cout << "not Sorted" << std::endl;
+	// else
+	// 	std::cout << "Sorted" << std::endl;
 	// typename T::iterator	a = container.begin();
 	// for (; a != container.end();a++)
 	// {
