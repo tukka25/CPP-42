@@ -70,14 +70,15 @@ void	Pmerge::sortVector()
 	recSort(this->vecpairs, 0, this->vecpairs.size() - 1);
 	tf = this->vecpairs.begin();
 	std::cout << "after sort a pairs :" << std::endl;
+	std::cout << "len after f-j = " << this->vecpairs.size() << std::endl;
 	for (;tf != this->vecpairs.end(); tf++)
 	{
 		std::cout << tf->first << std::endl;
 	}
-	exit(0);
+	// exit(0);
 	// tf = this->vecpairs.begin();
 	this->vecA.clear();
-	// tf = this->vecpairs.begin();
+	tf = this->vecpairs.begin();
 	for (; tf != this->vecpairs.end();tf++)
 	{
 		this->vecA.push_back(tf->first);
@@ -135,54 +136,38 @@ void	Pmerge::merge(std::vector<std::pair<int,int> > &vec, int const left, int co
 	std::vector<int>	rightVec;
 
 	for (int i = 0; i < subVecOne; i++)
-		leftVec.push_back(vec[i].first);
-	for (int i = 0; i < (int)leftVec.size(); i++)
-		std::cout << "left = " << leftVec[i] << std::endl;
+		leftVec.push_back(vec[left + i].first);
 	for (int i = 0; i < subVectwo; i++)
 		rightVec.push_back(vec[mid + i + 1].first);
-	for (int i = 0; i < (int)rightVec.size(); i++)
-		std::cout << "right = " << rightVec[i] << std::endl;
-
-	std::cout << "subone = " << subVecOne << std::endl;
-	std::cout << "subtwo = " << subVectwo << std::endl;
 	int rightVecInd = 0;
 	int leftVecInd = 0;
-	int mergedVecInd = 0;
+	int mergedVecInd = left;
 
 	while (leftVecInd < subVecOne && rightVecInd < subVectwo)
 	{
-		// std::cout << "inin = " << leftVecInd << std::endl;
-		// std::cout << "inin = " << rightVecInd << std::endl;
-		if (leftVec[leftVecInd] < rightVec[rightVecInd])
+		if (leftVec[leftVecInd] > rightVec[rightVecInd])
 		{
 			vec[mergedVecInd].first = leftVec[leftVecInd];
 			leftVecInd++;
 		}
 		else
 		{
-			// vec[mergedVecInd].first = leftVec[leftVecInd];
 			vec[mergedVecInd].first = rightVec[rightVecInd];
 			rightVecInd++;
 		}
 		mergedVecInd++;
 	}
-	while (mergedVecInd < subVecOne)
+	while (leftVecInd < subVecOne)
 	{
-		// std::cout << "here" << std::endl;
 		vec[mergedVecInd].first = leftVec[leftVecInd];
 		mergedVecInd++;
 		leftVecInd++;
 	}
-	while (mergedVecInd < subVectwo)
+	while (rightVecInd < subVectwo)
 	{
 		vec[mergedVecInd].first = rightVec[rightVecInd];
 		mergedVecInd++;
 		rightVecInd++;
-	}
-	std::cout << "size = " <<  mergedVecInd << std::endl;
-	for (int i = 0; i < mergedVecInd; i++)
-	{
-		std::cout << "in = " << vec[i].first << std::endl;
 	}
 }
 
@@ -191,28 +176,10 @@ void	Pmerge::recSort(std::vector<std::pair<int,int> > &vec, int const begin, int
     if (begin >= end)
         return;
     int mid = begin + (end - begin) / 2;
-	// std::cout << "fdd" << std::endl;
     recSort(vec, begin, mid);
     recSort(vec, mid + 1, end);
     merge(vec, begin, mid, end);
 }
-
-// void	Pmerge::recSortb(std::vector<std::pair<int, int> > &t)
-// {
-// 	static int i;
-
-// 	// t[0].first
-// 	if (t[i].second < t[i + 1].second)
-// 		std::swap(t[i].second, t[i + 1].second);
-// 	// this->tmp.push_back(this->vecA[i]);
-// 	// this->vecB.push_back(this->vecA[i + 1]);
-// 	i++;
-// 	if (i + 1 >= (int)t.size())
-// 		return ;
-// 	// std::cout << "here" << std::endl;
-// 	// // if (this->vecA[i])
-// 	recSortb(this->vecpairs);
-// }
 
 bool	Pmerge::checkValues(char *av[])
 {
