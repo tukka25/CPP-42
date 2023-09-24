@@ -19,13 +19,13 @@ class Pmerge
 {
 	private:
 		std::vector<int>	vecA;
-		std::list<int>		listA;
+		std::deque<int>		dequeA;
 		std::vector<std::pair<int, int> >	vecpairs;
-		std::list<std::pair<int, int> >		listpairs;
+		std::deque<std::pair<int, int> >		dequepairs;
 		// std::vector<int>	vecB;
 		std::vector<int>	tmp;
 		int					vecOdd;
-		int					listOdd;
+		int					dequeOdd;
 	public:
 		Pmerge(char *av[]);
 		std::vector<int>	checkM();
@@ -36,12 +36,15 @@ class Pmerge
 		// void	recSort(std::vector<std::pair<int,int> > &vec, int const begin, int const end);
 		void	recSortb(std::vector<std::pair<int, int> > &t);
 		int		returnIndex(int number);
-		void	binarySearchInsert(std::vector<std::pair<int, int> > &t);
+		// void	binarySearchInsert(std::vector<std::pair<int, int> > &t);
 		// void	sortVector();
 };
 
-template <typename T, typename P> void	sortVector(T container, P pair);
-template <typename C, int beg, int en> void	recSort(C &vec, int begin, int end);
+template <typename T, typename P> void	sortVector(T container, P pair, int odd);
+template <typename C> void	recSort(C &vec, int begin, int end);
+template<typename C> void	merge(C &vec, int const left, int const mid, int const right);
+template < typename P, typename C> void	binarySearchInsert(P &t, C &container, int vecOdd);
+template <typename C> int		returnIndex(int number, C container);
 # include "PmergeMe.tpp"
 class   WrongInput: public std::exception
 {
