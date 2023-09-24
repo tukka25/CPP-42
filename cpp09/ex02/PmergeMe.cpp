@@ -1,5 +1,27 @@
 #include "PmergeMe.hpp"
 
+Pmerge::Pmerge(){}
+
+Pmerge::Pmerge(const Pmerge &p)
+{
+	*this = p;
+}
+
+Pmerge&	Pmerge::operator=(const Pmerge &p)
+{
+	if (this != &p)
+	{
+		this->vecA = p.vecA;
+		this->dequeA = p.dequeA;
+		this->vecpairs = p.vecpairs;
+		this->dequepairs = p.dequepairs;
+		this->tmp = p.tmp;
+		this->vecOdd = p.vecOdd;
+		this->dequeOdd = p.dequeOdd;
+	}
+	return (*this);
+}
+
 Pmerge::Pmerge(char *av[])
 {
 	std::string		str;
@@ -75,60 +97,6 @@ std::vector<int>	Pmerge::checkM()
 	return (aPair);
 }
 
-// void	Pmerge::merge(std::vector<std::pair<int,int> > &vec, int const left, int const mid, int const right)
-// {
-// 	int	subVecOne = mid - left + 1;
-// 	int	subVectwo = right - mid;
-
-// 	std::vector<int>	leftVec;
-// 	std::vector<int>	rightVec;
-
-// 	for (int i = 0; i < subVecOne; i++)
-// 		leftVec.push_back(vec[left + i].first);
-// 	for (int i = 0; i < subVectwo; i++)
-// 		rightVec.push_back(vec[mid + i + 1].first);
-// 	int rightVecInd = 0;
-// 	int leftVecInd = 0;
-// 	int mergedVecInd = left;
-
-// 	while (leftVecInd < subVecOne && rightVecInd < subVectwo)
-// 	{
-// 		if (leftVec[leftVecInd] > rightVec[rightVecInd])
-// 		{
-// 			vec[mergedVecInd].first = leftVec[leftVecInd];
-// 			leftVecInd++;
-// 		}
-// 		else
-// 		{
-// 			vec[mergedVecInd].first = rightVec[rightVecInd];
-// 			rightVecInd++;
-// 		}
-// 		mergedVecInd++;
-// 	}
-// 	while (leftVecInd < subVecOne)
-// 	{
-// 		vec[mergedVecInd].first = leftVec[leftVecInd];
-// 		mergedVecInd++;
-// 		leftVecInd++;
-// 	}
-// 	while (rightVecInd < subVectwo)
-// 	{
-// 		vec[mergedVecInd].first = rightVec[rightVecInd];
-// 		mergedVecInd++;
-// 		rightVecInd++;
-// 	}
-// }
-
-// void	Pmerge::recSort(std::vector<std::pair<int,int> > &vec, int const begin, int const end)
-// {
-//     if (begin >= end)
-//         return;
-//     int mid = begin + (end - begin) / 2;
-//     recSort(vec, begin, mid);
-//     recSort(vec, mid + 1, end);
-//     merge(vec, begin, mid, end);
-// }
-
 bool	Pmerge::checkValues(char *av[])
 {
 	std::string		str;
@@ -145,3 +113,5 @@ const char *WrongInput::what() const throw()
 {
     return ("Error: Invalid Number");
 }
+
+Pmerge::~Pmerge(){}

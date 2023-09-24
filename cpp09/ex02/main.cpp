@@ -10,9 +10,6 @@ int main(int ac, char *av[])
 	try
 	{
 		Pmerge	p(av);
-		// p.printBefSort();
-		// p.sortVector();
-		// p.printBefSort();
 	}
 	catch (std::exception &e)
     {

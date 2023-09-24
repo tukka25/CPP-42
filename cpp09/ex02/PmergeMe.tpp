@@ -75,20 +75,7 @@ void	sortVector(T &container, P &pair, int odd)
 		if (tf->first < tf->second)
 			std::swap(tf->first, tf->second);
 	}
-	// tf = pair.begin();
-	// std::cout << "after sort pairs :" << std::endl;
-	// for (;tf != pair.end(); tf++)
-	// {
-	// 	std::cout << tf->first << std::endl;
-	// }
     recSort(pair, 0, pair.size() - 1);
-	// tf = pair.begin();
-	// std::cout << "after sort a pairs :" << std::endl;
-	// std::cout << "len after f-j = " << pair.size() << std::endl;
-	// for (;tf != pair.end(); tf++)
-	// {
-	// 	std::cout << tf->first << std::endl;
-	// }
 	container.clear();
 	tf = pair.begin();
 	for (; tf != pair.end();tf++)
@@ -96,17 +83,6 @@ void	sortVector(T &container, P &pair, int odd)
 		container.push_back(tf->first);
 	}
 	binarySearchInsert(pair, container, odd);
-	// if (!std::is_sorted(container.rbegin(), container.rend()))
-	// 	std::cout << "not Sorted" << std::endl;
-	// else
-	// 	std::cout << "Sorted" << std::endl;
-	// typename T::iterator	a = container.begin();
-	// for (; a != container.end();a++)
-	// {
-	// 	std::cout << *a << " ";
-	// }
-	// std::cout << std::endl;
-	// printBefSort();
 }
 
 template < typename P, typename C>
@@ -115,12 +91,7 @@ void	binarySearchInsert(P &t, C &container, int vecOdd)
 	int	i = 0;
 
 	for (;i < (int)t.size();i++)
-	{
-		// std::cout << "ind = " << returnIndex(t[i].second, container) << std::endl;
-		// std::cout << "val = " << t[i].second << std::endl;
 		container.insert(container.begin() + returnIndex(t[i].second, container), t[i].second);
-		// break;
-	}
 	if (vecOdd != -1)
 		container.insert(container.begin() + returnIndex(vecOdd, container), vecOdd);
 }
