@@ -25,10 +25,12 @@ class Pmerge
 		int					odd;
 	public:
 		Pmerge(char *av[]);
-		bool	checkM(int i);
+		std::vector<int>	checkM();
 		bool	checkValues(char *av[]);
+		bool	checkIfSorted(void);
 		void	printBefSort();
-		void	recSort(std::vector<std::pair<int, int> > &t);
+		void	merge(std::vector<std::pair<int,int> > &vec, int const left, int const mid, int const right);
+		void	recSort(std::vector<std::pair<int,int> > &vec, int const begin, int const end);
 		void	recSortb(std::vector<std::pair<int, int> > &t);
 		int		returnIndex(int number);
 		void	binarySearchInsert(std::vector<std::pair<int, int> > &t);
