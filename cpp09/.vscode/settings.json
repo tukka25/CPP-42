@@ -69,6 +69,7 @@
 		"concepts": "cpp",
 		"algorithm": "cpp",
 		"functional": "cpp",
-		"*.tpp": "cpp"
+		"*.tpp": "cpp",
+		"list": "cpp"
 	}
 }

@@ -5,6 +5,21 @@ Bitcoin::Bitcoin()
     std::cout << "Default Constructor Called" << std::endl;
 }
 
+Bitcoin::Bitcoin(const Bitcoin &b)
+{
+    *this = b;
+}
+
+Bitcoin&    Bitcoin::operator=(const Bitcoin &b)
+{
+    if (this != &b)
+    {
+        this->m = b.m;
+        this->database = b.database;
+    }
+    return (*this);
+}
+
 bool    Bitcoin::checkFile(char *str)
 {
     this->f.open(str);
@@ -27,17 +42,14 @@ int    Bitcoin::parseDate(std::string  str)
         return (nodate);
     if (n != 2)
         return (wrongvalue);
-    // std::cout << "bef" << std::endl;
     while (getline(ss, s, '-'))
     {
-        // std::cout << "s in = " << s << std::endl;
         if (s.empty() && str.empty())
             return (wrongvalue);
         if (i == 0)
             year = s;
         if (i == 1)
         {
-            // std::cout << "month atoi = " << std::atoi(s.c_str()) << std::endl;
             if (std::atoi(s.c_str()) > 12 || std::atoi(s.c_str()) <= 0)
                 return (wrongmonth);
             month = s;
@@ -49,8 +61,6 @@ int    Bitcoin::parseDate(std::string  str)
                 return (wrongday);
         }
         i++;
-        // str = str.substr(str.find('-') + 1, str.length());
-        // std::cout << "sub = " << str << std::endl;
     }
     ss.clear();
     return (0);
@@ -58,9 +68,6 @@ int    Bitcoin::parseDate(std::string  str)
 
 bool    Bitcoin::validateDayWithMonth(std::string s, std::string month, std::string year)
 {
-    // (void)s;
-    // (void)month;
-    // std::cout << std::atoi(s.c_str()) << std::endl;
     if (std::atoi(month.c_str()) == 2 && std::atoi(s.c_str()) > 29)
         return (false);
     if (std::atoi(month.c_str()) == 2 && !this->checkLeapYear(year, month) && std::atoi(s.c_str()) > 28)
@@ -70,11 +77,12 @@ bool    Bitcoin::validateDayWithMonth(std::string s, std::string month, std::str
 
 bool    Bitcoin::checkLeapYear(std::string year, std::string month)
 {
-    if (std::atoi(month.c_str()) == 2 && (std::atoi(year.c_str()) % 4 == 0
-    || (std::atoi(year.c_str()) % 100 == 0 && std::atoi(year.c_str()) % 400 == 0)))
+    if (std::atoi(month.c_str()) == 2 && (std::atoi(year.c_str()) % 4 == 0))
     {
-        // std::cout << "here" << std::endl;
-        return (true);
+        if (std::atoi(year.c_str()) % 400 == 0)
+            return (true);
+        if ((std::atoi(year.c_str()) % 4 == 0) && std::atoi(year.c_str()) % 100 != 0 && std::atoi(year.c_str()) % 400 != 0)
+            return (true);
     }
     return (false);
 }
@@ -106,6 +114,7 @@ void    Bitcoin::storeDatabase()
     file.open("data.csv");
     if (file.fail())
         throw (NoDatabase());
+    getline(file, str);
     while (getline(file, str))
     {
         ss << str;
@@ -128,6 +137,7 @@ void    Bitcoin::parseFile(void)
     std::stringstream   ss;
     std::string         tmp2;
     std::string         tmp;
+    std::string         bef;
 
     while (getline(f, s))
     {
@@ -137,14 +147,15 @@ void    Bitcoin::parseFile(void)
         {
             if (tmp2 != "|" && i == 0)
                 tmp = tmp2;
+            if (tmp2 == "|")
+                bef = "|";
             i++;
         }
         ss.clear();
-        if (tmp2 == "|")
+        if (tmp2 == "|" || bef != "|")
             tmp2 = "";
-        this->printing(tmp, tmp2);
-        // tmp = "";
-        // tmp2 = "";
+        if (tmp != "Data" && tmp2 != "value")
+            this->printing(tmp, tmp2);
     }
 }
 
@@ -191,8 +202,14 @@ void    Bitcoin::printing(std::string key, std::string value)
             else
             {
                 std::multimap<std::string, std::string>::iterator   db2 = this->database.lower_bound(key);
-                double b = std::strtof(db2->second.c_str(), NULL) * std::strtof(value.c_str(), NULL);
-                std::cout << key << "  ==>  " << std::fixed << std::setprecision(2) << b << std::endl;
+                if (db2 == this->database.begin())
+                    std::cout << "No Data Available" << std::endl;
+                else
+                {
+                    --db2;
+                    double b = std::strtof(db2->second.c_str(), NULL) * std::strtof(value.c_str(), NULL);
+                    std::cout << key << "  ==>  " << std::fixed << std::setprecision(2) << b << std::endl;
+                }
             }
         }
 }

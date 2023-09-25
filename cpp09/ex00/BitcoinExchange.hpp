@@ -28,6 +28,8 @@ class Bitcoin
         std::ifstream                           f;
     public:
         Bitcoin();
+        Bitcoin(const Bitcoin &b);
+        Bitcoin&    operator=(const Bitcoin &b);
         void    execution(char *);
         void    parseFile(void);
         int     parseDate(std::string   str);
