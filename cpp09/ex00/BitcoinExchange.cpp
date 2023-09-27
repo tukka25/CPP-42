@@ -165,7 +165,7 @@ bool    Bitcoin::checkValue(std::string value)
         return (false);
     std::string::difference_type n = std::count(value.begin(), value.end(), '.');
     if (value.find_first_not_of("0987654321.") != std::string::npos || n > 1
-    || std::strtof(value.c_str(), NULL) > 1000)
+    || std::strtof(value.c_str(), NULL) > 1000 || value == ".")
         return (false);
     return (true);
 }
