@@ -152,10 +152,14 @@ void    Bitcoin::parseFile(void)
             i++;
         }
         ss.clear();
+        // std::cout << "bef = " << bef << std::endl;
         if (tmp2 == "|" || bef != "|")
             tmp2 = "";
-        if (tmp != "Data" && tmp2 != "value")
+        if (i > 3)
+            std::cout << "Error: Invalid Format" << std::endl;
+        else if (tmp != "Data" && tmp2 != "value")
             this->printing(tmp, tmp2);
+        bef = "";
     }
 }
 

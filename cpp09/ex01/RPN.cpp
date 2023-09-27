@@ -2,7 +2,6 @@
 
 Rpn::Rpn()
 {
-    // std::cout << "Default Constructor Called" << std::endl;
 }
 
 Rpn::Rpn(const Rpn &r)
@@ -89,6 +88,11 @@ int     Rpn::doOperation(int num1, int num2, int flag)
         }
         case divi:
         {
+            if (num2 == 0)
+            {
+                std::cout << "Cant divide by zero" << std::endl;
+                return (0);
+            }
             return (num1 / num2);
             break;
         }
@@ -98,5 +102,4 @@ int     Rpn::doOperation(int num1, int num2, int flag)
 
 Rpn::~Rpn()
 {
-    // std::cout << "Default Destructor Called" << std::endl;
 }

@@ -10,7 +10,6 @@ int main(int ac, char *argv[])
     try
     {
         Rpn r;
-
         r.execution(argv[1]);
     }
     catch (std::exception &e)
